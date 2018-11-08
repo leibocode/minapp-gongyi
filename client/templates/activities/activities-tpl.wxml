@@ -1,0 +1,38 @@
+<template name="activities">
+    <view class="activities-box">
+        <block  wx:key="index" wx:for="{{activitiesArr}}">
+            <view class="activities-item">
+                <image class="activities-item-img" src="{{item.src}}" mode="aspectFill"/>   
+                <view class="activities-item-right">
+                    <view class="activities-item-title">希望工程 温暖冬日</view>
+                    <view class="activities-item-time">
+                        <view class="icon_time">
+                            <image src="../../images/sj-icon.png"/>
+                        </view>
+                        2019-09-21 07:09 至 2019-09-21 08:10
+                    </view>
+                    <view class="activities-item-address">
+                        <view class="icon_address">
+                            <image  src="../../images/location-icon.png" />
+                        </view>
+                        广东汕头市龙湖区官一小学
+                    </view>
+                    <view class="activities-item-status">
+                        <view class="status_text">进行中</view>
+                        <view class="status_info">
+                            <view>
+                                已报名:
+                                <text>30人</text>
+                            </view>
+                        </view>
+                        <view class="status_imgs">
+                            <block wx:for="{{item.imgs}}" wx:for-item="imgs" wx:key="{{index}}">
+                                <image src="{{imgs}}"/>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</template>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="must-revalidate,no-cache" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+    <title>i城志</title>
+    <!-- jquery 库 -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <!-- swiper 库 -->
+    <script src="js/swiper.min.js"></script>
+    <!-- css样式表 -->
+    <link href="css/style.css" type="text/css" rel="stylesheet" /> 
+</head>
+<body>
+<!--banner  start-->
+<div class="h-banner">
+        <!-- Swiper -->
+      <div class="swiper-container h-banner-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/h-banner.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="images/h-banner.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="images/h-banner.jpg" alt=""></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+      <!-- Initialize Swiper -->
+      <script>
+        var HbannerSwiper = new Swiper('.h-banner-swiper', {
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.h-banner-swiper .swiper-pagination',
+            clickable: true,
+          }
+        });
+      </script>
+    </div>
+<!--banner end-->
+<!-- 快速导航 start -->
+<div class="white-bg  m-b-sm">
+    <ul class="fast-nav fast-nav-row5 clearfix">
+        <li>
+            <a href="my_infon.html">
+            <p><img src="images/h-icon1.png" alt=""></p>成为志愿者</a>
+        </li>
+        <li class="h-icon2">
+            <a href="my_activity.html">
+            <p><img src="images/h-icon2.png" alt=""></p>我的活动</a>
+        </li>
+        <li class="h-icon3">
+            <a href="my_zysc.html">
+            <p><img src="images/h-icon3.png" alt=""></p>志愿时长</a>
+        </li>
+        <li class="h-icon4">
+            <a href="my_jf.html">
+            <p><img src="images/h-icon4.png" alt=""></p>我的积分</a>
+        </li>
+        <li class="h-icon5">
+            <a href="help.html">
+            <p><img src="images/h-icon5.png" alt=""></p>帮助中心</a>
+        </li>        
+    </ul>
+</div>
+<!-- 快速导航 end -->
+
+ <!-- 热门活动 start-->
+ <div class="white-bg m-b-2">
+    <div class="all-title clearfix p-1">
+        <h2 class="fl p-t-sm">热门活动</h2>
+        <div class="all-title-r fr">
+          <a href="activity.html">更多活动<i class="fa fa-angle-right"></i></a>
+        </div>        
+    </div>
+    <div class="line-sm"></div>  
+    <div class="p-1 clearfix">
+        <a href="activity_details.html">
+            <div class="n-l-pic fl">
+                <!-- <img src="images/news-list-pic1.jpg" alt=""> -->
+                <img src="images/activity-details-pic.jpg" alt="">
+            </div>
+            <div class="n-l-text">
+                <h2>希望工程 温暖冬日</h2>       
+                <div class="n-l-time"><i></i><span>2019-09-21 07:09 至 2019-09-21 08:10</span></div>
+                <div class="n-l-site"><i></i><span>广东汕头市龙湖区官一小学</span></div>
+                <div class="n-l-info">
+                    <h4>进行中</h4>
+                    <div class="n-l-i-phone">
+                        <span>已报名：<strong class="col-red">30人</strong></span>
+                        <ul>
+                            <li><img src="images/photo-pic.jpg" alt="" /></li>
+                            <li><img src="images/photo-pic.jpg" alt="" /></li>
+                            <li><img src="images/photo-pic.jpg" alt="" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="line-sm"></div>
+    <div class="news-list p-1 clearfix">
+        <a href="activity_details.html">
+            <div class="n-l-pic fl">
+                <img src="images/news-list-pic2.jpg" alt="">
+            </div>
+            <div class="n-l-text">
+                <h2>官一小学 喜迎中秋 巩文创卫 校园</h2>       
+                <div class="n-l-time"><i></i><span>2019-09-21 07:09 至 2019-09-21 08:10</span></div>
+                <div class="n-l-site"><i></i><span>广东汕头市龙湖区官一小学广东汕头市龙湖区官一小学</span></div>
+                <div class="n-l-info">
+                    <h4>进行中</h4>
+                    <div class="n-l-i-phone">
+                        <span>已报名：<strong class="col-red">30人</strong></span>
+                        <ul>
+                            <li><img src="images/photo-pic.jpg" alt="" /></li>
+                            <li><img src="images/photo-pic.jpg" alt="" /></li>
+                            <li><img src="images/photo-pic.jpg" alt="" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="line-sm"></div>
+</div>
+<!-- 热门活动 end-->
+
+<!-- footer start -->
+    <!-- footer-heigth -->
+    <div class="footer-height"></div>
+    <div class="footer">
+        <div class="line-sm"></div>
+        <ul>
+            <li><a href="index.html" class="cur"><i class="icon-1"></i>首页</a></li>
+            <li><a href="activity.html"><i class="icon-2"></i>活动</a></li>
+            <li><a href="organi.html"><i class="icon-3"></i>组织</a></li>
+            <li><a href="myCenter.html"><i class="icon-4"></i>我的</a></li>
+        </ul>
+    </div>
+<!-- footer end -->
+
+</body>

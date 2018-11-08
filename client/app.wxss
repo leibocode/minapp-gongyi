@@ -1,0 +1,6 @@
+.container {
+    height:100%;
+    box-sizing:border-box;
+    background-color:#fff;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", ΢���ź�, STHeiti, ����ϸ��, sans-serif;
+}

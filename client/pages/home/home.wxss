@@ -1,0 +1,77 @@
+@import "../../templates/activities/activities-tpl.wxss";
+.home-container{
+    background-color:#f1f1f1;
+}
+.swiper{
+    height:400rpx;
+    width:100%;
+}
+.swiper-item{
+    height:100%;
+    width:100%;
+}
+.banner-item{
+    height:100%;
+    width:100%;
+}
+.banner-item image{
+    height:100%;
+    width:100%;
+}
+
+.home-menu{
+    display:flex;
+    height:181rpx;
+    flex-flow: row nowrap;
+    align-items:center;
+    justify-content:space-between;
+    background-color:#fff;
+}
+.home-menu .menu-item{
+    flex:1;
+    display: block;
+    padding: 20rpx 0;
+}
+
+.home-menu .menu-item image {
+    display: block;
+    width: 58rpx;
+    height: 58rpx;
+    margin: 0 auto;
+    margin-bottom: 12rpx;
+}
+.header-hr{
+    width:100%;
+    height:20rpx;
+
+}
+.home-menu .menu-item text {
+    display: block;
+    font-size: 24rpx;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1;
+    color: #333;
+}
+.home-main .home-main-header{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    height:90rpx;
+    background:#fff;
+    border-bottom:1rpx solid #f1f1f1;
+    line-height:90rpx;
+}
+.home-main .home-main-header .header-text_left{
+    font-size:36rpx;
+    margin-left:10rpx;
+}
+.home-main .home-main-header .header-text_right{
+    font-size:28rpx;
+    margin-right:10rpx;
+}
+
+.home-main .home-main-list{
+    background:#fff;
+}
+

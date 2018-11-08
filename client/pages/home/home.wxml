@@ -1,0 +1,26 @@
+<import src="../../templates/activities/activities-tpl.wxml"/>
+<view class="container home-container" hidden="{{!loading}}">
+  <swiper indicator-dots="true" autoplay="true" class="swiper">
+    <block wx:for="{{bannerArr}}" wx:key="index">
+       <swiper-item class="banner-item">
+         <image  class="item-image" src="{{item.img}}" mode="aspectFill"/>
+       </swiper-item>
+    </block>
+  </swiper>
+  <view class="home-menu">
+     <navigator  class="menu-item" url="{{item.url}}" wx:for="{{menus}}" wx:key="{{item.id}}">
+        <image src="{{item.icon_url}}" background-size="cover"></image>
+        <text>{{item.name}}</text>
+    </navigator>
+  </view>
+  <view class="home-main">
+     <view class="header-hr"></view>
+     <view class="home-main-header">
+        <view class="header-text_left">热门活动</view>
+        <view class="header-text_right">更多活动</view>
+     </view>
+     <view class="home-main-list">
+         <template is="activities" data="{{activitiesArr:activitiesArr}}"></template>
+     </view>
+  </view>
+</view>
