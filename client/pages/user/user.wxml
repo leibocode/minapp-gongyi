@@ -17,14 +17,31 @@
     </view>
     </view>
     <view class="user-header">
-        <view class=""></view>
+        <view class="user-header-left">
+           <text class="header-left-nums">300</text>
+           <text>我的积分</text>
+        </view>
+        <view class="user-header-right">
+            <text class="header-right-nums">100</text>
+            <text>志愿时长(时)</text>
+        </view>
     </view>
-    <view class="user-main">
-        <view class="user-menu">
-
-        </view>
-        <view class="user-code">
-
-        </view>
+    <view class="user-menu">
+           <block wx:for="{{menus}}" wx:key="{{index}}">
+              <view class="user-menu-item {{item.class}}">
+                 <view class="menu-item-left">
+                    <text>{{item.title}}</text>
+                 </view>
+                 <view class="menu-item-right">
+                    <text class="text-color">30</text>
+                    <!-- <image src=""/> -->
+                 </view>
+              </view>
+           </block>
+    </view>
+    <view class="user-code">
+        <view class="user-code-text">我的<text>专用二维码</text></view>
+        <view class="user-code-desc">分享获取积分，分享不断，积分不断</view>
+        <image class="code-img" src="../../images/ichengzhi-ewm.jpg"/>
     </view>
 </view>

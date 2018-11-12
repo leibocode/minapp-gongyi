@@ -1,9 +1,11 @@
-page{
-    min-height:120%;
-}
 .user-container{
     background-color:#f1f1f1;
     font-size:24rpx;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:#333;
 }
 .userbox {
     overflow: hidden;
@@ -14,4 +16,83 @@ page{
     align-items: center;
     justify-content: center;
     background:#479de6;
-  }
+}
+.user-header{
+    display:flex;
+    width:86%;
+    background:#fff;
+    border-radius:20rpx;
+    justify-content:space-between;
+    height:100rpx;
+    margin-bottom:30rpx;
+    margin-top:-80rpx;
+    padding:3%;
+}
+.user-header-left{
+    border-right:1rpx solid #f1f1f1;
+    width:50%;
+}
+.user-header-right {
+    width:50%;
+}
+.user-menu{
+    background:#fff;
+    padding:3%;
+    border-radius:20rpx;
+    width:86%;
+    margin-bottom:30rpx;
+}
+.user-menu-item{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    height:78rpx;
+    border-bottom:1rpx solid #f1f1f1;
+    line-height:78rpx;
+}
+.user-code{
+    display:flex;
+    width:86%;
+    padding:3%;
+    background:#fff;
+    border-radius:20rpx;
+    flex-direction:row;
+    height:300rpx;
+    flex-direction:column;
+    margin-bottom:30rpx;
+    padding-top:90rpx;
+}
+.menu-item-left {
+    margin-left:10rpx;
+}
+.no-border{ 
+    border-bottom:none;
+}
+.user-code-text{
+    margin-top:10rpx;
+    font-size:28rpx;
+}
+.code-img{
+    display:block;
+    float:left;
+    margin-right:30rpx;
+    width:210rpx;
+    height:210rpx;
+}
+.text-color{
+    color:#e50026;
+}
+.user-header text{
+    display:block;
+    text-align:center;
+}
+.header-left-nums{
+    color:#479de6;
+    font-size:28rpx;
+    font-weight:bold;
+}
+.header-right-nums{
+    color:#e50026;
+    font-size:28rpx;
+    font-weight:bold;
+}

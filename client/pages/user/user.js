@@ -15,16 +15,17 @@ Page({
             title:'个人信息'
         },{
             icon_url:'../../images/h-icon1.png',
-            name:'我的组织'
+            title:'我的组织'
         },{
             icon_url:'../../images/h-icon1.png',
-            name:'我的活动'
+            title:'我的活动'
         },{
             icon_url:'../../images/h-icon1.png',
-            name:'队长授权'
+            title:'队长授权'
         },{
             icon_url:'../../images/h-icon1.png',
-            name:'成员待审核'
+            title:'成员待审核',
+            class:'no-border'
         }]
     },
     onLoad:function(){
