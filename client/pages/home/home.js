@@ -10,19 +10,21 @@ Page({
         }],
         menus:[{
             icon_url:'../../images/h-icon1.png',
-            name:'成为志愿者'
+            name:'成为志愿者',
+            class:''
         },{
             icon_url:'../../images/h-icon2.png',
-            name:'成为志愿者'
+            name:'我的活动',
+            url:'../my-activity/my-activity'
         },{
             icon_url:'../../images/h-icon3.png',
-            name:'成为志愿者'
+            name:'志愿时长'
         },{
             icon_url:'../../images/h-icon4.png',
-            name:'成为志愿者'
+            name:'我的积分'
         },{
             icon_url:'../../images/h-icon5.png',
-            name:'成为志愿者'
+            name:'帮助中心'
         }],
         loading:true,
         activitiesArr:[{
@@ -38,6 +40,11 @@ Page({
     }, 
     onPullDownRefresh:function(){
 
+    },
+    onActivityItemTap(){
+        wx.navigateTo({
+            url:'../detail/detail'
+        })
     },
     onShareAppMessage:function(){
         return {

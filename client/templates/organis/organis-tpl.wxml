@@ -1,0 +1,30 @@
+<template name="organis">
+    <view class="organis-box">
+        <block  wx:key="index" wx:for="{{organisArr}}">
+            <view class="organis-item" bind:tap="onActivityItemTap">
+                <view class="img-warp">
+                  <image class="organis-item-img" src="{{item.src}}" mode="aspectFill"/> 
+                </view>  
+                <view class="organis-item-right">
+                    <view class="organis-item-title">广东省志愿者联合会</view>
+                    <view class="organis-item-time">
+                        <view class="icon_time">
+                            <image src="../../images/sj-icon.png"/>
+                        </view>
+                        其他
+                    </view>
+                    <view class="organis-item-address">
+                        <view class="icon_address">
+                            <image  src="../../images/location-icon.png" />
+                        </view>
+                        广东广州市越秀区
+                    </view>
+                    <view class="organis-item-status">
+                       启发人心向善，德行蔚然成风！
+                    </view>
+                </view>
+                <view class="organis-status"></view>
+            </view>
+        </block>
+    </view>
+</template>

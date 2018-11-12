@@ -8,7 +8,7 @@
     </block>
   </swiper>
   <view class="home-menu">
-     <navigator  class="menu-item" url="{{item.url}}" wx:for="{{menus}}" wx:key="{{item.id}}">
+     <navigator  class="menu-item {{item.class}}" url="{{item.url}}" wx:for="{{menus}}" wx:key="{{item.id}}">
         <image src="{{item.icon_url}}" background-size="cover"></image>
         <text>{{item.name}}</text>
     </navigator>

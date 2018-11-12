@@ -1,0 +1,37 @@
+@import "../../templates/organis/organis-tpl.wxss";
+.organi-container{
+    background-color:#fff;
+}
+
+.organi-header-box{
+    height:120rpx;
+    display:flex;
+    justify-content:space-between;
+    background-color:#fff;
+}
+.organi-hr{
+    background-color:#f1f1f1;
+    height:15rpx;
+}
+.tab-item{
+    flex:1;
+    color:#333;
+    font-size:28rpx;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-left:10rpx;
+}
+.organi-header-search image {
+    width:41rpx;
+    height:42rpx;
+    margin-left:50rpx;
+}
+
+
+.selected{
+    /*color: #AB956D;*/
+    color:#e50026;
+    /*border-bottom: 2px solid #AB956D;*/
+    border-bottom: 2px solid #e50026;
+}

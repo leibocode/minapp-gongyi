@@ -1,7 +1,7 @@
 <template name="activities">
     <view class="activities-box">
         <block  wx:key="index" wx:for="{{activitiesArr}}">
-            <view class="activities-item">
+            <view class="activities-item" bind:tap="onActivityItemTap">
                 <image class="activities-item-img" src="{{item.src}}" mode="aspectFill"/>   
                 <view class="activities-item-right">
                     <view class="activities-item-title">希望工程 温暖冬日</view>

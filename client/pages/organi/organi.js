@@ -1,26 +1,11 @@
-import HomeModel from '../../models/home'
 
-const model = new HomeModel() 
 Page({
     data:{
-        bannerArr:[{
-            img:'../../images/h-banner.jpg'
-        }],
-        menus:[{
-            icon_url:'../../images/h-icon1.png',
-            name:'成为志愿者'
-        },{
-            icon_url:'../../images/h-icon1.png',
-            name:'成为志愿者'
-        },{
-            icon_url:'../../images/h-icon1.png',
-            name:'成为志愿者'
-        },{
-            icon_url:'../../images/h-icon1.png',
-            name:'成为志愿者'
-        },{
-            icon_url:'../../images/h-icon1.png',
-            name:'成为志愿者'
+        tabs:['全部','类型','区域'],
+        currentTabsIndex:0,
+        organisArr:[{
+            src:'../../images/organi-pic1.jpg',
+            imgs:['../../images/photo-pic.jpg','../../images/photo-pic.jpg','../../images/photo-pic.jpg']
         }]
     },
     onLoad:function(){

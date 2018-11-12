@@ -1,0 +1,78 @@
+<view class="container detail-container">
+  <view class="detail-header-box">
+     <view class="detail-topic-img">
+        <image src="{{activity.img}}" mode="aspectFill" bind:tap="preview"/>
+     </view>
+     <view class="detail-hr"></view>
+     <view class="detail-infos">
+       <view class="start_time">
+         <view>
+           开始时间:<text>{{activity.start_time}}</text>
+         </view>
+         <view class="detail_status">
+           进行中
+         </view>
+       </view>
+       <view class="end_time">
+         结束时间:<text>{{activity.end_time}}</text>
+       </view>
+       <view class="perpon">
+         <view>
+           报名人数:<text></text>/<text></text>
+         </view>
+         <view class="icon_dianz">
+           
+         </view>
+       </view>
+       <view class="detail_type">
+         <view class="icon_fenx">
+          
+         </view>
+       </view>
+       <view></view>
+     </view>
+     <view class="detail-desc">
+        <text>{{activity.desc}}</text>
+     </view>
+  </view>
+  <view class="detail-hr"></view>
+  <view class="detail-main-box">
+    <view class="detail-title">
+      <view class="detail-title-left">联系信息</view>
+      <view class="detail-title-right">
+        
+      </view>
+    </view>
+    <view class="detail-content">
+    
+    </view>
+  </view>
+  <view class="detail-hr"></view>
+  <view class="detail-bottom-box">
+   <view class="detail-title">
+      <view class="detail-title-left">报名列表</view>
+      <view class="detail-title-right">
+        已报名:<text>30人</text>
+      </view>
+    </view>
+   <view class="detail-bottom-content">
+     <block wx:for="{{activity.list}}" wx:key="index" wx:for-item="signup_item">
+       <view class="signup_item">
+          <view class="item-info">
+            <view class="ingo-img">
+              <image  src="{{signup_item.url}}" />
+            </view>
+            <view class="info-name">{{signup_item.name}}</view>
+          </view>
+          <view class="item-time">
+            {{signup_item.add_date}}
+          </view>
+       </view>
+     </block>
+   </view>
+  </view>
+  <view class="dateil-sm"></view>
+  <view class="detail-bottom-button" bind:tap="onrganizeTap">
+    <view>我要报名</view>
+  </view>
+</view>

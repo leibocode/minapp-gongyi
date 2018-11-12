@@ -1,0 +1,151 @@
+.detail-container{
+    background:#f1f1f1;
+}
+
+.detail-header-box{
+
+}
+.detail-topic-img{
+    display:flex;
+    justify-content:center;
+}
+.detail-topic-img image{
+    width:100%;
+}
+.detail-hr{
+    width:100%;
+    height:10rpx;
+    background-color:#f1f1f1;
+}
+.detail-infos{
+    display:flex;
+    flex-direction:column;
+    background-color:#fff;
+    padding:30rpx;
+    font-size:24rpx;
+    color:#999;
+    border-bottom:1rpx solid #ebebeb;
+}
+.detail-infos text{
+    color:#333;
+    margin-left:15rpx;
+}
+.start_time{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10rpx;
+}
+.detail_status{
+    width:110rpx;
+    height:60rpx;
+    background-color:#218ccd;
+    line-height:60rpx;
+    text-align:center;
+    color:#fff;
+    font-size:24rpx;
+   margin-top:-38rpx;
+}
+.end_time{
+    margin-top:16rpx; 
+}
+.perpon{
+    margin-top:10rpx; 
+}
+detail_type{
+    margin-top:10rpx; 
+}
+.detail-desc{
+    display:flex;
+    background-color:#fff;
+    font-size:24rpx;
+    color:#333;
+    border-bottom:1rpx solid #ebebeb;
+    padding:30rpx; 
+    line-height:45rpx;
+}
+.detail-main-box{
+    background-color:#fff;
+}
+.detail-title{
+    display:flex;
+    justify-content:space-between;
+    height:90rpx;
+    line-height:90rpx;
+    font-size:36rpx;
+    color:#218ccd;
+    padding:10rpx;
+    border-bottom:1rpx solid #ebebeb;
+}
+.detail-title-left{
+    margin-left:20rpx;
+}
+.detail-title-right{
+    color:#333;
+    font-size:24rpx;
+    margin-right:20rpx;
+}
+.detail-bottom-box{
+    background-color:#fff;
+}
+.signup_item{
+    display:flex;
+    justify-content:space-between;
+    height:60rpx;
+    padding:30rpx 60rpx;
+    border-bottom:1rpx solid #ebebeb;
+    font-size:24rpx;
+    color:#333;
+    flex-direction:row;
+}
+.signup_item .item-info{
+    display: flex;
+    justify-content:space-between;
+}
+.signup_item .item-info .ingo-img image{
+    width:50rpx;
+    height:50rpx;
+    margin-right:10rpx;
+    border-radius:50%;
+}
+.detail-bottom-button{
+    position:fixed;
+    height:120rpx;
+    z-index:1000;
+    width:100%;
+    bottom:0;
+    background-color:#fff;
+}
+.dateil-sm{
+    height:30rpx;
+    width:100%;
+}
+.detail-bottom-button view {
+    width:75%;
+    height:80rpx;
+    font-size:36rpx;
+    color:#fff;
+    background-color:#e50026;
+    text-align:center;
+    line-height:80rpx;
+    border-radius:60rpx;
+    margin:22rpx 75rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

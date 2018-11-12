@@ -59,4 +59,9 @@ export default class Http{
             duration:2000
         })
     }
+
+    getDataSet(event,key){
+        return event.currentTarget.dataset[key]
+    }
+
 }

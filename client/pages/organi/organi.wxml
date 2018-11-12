@@ -1,0 +1,16 @@
+<import src="../../templates/organis/organis-tpl.wxml"/>
+<view class="organi-container">
+    <view class="organi-header-box">
+        <block wx:for="{{tabs}}">
+            <view class="tab-item {{currentTabsIndex==index?'selected':''}}"
+          bindtap="onTabsItemTap" data-index="{{index}}">{{item}}</view>
+        </block>
+        <view class="tab-item organi-header-search">
+            <image src="../../images/page-nav-search.png" />
+        </view>
+    </view>
+    <view class="organi-hr"></view>
+    <view class="organi-main-box">
+        <template is="organis" data="{{organisArr:organisArr}}"></template>
+    </view>
+</view>
