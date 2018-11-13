@@ -16,6 +16,8 @@
     height:186rpx;
     
 }
+
+
 .activities-box .activities-item .activities-item-right{
     font-size:24rpx;
     color:#888;
