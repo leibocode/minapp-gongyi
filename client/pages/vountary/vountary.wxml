@@ -1,0 +1,75 @@
+<view class="section">
+    <view class="flex-wrp">
+        <view class="flex-item">
+            <text>
+                <text>真实姓名</text>
+                <text class="tred">*</text>
+            </text>
+            <input type="text" placeholder="请输入真实姓名" maxlength='6' />
+        </view>
+        <view class="flex-item">
+            <text>
+                <text>手机号码</text>
+                <text class="tred">*</text>
+            </text>
+            <input type="text" placeholder="请输入手机号码" maxlength='11' />
+        </view>
+        <view class="flex-item">
+            <text>
+                <text>手机验证码</text>
+                <text class="tred">*</text>
+            </text>
+            <input type="text" placeholder="请输入验证码" maxlength='6' />
+            <button bind:tap="getcode" disabled="{{disabled}}" class="getcode" type="primary">
+                {{getcodetext}}
+            </button>
+        </view>
+        <view class="flex-item">
+            <text>
+                <text>身份证号码</text>
+                <text class="tred">*</text>
+            </text>
+            <input type="text" placeholder="请输入身份证号码" maxlength='18' />
+        </view>
+        <view class="flex-item">
+            <text>
+                <text>所属志愿队</text>
+                <text class="tred">*</text>
+            </text>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">{{array[index]}}</view>
+            </picker>
+        </view>
+    </view>
+    <view class="spanview"></view>
+    <view class="flex-wrp">
+        <view class="flex-item">
+            <text>
+                <text>所属地</text>
+                <text class="tred">*</text>
+            </text>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">{{array[index]}}</view>
+            </picker>
+        </view>
+        <view class="flex-item">
+            <textarea placeholder="所属地详细地址" />
+        </view>
+    </view>
+    <view class="spanview"></view>
+    <view class="flex-wrp">
+        <view class="flex-item">
+            <text>
+                <text>所住地</text>
+                <text class="tred">*</text>
+            </text>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">{{array[index]}}</view>
+            </picker>
+        </view>
+        <view class="flex-item">
+            <textarea placeholder="所住地详细地址" />
+        </view>
+        <button loading="{{loading}}" bind:tap="subform" class="subbtn" type="primary">保存</button>
+    </view>
+</view>

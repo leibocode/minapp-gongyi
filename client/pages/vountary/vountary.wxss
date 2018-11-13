@@ -1,0 +1,64 @@
+.flex-wrp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-item {
+    width: 94%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.flex-item:nth-last-of-type(1) {
+    border: none;
+}
+
+.flex-item>text {
+    font-size: 0.8rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #333;
+    width: 35%;
+}
+
+.tred {
+    color: #e50026;
+}
+
+.flex-item input,
+.flex-item picker {
+    font-size: 0.8rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #333;
+}
+
+.flex-item textarea {
+    font-size: 0.8rem;
+    height: 2rem;
+    line-height: 0.8rem;
+    color: #333;
+    padding: 0.5rem;
+    background-color: #f0f0f0;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.getcode {
+    font-size: 0.8rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.spanview {
+    height: 0.5rem;
+    background-color: #f1f1f1;
+}
+
+.subbtn {
+    width: 90%;
+}
