@@ -58,7 +58,14 @@ Page({
             urls:imgs
         })
     },
+    onShare:function(){
+        return {
+            title:'城志协',
+            path:'pages/home/home'
+        }
+    },
     onShareAppMessage:function(){
+      
         return {
             title:'城志协',
             path:'pages/home/home'

@@ -5,7 +5,8 @@ Page({
         currentTabsIndex:0,
         organisArr:[{
             src:'../../images/organi-pic1.jpg',
-            imgs:['../../images/photo-pic.jpg','../../images/photo-pic.jpg','../../images/photo-pic.jpg']
+            imgs:['../../images/photo-pic.jpg','../../images/photo-pic.jpg','../../images/photo-pic.jpg'],
+            organisStatus:1
         }]
     },
     onLoad:function(){

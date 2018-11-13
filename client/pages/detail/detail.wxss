@@ -1,10 +1,6 @@
 .detail-container{
     background:#f1f1f1;
 }
-
-.detail-header-box{
-
-}
 .detail-topic-img{
     display:flex;
     justify-content:center;
@@ -30,12 +26,12 @@
     color:#333;
     margin-left:15rpx;
 }
-.start_time{
+.start-time{
     display:flex;
     justify-content:space-between;
     margin-top:10rpx;
 }
-.detail_status{
+.detail-status{
     width:110rpx;
     height:60rpx;
     background-color:#218ccd;
@@ -43,16 +39,57 @@
     text-align:center;
     color:#fff;
     font-size:24rpx;
-   margin-top:-38rpx;
+    margin-top:-38rpx;
 }
-.end_time{
+.end-time{
     margin-top:16rpx; 
 }
 .perpon{
-    margin-top:10rpx; 
+    display:flex;
+    justify-content:space-between;
+    margin-top:10rpx;
 }
-detail_type{
-    margin-top:10rpx; 
+.perpon .icon-dianz{
+    width:70rpx;
+    height:70rpx;
+    background-color:#f1f1f1;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:-38rpx;
+
+}
+.perpon .icon-dianz image {
+    width:35rpx;
+    height:35rpx;
+
+}
+.detail-type{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10rpx;
+}
+.detail-type .icon-fenx{
+    width:70rpx;
+    height:70rpx;
+    background-color:#f1f1f1;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:-5rpx;
+} 
+.detail-type .icon-fenx image {
+    width:35rpx;
+    height:35rpx;
+
+}
+.detail-area{
+    margin-top:-16rpx;
+}
+.detail-address{
+    margin-top:10rpx;
 }
 .detail-desc{
     display:flex;
@@ -86,6 +123,36 @@ detail_type{
 }
 .detail-bottom-box{
     background-color:#fff;
+}
+.detail-content{
+    display:flex;
+    justify-content:space-between;
+    height:220rpx;
+    padding:30rpx;
+}
+.detail-content-img{
+    width:75rpx;
+    height:75rpx;
+    border-radius:50%;
+}
+.detail-phone{
+    flex:1.5;
+    margin-left:15rpx;
+}
+.detail-phone text{
+    font-size:24rpx;
+    color:#333;
+    display:block;
+    margin-top:10rpx;
+}
+.detail-code{
+    flex:1.5;
+    margin-left:45rpx;
+}
+.detail-code image {
+    width:216rpx;
+    height:216rpx;
+
 }
 .signup_item{
     display:flex;
@@ -129,6 +196,10 @@ detail_type{
     line-height:80rpx;
     border-radius:60rpx;
     margin:22rpx 75rpx;
+}
+
+.text-nums{
+    color:#e50026;
 }
 
 

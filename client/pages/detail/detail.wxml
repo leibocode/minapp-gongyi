@@ -5,31 +5,41 @@
      </view>
      <view class="detail-hr"></view>
      <view class="detail-infos">
-       <view class="start_time">
+       <view class="start-time">
          <view>
            开始时间:<text>{{activity.start_time}}</text>
          </view>
-         <view class="detail_status">
+         <view class="detail-status">
            进行中
          </view>
        </view>
-       <view class="end_time">
+       <view class="end-time">
          结束时间:<text>{{activity.end_time}}</text>
        </view>
        <view class="perpon">
          <view>
-           报名人数:<text></text>/<text></text>
+           报名人数:<text class="text-nums">30</text>/<text>80</text>
          </view>
-         <view class="icon_dianz">
-           
-         </view>
-       </view>
-       <view class="detail_type">
-         <view class="icon_fenx">
-          
+         <view class="icon-dianz">
+           <image src="../../images/dianzan-icon.png"/>
          </view>
        </view>
-       <view></view>
+       <view class="detail-type">
+         <view>
+           所属类型:<text>其他</text>
+         </view>
+         <view class="icon-fenx" bind:tap="onShare">
+           <image src="../../images/fengxiang-icon.png"/>
+         </view>
+       </view>
+       <view class="detail-area">
+          <view>
+           所属区域:<text>浦东区</text>
+          </view>
+       </view>
+       <view class="detail-address">
+          <view>活动地点:<text>广东汕头市澄海区隆都镇上西村上</text></view>
+       </view>
      </view>
      <view class="detail-desc">
         <text>{{activity.desc}}</text>
@@ -44,7 +54,14 @@
       </view>
     </view>
     <view class="detail-content">
-    
+       <image class="detail-content-img" src="../../images/photo-pic.jpg"/>
+       <view class="detail-phone">
+          <text>发起人:周洁</text>
+          <text>手机号:15826775622</text>
+       </view>
+       <view class="detail-code">
+          <image src="../../images/ichengzhi-ewm.jpg"/>
+       </view>
     </view>
   </view>
   <view class="detail-hr"></view>
@@ -71,7 +88,6 @@
      </block>
    </view>
   </view>
-  <view class="dateil-sm"></view>
   <view class="detail-bottom-button" bind:tap="onrganizeTap">
     <view>我要报名</view>
   </view>

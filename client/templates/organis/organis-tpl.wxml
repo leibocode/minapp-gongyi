@@ -3,6 +3,7 @@
         <block  wx:key="index" wx:for="{{organisArr}}">
             <view class="organis-item" bind:tap="onActivityItemTap">
                 <view class="img-warp">
+                    xxx
                   <image class="organis-item-img" src="{{item.src}}" mode="aspectFill"/> 
                 </view>  
                 <view class="organis-item-right">
@@ -23,7 +24,15 @@
                        启发人心向善，德行蔚然成风！
                     </view>
                 </view>
-                <view class="organis-status"></view>
+                <view class="organis-status">
+                    <view wx:if="{{item.organisStatus==1}}">
+                        <view class="buttons">加入组织</view>
+                    </view>
+                    <view wx:elif="{{item.organisStatus==2}}">
+                        
+                    </view>
+                    <view wx:else="{{item.organisStatus==3}}"></view>
+                </view>
             </view>
         </block>
     </view>

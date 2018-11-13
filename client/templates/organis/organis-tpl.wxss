@@ -3,13 +3,13 @@
 }
 .organis-box .organis-item{
     display:flex;
-    justify-content:center;
-    flex-direction:row;
+    justify-content:space-between;
     height:218rpx;
     align-items:center;
     padding:8rpx 8rpx 8rpx 20rpx;
     border-bottom:1rpx solid #f1f1f1;
 }
+
 .organis-box .organis-item .organis-item-img{
     width:30%;
     border-radius:6rpx;
@@ -29,6 +29,9 @@
     color:#333;
     flex-wrap:nowrap;
     
+}
+.img-warp{
+   
 }
 .organis-item-time{
     margin-top:6rpx;
