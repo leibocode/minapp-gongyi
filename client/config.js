@@ -1,6 +1,9 @@
 //配置
-const config ={
-    url:''
+const config = {
+    // url
+    url: ''
 }
 
-export { config }
+export {
+    config
+}
