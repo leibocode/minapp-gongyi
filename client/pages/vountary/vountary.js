@@ -1,20 +1,43 @@
 Page({
     data: {
         test: 'hello word',
-        array: [
+        zyd_index: 0,
+        zyd_array: [
             '请选择所属志愿队',
             '理工志愿队',
             '上海志愿队',
             '码农志愿队'
         ],
-        index: 0,
+        ssd_index: 0,
+        ssd_array: [
+            '请选择所属地',
+            '长沙',
+            '上海',
+            '湖北'
+        ],
+        szd_index: 0,
+        szd_array: [
+            '请选择所住地',
+            '秦皇岛',
+            '北戴河'
+        ],
         getcodetext: '获取',
         loading: false,
         disabled: false
     },
-    bindPickerChange: function (e) {
+    bindzydPickerChange: function (e) {
         this.setData({
-            index: e.detail.value
+            zyd_index: e.detail.value
+        })
+    },
+    bindssdPickerChange: function (e) {
+        this.setData({
+            ssd_index: e.detail.value
+        })
+    },
+    bindszdPickerChange: function (e) {
+        this.setData({
+            szd_index: e.detail.value
         })
     },
     getcode: function (e) {

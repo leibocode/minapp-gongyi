@@ -36,8 +36,8 @@
                 <text>所属志愿队</text>
                 <text class="tred">*</text>
             </text>
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-                <view class="picker">{{array[index]}}</view>
+            <picker bindchange="bindzydPickerChange" value="{{zyd_index}}" range="{{zyd_array}}">
+                <view class="picker">{{zyd_array[zyd_index]}}</view>
             </picker>
         </view>
     </view>
@@ -48,8 +48,8 @@
                 <text>所属地</text>
                 <text class="tred">*</text>
             </text>
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-                <view class="picker">{{array[index]}}</view>
+            <picker bindchange="bindssdPickerChange" value="{{ssd_index}}" range="{{ssd_array}}">
+                <view class="picker">{{ssd_array[ssd_index]}}</view>
             </picker>
         </view>
         <view class="flex-item">
@@ -63,8 +63,8 @@
                 <text>所住地</text>
                 <text class="tred">*</text>
             </text>
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-                <view class="picker">{{array[index]}}</view>
+            <picker bindchange="bindszdPickerChange" value="{{szd_index}}" range="{{szd_array}}">
+                <view class="picker">{{szd_array[szd_index]}}</view>
             </picker>
         </view>
         <view class="flex-item">
