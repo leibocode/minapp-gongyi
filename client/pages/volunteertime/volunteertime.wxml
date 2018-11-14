@@ -1,0 +1,39 @@
+<view class="section">
+    <view class="timebox">
+        <cover-image src="../../images/my-zysc-banner.jpg" />
+    </view>
+    <view class="timetextbox">
+        <view>6</view>
+        <view>总时长(时)</view>
+    </view>
+    <view class="spanview"></view>
+    <view class="boxlist">
+        <view class="boxitem">
+            <view class="boxitem-left">
+                <text>希望工程温暖冬日</text>
+                <text>2018-11-11</text>
+            </view>
+            <view class="boxitem-right">
+                <text>+2</text>
+            </view>
+        </view>
+        <view class="boxitem">
+            <view class="boxitem-left">
+                <text>敬老有我活动</text>
+                <text>2018-11-12</text>
+            </view>
+            <view class="boxitem-right">
+                <text>+2</text>
+            </view>
+        </view>
+        <view class="boxitem">
+            <view class="boxitem-left">
+                <text>慰问孤寡老人</text>
+                <text>2018-11-13</text>
+            </view>
+            <view class="boxitem-right">
+                <text>+2</text>
+            </view>
+        </view>
+    </view>
+</view>

@@ -19,7 +19,8 @@ Page({
             url: '../my-activity/my-activity'
         }, {
             icon_url: '../../images/h-icon3.png',
-            name: '志愿时长'
+            name: '志愿时长',
+            url: '../volunteertime/volunteertime'
         }, {
             icon_url: '../../images/h-icon4.png',
             name: '我的积分'

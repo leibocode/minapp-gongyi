@@ -6,7 +6,8 @@
         "pages/activity/activity",
         "pages/organi/organi",
         "pages/user/user",
-        "pages/vountary/vountary"
+        "pages/vountary/vountary",
+        "pages/volunteertime/volunteertime"
     ],
     "window": {
         "navigationBarBackgroundColor": "#e50026",

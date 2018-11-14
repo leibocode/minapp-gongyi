@@ -1,6 +1,5 @@
 Page({
     data: {
-        test: 'hello word',
         zyd_index: 0,
         zyd_array: [
             '请选择所属志愿队',
