@@ -27,7 +27,8 @@ Page({
             url: '../my-scores/my-scores'
         }, {
             icon_url: '../../images/h-icon5.png',
-            name: '帮助中心'
+            name: '帮助中心',
+            url: '../query/query'
         }],
         loading: true,
         activitiesArr: [{

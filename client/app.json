@@ -8,7 +8,8 @@
         "pages/user/user",
         "pages/vountary/vountary",
         "pages/volunteertime/volunteertime",
-        "pages/my-scores/my-scores"
+        "pages/my-scores/my-scores",
+        "pages/query/query"
     ],
     "window": {
         "navigationBarBackgroundColor": "#e50026",
