@@ -23,7 +23,8 @@ Page({
             url: '../volunteertime/volunteertime'
         }, {
             icon_url: '../../images/h-icon4.png',
-            name: '我的积分'
+            name: '我的积分',
+            url: '../my-scores/my-scores'
         }, {
             icon_url: '../../images/h-icon5.png',
             name: '帮助中心'
