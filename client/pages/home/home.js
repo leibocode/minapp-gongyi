@@ -1,4 +1,4 @@
-import HomeModel from '../../models/home'
+import HomeModel from '../../models/home.js'
 
 const model = new HomeModel()
 Page({

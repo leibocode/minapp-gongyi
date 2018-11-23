@@ -11,7 +11,8 @@
 }
 
 .organis-box .organis-item .organis-item-img{
-    width:30%;
+    width:160rpx;
+    height:160rpx;
     border-radius:6rpx;
     height:186rpx;
     
@@ -31,7 +32,14 @@
     
 }
 .img-warp{
-   
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border:1rpx solid #f1f1f1;
+  border-radius:50%;
+  width:190rpx; 
+  height:100%;
+  
 }
 .organis-item-time{
     margin-top:6rpx;
@@ -45,6 +53,18 @@
     flex-wrap:nowrap;
     flex-direction:row;
     margin-top:6rpx;
+}
+.organis-status-buttons{
+    font-size:24rpx;
+    color:#fff;
+    width:150rpx;
+    height:70rpx;
+    line-height:70rpx;
+    background-color:#e50b26;
+    border-radius:36rpx;
+    text-align:center;
+    margin-right:20rpx;
+    
 }
 .status_text{
     flex:1.5;
