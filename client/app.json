@@ -9,7 +9,8 @@
         "pages/vountary/vountary",
         "pages/volunteertime/volunteertime",
         "pages/my-scores/my-scores",
-        "pages/query/query"
+        "pages/query/query",
+        "pages/my-organi/my-organi"
     ],
     "window": {
         "navigationBarBackgroundColor": "#e50026",

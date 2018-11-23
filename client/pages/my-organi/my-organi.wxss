@@ -1,0 +1,30 @@
+@import "../../templates/organis/organis-tpl.wxss";
+.my-organi-container{
+    background-color:#fff;
+}
+
+.my-organi-header-box{
+    height:120rpx;
+    display:flex;
+    justify-content:space-between;
+    background-color:#fff;
+}
+.my-organi-hr{
+    background-color:#f1f1f1;
+    height:15rpx;
+}
+.tab-item{
+    flex:1;
+    color:#333;
+    font-size:28rpx;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.selected{
+    /*color: #AB956D;*/
+    color:#e50026;
+    /*border-bottom: 2px solid #AB956D;*/
+    border-bottom: 2px solid #e50026;
+}
