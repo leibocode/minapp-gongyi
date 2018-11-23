@@ -10,7 +10,9 @@
         "pages/volunteertime/volunteertime",
         "pages/my-scores/my-scores",
         "pages/query/query",
-        "pages/my-organi/my-organi"
+        "pages/my-organi/my-organi",
+        "pages/captain-auth/captain-auth",
+        "pages/pending/pending"
     ],
     "window": {
         "navigationBarBackgroundColor": "#e50026",

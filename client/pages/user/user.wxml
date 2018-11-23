@@ -33,7 +33,7 @@
                     <text>{{item.title}}</text>
                  </view>
                  <view class="menu-item-right">
-                    <text class="text-color">30</text>
+                    <text wx:if="{{item.title=='成员待审核'}}" class="text-color">30</text>
                     <!-- <image src=""/> -->
                  </view>
               </view>

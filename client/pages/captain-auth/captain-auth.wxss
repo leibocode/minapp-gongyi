@@ -1,0 +1,43 @@
+page{
+    background-color:#f1f1f1;
+}
+
+.captain-auth-code{
+    width:100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid #eaeaea;
+    background-color:#fff;
+}
+
+
+.captain-auth-code {
+    font-size: 0.8rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #333;
+}
+.captain-auth-code>text{
+    font-size: 0.8rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #333;
+    width: 35%;
+}
+.tred {
+    color: #e50026;
+}
+
+.captain-auth-btn view{
+    width:75%;
+    height:80rpx;
+    font-size:36rpx;
+    color:#fff;
+    background-color:#e50026;
+    text-align:center;
+    line-height:80rpx;
+    border-radius:60rpx;
+    margin:22rpx 75rpx;
+}

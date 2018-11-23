@@ -1,6 +1,9 @@
 import { config } from '../config.js'
 import Http from './http.js'
 
+/**
+ * token 获取 
+ */
  export class Token extends Http {
     constructor(){
         super();

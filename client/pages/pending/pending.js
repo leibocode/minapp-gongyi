@@ -1,0 +1,9 @@
+Page({
+    data:{
+        organisArr:[{
+            src:'../../images/organi-pic1.jpg',
+            imgs:['../../images/photo-pic.jpg','../../images/photo-pic.jpg','../../images/photo-pic.jpg'],
+            organisStatus:1
+        }]
+    }
+})

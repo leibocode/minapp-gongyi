@@ -12,16 +12,20 @@ Page({
         }],
         menus:[{
             icon_url:'../../images/h-icon1.png',
-            title:'个人信息'
+            title:'个人信息',
+            path:''
         },{
             icon_url:'../../images/h-icon1.png',
-            title:'我的组织'
+            title:'我的组织',
+            path:'../my-organi/my-organi'
         },{
             icon_url:'../../images/h-icon1.png',
-            title:'我的活动'
+            title:'我的活动',
+            path:'../my-activity/my-activity'
         },{
             icon_url:'../../images/h-icon1.png',
-            title:'队长授权'
+            title:'队长授权',
+            path:'../captain-auth/captain-auth'
         },{
             icon_url:'../../images/h-icon1.png',
             title:'成员待审核',

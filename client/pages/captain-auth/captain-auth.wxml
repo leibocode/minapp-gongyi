@@ -1,3 +1,12 @@
 <view class="captain-auth-container">
-    <view class=""></view>
+    <view class="captain-auth-code">
+            <text>
+                <text>授权码</text>
+                <text class="tred">*</text>
+            </text>
+            <input type="text" placeholder="请输入授权码" maxlength='6' />
+    </view>
+    <view class="captain-auth-btn">
+          <view>保存</view>
+    </view>
 </view>
