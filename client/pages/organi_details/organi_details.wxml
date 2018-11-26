@@ -1,0 +1,50 @@
+<view class="">
+    <view class="pic-box">
+        <image class="pic-box-img" src="{{delinfo.photo}}" mode="aspectFill" />
+    </view>
+    <view class="del-info">
+        <view class="del-info-key">类型：</view>
+        <view class="del-info-value">{{delinfo.type}}</view>
+        <view class="del-info-key">区域：</view>
+        <view class="del-info-value">{{delinfo.city}}</view>
+    </view>
+    <view class="del-content">
+        <view class="del-content-value">{{delinfo.content}}</view>
+    </view>
+    <view class="spanview"></view>
+    <view class="dz-box">
+        <view class="col-blue">队长</view>
+        <view>></view>
+    </view>
+    <view class="dz-info">
+        <view class="dz-info-img">
+            <image src="{{dzinfo.photo}}" mode="aspectFill" />
+        </view>
+        <view class="dz-info-list">
+            <text class="del-info-key">发起人：</text>
+            <text class="del-info-value">{{dzinfo.name}}</text>
+            <view></view>
+            <text class="del-info-key">手机号：</text>
+            <text class="del-info-value">{{dzinfo.iphonexs}}</text>
+        </view>
+    </view>
+    <view class="spanview"></view>
+    <view class="dz-box">
+        <view class="col-blue">组织活动</view>
+        <view>30 ></view>
+    </view>
+    <view class="spanview"></view>
+    <view class="dz-box">
+        <view class="col-blue">组织成员</view>
+        <view>人数 7人</view>
+    </view>
+    <view class="p-list">
+        <view class="p-item" wx:key="index" wx:for="{{p_list}}">
+            <view class="dz-info-img">
+                <image src="{{item.photo}}" mode="aspectFill" />
+            </view>
+            <view>{{item.name}}</view>
+            <!-- <view>></view> -->
+        </view>
+    </view>
+</view>
