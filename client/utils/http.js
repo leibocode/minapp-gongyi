@@ -23,7 +23,7 @@ export default class Http{
             method:params.method,
             data:params.data,
             headers:{
-                'content-type':'application/json'  
+                'Content-type':'application/x-www-form-urlencoded'  
             },
             success:(res)=>{
                 let code =res.statusCode.toString()

@@ -5,11 +5,12 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
-	"appid": "touristappid",
+	"appid": "wx075f73f7350c7286",
 	"projectname": "czx",
 	"condition": {
 		"search": {

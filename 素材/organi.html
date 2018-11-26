@@ -12,28 +12,83 @@
 </head>
 <body>
 <div class="header-height m-b-sm">
+  
     <!-- page-nav start -->
     <div class="page-nav-box white-bg">
-        <ul class="page-nav clearfix">
-            <li class="cur"><span>全部</span></li>
-            <li onclick="_ctool.pagenavLx('page-nav-lx')"><span>类型<i class="fa fa-caret-down"></i></span></li>
-            <li><span>区域<i class="fa fa-caret-down"></i></span></li>
-            <li><span></span></li>
-        </ul>        
-        <div class="page-nav-down" id="page-nav-lx">
+        <ul class="page-nav">
+            <li><span>排序<i class="fa fa-angle-down"></i></span></li>
+            <li><span>类型<i class="fa fa-angle-down"></i></span></li>
+            <li><span>区域<i class="fa fa-angle-down"></i></span></li>
+        </ul>
+
+        <div  class="page-nav-down">
             <div class="p-n-d-cont">
                 <ul  class="clearfix">
-                    <li class="cur"><a href="#">广州<i class="fa fa-check fr"></i></a></li>
-                    <li><a href="#">广州<i class="fa fa-check fr"></i></a></li>
-                    <li><a href="#">广州<i class="fa fa-check fr"></i></a></li>
-                    <li><a href="#">广州<i class="fa fa-check fr"></i></a></li>
-                    <li><a href="#">广州<i class="fa fa-check fr"></i></a></li>             
+                    <li class="cur"><a href="#">排序<i class="fa fa-check fr"></i></a></li>
+                    <li><a href="#">排序<i class="fa fa-check fr"></i></a></li>
+                    <li><a href="#">排序<i class="fa fa-check fr"></i></a></li>
+                    <li><a href="#">排序<i class="fa fa-check fr"></i></a></li>
                 </ul>
             </div>
-        </div>        
+            <div class="p-n-d-cont">
+                <ul  class="clearfix">
+                    <li class="cur"><a href="#">类型<i class="fa fa-check fr"></i></a></li>
+                    <li><a href="#">类型<i class="fa fa-check fr"></i></a></li>
+                    <li><a href="#">类型<i class="fa fa-check fr"></i></a></li>
+                    <li><a href="#">类型<i class="fa fa-check fr"></i></a></li>
+                </ul>
+            </div>
+            <div class="p-n-d-cont">
+                 <ul  class="clearfix">
+                    <li class="cur"><a href="#">浦东新区<i class="fa fa-check fr"></i></a></li>
+                    <li><a href="#">闵行区<i class="fa fa-check fr"></i></a></li>
+                    <li><a href="#">洋浦区<i class="fa fa-check fr"></i></a></li>
+                    <li><a href="#">虹口区<i class="fa fa-check fr"></i></a></li>
+                </ul>
+            </div>
+        </div>
     </div>
+    <div class="page-nav-mask"></div>
     <!-- page-nav end -->
+     <script>
+         $(function(){
+
+            $('.page-nav li').click(function(){
+                $(this).toggleClass('cur').siblings().removeClass('cur');
+                var _indexPndcont=$('.p-n-d-cont');
+
+             if (_indexPndcont.eq($(this).index()).is(':hidden')) {
+                 // _indexPndcont.hide();
+                _indexPndcont.eq($(this).index()).show().siblings().hide();
+                $('.page-nav-mask').show();
+
+                  $('.page-nav-down').show();
+            } else {
+                _indexPndcont.eq($(this).index()).hide();
+                // alert(2)
+                $('.page-nav-down').hide();
+                 $('.page-nav-mask').hide();
+            }
+
+                 _indexPndcont.find('ul li').click(function(){
+                      $(this).addClass('cur').siblings().removeClass('cur');
+                     $('.p-n-d-cont').hide();
+                     $('.page-nav li').removeClass('cur');
+                    $('.page-nav-down').hide();
+                     $('.page-nav-mask').hide();
+                });
+            });
+            $('.page-nav-mask').click(function(){
+            $('.p-n-d-cont').hide();
+            $('.page-nav li').removeClass('cur');
+            $('.page-nav-down').hide();
+            $('.page-nav-mask').hide();
+            });
+         });
+    </script>
+    <!-- page-nav  -->
 </div>
+
  <!-- 组织 start-->
  <div class="white-bg m-b-2"> 
     <div class="p-1 clearfix organi-list">

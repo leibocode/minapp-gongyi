@@ -9,6 +9,16 @@ function ctysofttool() {
 			$('#' + id).find(".righ-pop-cont").height($(window).height() - $('#' + id).offset().top)
 		}
 	
+	/*展示底部菜单*/
+	this.showfooterpop = function(id) {
+			$('#' + id).addClass('footer-pop-cur');
+			this.footermask.addClass('footer-mask-show');
+		}
+	/*隐藏底部菜单*/
+	this.hidefooterpop = function() {
+		$('.footer-pop').removeClass('footer-pop-cur');
+		this.footermask.removeClass('footer-mask-show');
+	}
 
 
 	/*弹出窗口提交表单*/
@@ -80,6 +90,14 @@ function ctysofttool() {
 	/*必要的初始化*/
 	this.init = function() {
 		$(window.document.body).append(this.footermask);
+		$(".footer-pop").each(function() {
+			var obj = $("<div class='footer-pop-close'>&#10005 </div>");
+			obj.bind("click", function() {
+				_ctool.hidefooterpop();
+			})
+			$(this).prepend(obj)
+		});
+
 
 		$('.all-mask').click(function(){
 			$(this).removeClass('all-mask-show');	
@@ -89,14 +107,13 @@ function ctysofttool() {
 		});
 
 		// 点赞
-		$('.activity-dz').click(function(){		
-			if($(this).hasClass('cur')){				
-				 $(this).removeClass('cur');				
-			}else{
-				
-				$(this).addClass('cur');
-			}
-		});
+		// $('.activity-dz').click(function(){		
+		// 	if($(this).hasClass('cur')){				
+		// 		 $(this).removeClass('cur');				
+		// 	}else{				
+		// 		$(this).addClass('cur');
+		// 	}
+		// });
 	}
 }
 

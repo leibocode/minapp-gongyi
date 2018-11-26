@@ -1,3 +1,6 @@
+page{
+    background-color:#f1f1f1;
+}
 @import "../../templates/activities/activities-tpl.wxss";
 .home-container{
     background-color:#f1f1f1;
