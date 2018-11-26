@@ -1,9 +1,10 @@
-<import src="../../templates/organis/organis-tpl.wxml"/>
+<import src="../../templates/organis/organis-tpl.wxml" />
 <view class="organi-container">
     <view class="organi-header-box">
-        <block wx:for="{{tabs}}">
-            <view class="tab-item {{currentTabsIndex==index?'selected':''}}"
-          bindtap="onTabsItemTap" data-index="{{index}}">{{item}}</view>
+        <block wx:key="index" wx:for="{{tabs}}">
+            <view class="tab-item {{currentTabsIndex==index?'selected':''}}" bindtap="onTabsItemTap" data-index="{{index}}">
+                {{item}}
+            </view>
         </block>
         <view class="tab-item organi-header-search">
             <image src="../../images/page-nav-search.png" />

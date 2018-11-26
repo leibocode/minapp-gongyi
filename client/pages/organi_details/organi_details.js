@@ -1,5 +1,5 @@
 Page({
     data: {
-        organisArr: []
+        id: -1,
     }
 })
