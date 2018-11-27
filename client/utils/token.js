@@ -46,7 +46,7 @@ import Http from './http.js'
     getTokenFromServer(){
         console.log(this.tokenUrl)
         let params = {
-            url:this.tokenUrl,
+            url:`${this.tokenUrl}?appid=${config.appId}&key=${config.key}`,
             method:'post',
             data:{
                 appid:config.appId,
