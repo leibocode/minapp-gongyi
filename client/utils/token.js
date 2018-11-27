@@ -7,7 +7,7 @@ import Http from './http.js'
  export class Token extends Http {
     constructor(){
         super();
-        this.tokenUrl ='token/apptoken/GetToken',
+        this.tokenUrl = config.url+ 'token/apptoken/GetToken',
         this.userUrl = 'token/member/xcxlogin'
     }
     verify(){
@@ -16,44 +16,25 @@ import Http from './http.js'
         if(!token){
             this.getTokenFromServer()
         }
-
-        if(!user){
-            this.getUserFromServer()
-        }
     }
 
     getUserFromServer(){
-        let that = this
-        wx.login({
-            success:function(res){
-                let code =res.code
-                wx.getUserInfo({
-                    success:function(data){
-                        console.log(data)
-                        let iv = data.iv
-                        let encryptedData =data.encryptedData
-                        let userInfo ={
-                            iv:iv,
-                            encryptedData:encryptedData, 
-                            userInfo:data.userInfo
-                        }
-                    }
-                })
-            }
+        wx.navigateTo({
+            url: '../pages/authorize/authorize'
         })
     }
 
     getTokenFromServer(){
-        console.log(this.tokenUrl)
         let params = {
-            url:`${this.tokenUrl}?appid=${config.appId}&key=${config.key}`,
+            token:`${this.tokenUrl}?appid=${config.appId}&key=${config.key}`,
             method:'post',
             data:{
                 appid:config.appId,
                 key:config.key
             },
             success:(data)=>{
-                console.log(data)
+                console
+                wx.setStorageSync('token',data.msg)
             }
         }
         this.request(params)

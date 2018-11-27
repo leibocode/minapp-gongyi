@@ -14,9 +14,13 @@ export default class Http{
     }
     
     request(params){
+       
         let url = this.baseRestUrl + params.url
         if(!params.method){
             params.method ='Get'
+        }
+        if(params.token){
+            url =params.token
         }
         wx.request({
             url:url,
@@ -39,6 +43,7 @@ export default class Http{
             }
         })
     }
+
 
     _show_error(error_code){
         if(!error_code){
