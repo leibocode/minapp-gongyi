@@ -20,7 +20,7 @@
         <view class="header-text_right">更多活动</view>
      </view>
      <view class="home-main-list">
-         <template is="activities" data="{{activitiesArr:activitiesArr}}"></template>
+         <template is="activities" data="{{activitiesArr:hot}}"></template>
      </view>
   </view>
   <view class="home-main">
@@ -30,7 +30,7 @@
         <view class="header-text_right">更多活动</view>
      </view>
      <view class="home-main-list">
-         <template is="activities" data="{{activitiesArr:activitiesArr}}"></template>
+         <template is="activities" data="{{activitiesArr:review}}"></template>
      </view>
   </view>
   <view class="home-main">
@@ -40,10 +40,25 @@
         <view class="header-text_right">更多预告</view>
      </view>
      <view class="home-main-list">
-         
+        <view class="notice-box">
+          <block wx:for="{{noticeList}}" wx:key="index">
+              <view class="notice-item" data-id="{{item.gid}}" bindtap="onProductItemTap">
+                  <image class="notice-image" src="{{item.img}}"/>
+                  <view class="notice-bottom">
+                      <view class="title">{{item.Title}}</view>
+                      <view class="desc">{{item.Brief}}</view>
+                      <view class="name">
+                          <text></text>
+                          <text></text>
+                      </view>
+                  </view>
+              </view>
+          </block>
+        </view>
      </view>
   </view>
   <view class="home-footer">
      <text></text>
   </view>
 </view>
+<loading hidden="{{loading}}">加载中...</loading>

@@ -1,4 +1,4 @@
-<view class="container detail-container">
+<view class="container detail-container"  hidden="{{!loading}}">
   <view class="detail-header-box">
      <view class="detail-topic-img">
         <image src="{{activity.img}}" mode="aspectFill" bind:tap="preview"/>
@@ -7,14 +7,20 @@
      <view class="detail-infos">
        <view class="start-time">
          <view>
-           开始时间:<text>{{activity.start_time}}</text>
+           开始时间:<text>{{activity.starttime}}</text>
          </view>
-         <view class="detail-status">
+         <view class="detail-status" wx:if="{{activity.flowstate=='1'}}">
+           未开始
+         </view>
+         <view class="detail-status" wx:if="{{activity.flowstate=='2'}}">
            进行中
+         </view>
+         <view class="detail-status" wx:if="{{activity.flowstate=='3'}}">
+           已结束
          </view>
        </view>
        <view class="end-time">
-         结束时间:<text>{{activity.end_time}}</text>
+         结束时间:<text>{{activity.endtime}}</text>
        </view>
        <view class="perpon">
          <view>
@@ -92,3 +98,4 @@
     <view>我要报名</view>
   </view>
 </view>
+<loading hidden="{{loading}}">加载中...</loading>

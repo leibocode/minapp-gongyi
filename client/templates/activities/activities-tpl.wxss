@@ -27,7 +27,7 @@
 }
 
 .activities-item .activities-item-right .activities-item-title{
-    font-size:36rpx;
+    font-size:28rpx;
     color:#333;
     flex-wrap:nowrap;
     
@@ -49,8 +49,10 @@
     flex:1.5;
     color: #fff;
     background-color: #218ccd;
-    font-size:36rpx;
+    font-size:24rpx;
     text-align: center;
+    line-height:50rpx;
+
 }
 .status_info{
     flex:3;

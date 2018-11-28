@@ -1,18 +1,25 @@
+import Model from '../../models/actvity.js'
+
+const model = new Model()
 
 Page({
     data:{
         tabs:['全部','类型','区域'],
         currentTabsIndex:0,
-        activitiesArr:[{
-            src:'../../images/activity-details-pic.jpg',
-            imgs:['../../images/photo-pic.jpg','../../images/photo-pic.jpg','../../images/photo-pic.jpg']
-        }]
+        activitiesArr:[],
+        loading:false
     },
     onLoad:function(){
-
+        this._loadData()
     },
     _loadData:function(){
-
+        let user = wx.getStorageSync('user')
+        let token =wx.getStorageSync('token')
+        user.token =token
+        let that = this
+        model.getActvities(user,(data)=>{
+            
+        })
     }, 
     onPullDownRefresh:function(){
 
@@ -20,7 +27,7 @@ Page({
     onShareAppMessage:function(){
         return {
             title:'城志协',
-            path:'pages/home/home'
+            path:'pages/activity/activity'
         }
     }
 })

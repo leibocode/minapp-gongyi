@@ -3,11 +3,11 @@ import HomeModel from '../../models/home.js'
 const model = new HomeModel()
 Page({
     data: {
-        bannerArr: [{
-            img: '../../images/h-banner.jpg'
-        }, {
-            img: '../../images/h-banner.jpg'
-        }],
+        bannerArr: [],
+        hot:[],
+        review:[],
+        noticeList:[],
+        luvu:[],
         menus: [{
             icon_url: '../../images/h-icon1.png',
             name: '成为志愿者',
@@ -30,11 +30,7 @@ Page({
             name: '帮助中心',
             url: '../query/query'
         }],
-        loading: true,
-        activitiesArr: [{
-            src: '../../images/activity-details-pic.jpg',
-            imgs: ['../../images/photo-pic.jpg', '../../images/photo-pic.jpg', '../../images/photo-pic.jpg']
-        }]
+        loading:false
     },
     onLoad:function () {
         let user = wx.getStorageSync('user')
@@ -43,8 +39,13 @@ Page({
                 url: '../authorize/authorize'
             })
         }
-        this._loadData()
-        console.log('加载数据')
+    },
+    onShow:function(){
+        let user = wx.getStorageSync('user')
+        if(user){
+            this._loadData()
+            console.log('加载数据')
+        }
     },
     _loadData: function () {
         let user = wx.getStorageSync('user')
@@ -52,17 +53,46 @@ Page({
         let token =wx.getStorageSync('token')
         console.log(token)
         user.token =token
+        let that = this
         model.getBannerData(user,(data)=>{
-            console.log(data)
-            console.log('加载ok')
-        })  
+            that.setData({
+                bannerArr:data
+            })
+        }) 
+
+        model.getHotActivities(user,(data)=>{
+            that.setData({
+                hot:data
+            })
+        })
+
+        model.getHotActivitiesByReview(user,(data)=>{
+           that.setData({
+                review:data
+           })
+        })
+
+        model.getNoticeList(user,(data)=>{
+            that.setData({
+                noticeList:data
+            })
+        })
+        
+        model.getLuvuList(user,(data)=>{
+            that.setData({
+                luvu:data, 
+                loading:true
+            })
+        })
     },
     onPullDownRefresh: function () {
 
     },
-    onActivityItemTap() {
+    onActivityItemTap(event) {
+        let id = model.getDataSet(event,'id')
+        console.log(id)
         wx.navigateTo({
-            url: '../detail/detail'
+            url: '../detail/detail?id='+id
         })
     },
     onShareAppMessage: function () {

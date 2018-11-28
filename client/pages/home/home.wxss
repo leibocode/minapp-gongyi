@@ -83,3 +83,45 @@ page{
     border-radius: 100%;
 }
 
+.notice-box{
+    margin:0 20rpx 20rpx 20rpx;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    flex-direction:row;
+}
+
+.notice-item {
+    min-height:400rpx;
+    width:48%;
+    border-radius:10rpx;
+    background:#F5F6F5;
+    border:1px solid #d9d9d9;
+    text-align:center;
+    margin:8rpx 8rpx 8rpx 0rpx;
+}
+
+.notice-image{
+    width:100%;
+    height:230rpx;
+    border-radius:10rpx;
+}
+
+.notice-item-bottom{
+    margin-bottom:20rpx;
+    color:#333;
+    font-size:16rpx;
+}
+
+.name{
+
+}
+
+.desc{
+    height:30rpx;
+}
+
+.price{
+    font-size:50rpx;
+}
+

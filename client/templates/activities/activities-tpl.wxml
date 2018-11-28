@@ -1,24 +1,32 @@
 <template name="activities">
     <view class="activities-box">
         <block  wx:key="index" wx:for="{{activitiesArr}}">
-            <view class="activities-item" bind:tap="onActivityItemTap">
+            <view class="activities-item" data-id="{{item.gid}}" bind:tap="onActivityItemTap">
                 <image class="activities-item-img" src="{{item.src}}" mode="aspectFill"/>   
                 <view class="activities-item-right">
-                    <view class="activities-item-title">希望工程 温暖冬日</view>
+                    <view class="activities-item-title">{{item.title}}</view>
                     <view class="activities-item-time">
                         <view class="icon_time">
                             <image src="../../images/sj-icon.png"/>
                         </view>
-                        2019-09-21 07:09 至 2019-09-21 08:10
+                        {{item.starttime}}至{{item.endtime}}
                     </view>
                     <view class="activities-item-address">
                         <view class="icon_address">
-                            <image  src="../../images/location-icon.png" />
+                            <image src="{{}}"/>
                         </view>
-                        广东汕头市龙湖区官一小学
+                        {{item.straddress}}
                     </view>
                     <view class="activities-item-status">
-                        <view class="status_text">进行中</view>
+                        <view class="status_text" wx:if="{{item.flowstate=='1'}}">
+                          未开始
+                        </view>
+                        <view class="status_text" wx:if="{{item.flowstate=='2'}}">
+                          进行中
+                        </view>
+                        <view class="status_text" wx:if="{{item.flowstate=='3'}}">
+                          已结束
+                        </view>
                         <view class="status_info">
                             <view>
                                 已报名:
@@ -26,9 +34,7 @@
                             </view>
                         </view>
                         <view class="status_imgs">
-                            <block wx:for="{{item.imgs}}" wx:for-item="imgs" wx:key="{{index}}">
-                                <image src="{{imgs}}"/>
-                            </block>
+                            <image src="{{img1}}"/>
                         </view>
                     </view>
                 </view>

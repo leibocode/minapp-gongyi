@@ -1,16 +1,14 @@
 <import src="../../templates/activities/activities-tpl.wxml"/>
-<view class="activity-container">
+<view class="activity-container" hidden="{{!loading}}">
     <view class="activity-header-box">
         <block wx:for="{{tabs}}">
             <view class="tab-item {{currentTabsIndex==index?'selected':''}}"
           bindtap="onTabsItemTap" data-index="{{index}}">{{item}}</view>
         </block>
-        <view class="tab-item activity-header-search">
-            <image src="../../images/page-nav-search.png" />
-        </view>
     </view>
     <view class="activity-hr"></view>
     <view class="activity-main-box">
         <template is="activities" data="{{activitiesArr:activitiesArr}}"></template>
     </view>
 </view>
+<loading hidden="{{loading}}">加载中...</loading>
