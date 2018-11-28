@@ -1,9 +1,3 @@
-.section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .pic-box {
     display: flex;
     flex-direction: column;
@@ -98,6 +92,22 @@
     border-radius: 50%;
 }
 
+.list-img {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: 1rem;
+}
+
+.list-img image {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
 .p-list {
     display: flex;
     flex-direction: column;
@@ -110,7 +120,31 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     border-bottom: 1px solid #ddd;
     padding: 0.2rem;
+    font-size: 0.8rem;
+}
+
+.list-state {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    color: #e50026;
+}
+
+.list-state image {
+    width: 12px;
+    height: 15px;
+    margin-right: 2px;
+}
+
+.p-item view:nth-of-type(2) {
+    width: 40%;
+}
+
+.p-item view:nth-last-of-type(1) {
+    width: 8%;
 }

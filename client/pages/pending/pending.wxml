@@ -1,7 +1,7 @@
 <view class="pending-container">
     <view class="organis-box">
         <block wx:for-index="idx" wx:for-item="item" wx:for="{{organisArr}}">
-            <view class="organis-item" bind:tap="onActivityItemTap({{item.id}})">
+            <view class="organis-item" bind:tap="onActivityItemTap">
                 <view class="img-warp">
                     <image class="organis-item-img" src="{{item.src}}" mode="aspectFill" />
                 </view>

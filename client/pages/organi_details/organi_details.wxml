@@ -1,4 +1,4 @@
-<view class="">
+<view class="section">
     <view class="pic-box">
         <image class="pic-box-img" src="{{delinfo.photo}}" mode="aspectFill" />
     </view>
@@ -31,20 +31,27 @@
     <view class="spanview"></view>
     <view class="dz-box">
         <view class="col-blue">组织活动</view>
-        <view>30 ></view>
+        <view style="color: #e50026;font-size: 0.8rem">30 ></view>
     </view>
     <view class="spanview"></view>
     <view class="dz-box">
         <view class="col-blue">组织成员</view>
-        <view>人数 7人</view>
+        <view>
+            <text style="font-size: 0.8rem">人数</text>
+            <text style="color: #e50026;font-size: 0.8rem">7人</text>
+        </view>
     </view>
     <view class="p-list">
         <view class="p-item" wx:key="index" wx:for="{{p_list}}">
-            <view class="dz-info-img">
+            <view class="list-img">
                 <image src="{{item.photo}}" mode="aspectFill" />
             </view>
             <view>{{item.name}}</view>
-            <!-- <view>></view> -->
+            <view class="list-state">
+                <image src="../../images/o-d-p-s-icon.png" />
+                <text>审核中</text>
+            </view>
+            <view style="color: #d7d7d7">></view>
         </view>
     </view>
 </view>
