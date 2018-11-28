@@ -1,0 +1,39 @@
+<view class="section">
+    <view class="top-box">
+        <image src="../../images/member-bg.jpg" mode="aspectFit" />
+    </view>
+    <view class="photo-box">
+        <view>
+            <image src="../../images/photo-pic.jpg" mode="aspectFill" />
+        </view>
+    </view>
+    <!-- <div class="member-state"><img src="images/dsh-icon.png" alt=""></div> -->
+    <image class="member-state" src="../../images/dsh-icon.png" mode="aspectFill" />
+    <view class="info-name">{{info.name}}</view>
+    <view class="info-item">
+        <text>性别</text>
+        <text>{{info.sex}}</text>
+    </view>
+    <view class="info-item">
+        <text>手机号码</text>
+        <text>{{info.phone}}</text>
+    </view>
+    <view class="info-item">
+        <text>志愿时长</text>
+        <text>{{info.volunteertime}}</text>
+    </view>
+    <view class="btns">
+        <view>不通过</view>
+        <view>通过</view>
+    </view>
+    <view class="spanview"></view>
+    <view class="dz-box">
+        <view class="col-blue">加入的群聊</view>
+        <view style="color: #e50026">5 ></view>
+    </view>
+    <view class="spanview"></view>
+    <view class="dz-box">
+        <view class="col-blue">参加过的活动</view>
+        <view style="color: #e50026">4 ></view>
+    </view>
+</view>

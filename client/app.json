@@ -13,8 +13,9 @@
         "pages/my-organi/my-organi",
         "pages/captain-auth/captain-auth",
         "pages/pending/pending",
-        "pages/organi_details/organi_details", 
-        "pages/authorize/authorize"
+        "pages/organi_details/organi_details",
+        "pages/authorize/authorize",
+        "pages/member/member"
     ],
     "window": {
         "navigationBarBackgroundColor": "#e50026",

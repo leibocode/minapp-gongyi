@@ -31,18 +31,18 @@
     <view class="spanview"></view>
     <view class="dz-box">
         <view class="col-blue">组织活动</view>
-        <view style="color: #e50026;font-size: 0.8rem">30 ></view>
+        <view style="color: #e50026;">30 ></view>
     </view>
     <view class="spanview"></view>
     <view class="dz-box">
         <view class="col-blue">组织成员</view>
         <view>
-            <text style="font-size: 0.8rem">人数</text>
-            <text style="color: #e50026;font-size: 0.8rem">7人</text>
+            <text>人数</text>
+            <text style="color: #e50026;">7人</text>
         </view>
     </view>
     <view class="p-list">
-        <view class="p-item" wx:key="index" wx:for="{{p_list}}">
+        <view class="p-item" wx:key="index" wx:for="{{p_list}}" data-id="{{item.id}}" bind:tap="tomember">
             <view class="list-img">
                 <image src="{{item.photo}}" mode="aspectFill" />
             </view>

@@ -27,10 +27,19 @@ Page({
             name: 'Leibo V666',
             iphonexs: '182****9290',
             organisStatus: 1
-          }]
+        }]
     },
     onload: function () {
-
-        console.log(this.data.delinfo);
+        //console.log(this.data.delinfo);
+    },
+    tomember: function (event) {
+        let id = event.target.dataset.id;
+        console.log(id);
+        wx.navigateTo({
+            url: '../member/member',
+            data: {
+                id: id
+            }
+        })
     }
 })

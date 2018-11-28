@@ -64,7 +64,8 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0.6rem;
-    border-bottom: 1px solid #ddd
+    border-bottom: 1px solid #ddd;
+    font-size: 0.9rem;
 }
 
 .col-blue {
