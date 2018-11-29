@@ -34,6 +34,8 @@
 }
 .activities-item-time{
     margin-top:6rpx;
+    display:flex;
+    flex-wrap:wrap;
 }
 .activities-item-address{
     margin-top:6rpx;
@@ -53,6 +55,9 @@
     text-align: center;
     line-height:50rpx;
 
+}
+.status_text3{
+    background-color:#9a9a9a;
 }
 .status_info{
     flex:3;
