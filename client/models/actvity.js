@@ -30,6 +30,7 @@ export default class myActivity extends Http {
                 callback && callback(res)
             }
         }
+        //
         this.request(params)
     }
 }
