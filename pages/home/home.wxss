@@ -125,5 +125,5 @@ page{
     height:70rpx;
     text-align:center;
     font-size:28rpx;
-    margin:30rpx 20rpx;
+    margin:40rpx 20rpx;
 }

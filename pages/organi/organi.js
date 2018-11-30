@@ -3,7 +3,7 @@ const model =new Model()
 Page({
     data: {
         tabs: ['排序', '类型', '区域'],
-        currentTabsIndex: 0,
+        currentTabsIndex:-1,
         organisArr:[],
         loading:false,
         commodity_attr_boxs:[{
@@ -92,8 +92,8 @@ Page({
             showModalStatus:false
         })
     },
-    toggleState:function(){
-
+    toggleState:function(event){
+        
     },
     onShareAppMessage: function () {
         return {

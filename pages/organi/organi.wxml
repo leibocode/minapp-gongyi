@@ -16,7 +16,7 @@
 <!-- <loading hidden="{{loading}}">加载中...</loading> -->
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
 <view class="animate-wrap">
-    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{currentTabsIndex ==0}}">
+    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{orderModel}}">
         <view class="commodity_attr_box_content">
             <block wx:for="{{commodity_attr_boxs}}">
                 <view class="commodity_attr_boxs_item" data-toggle="{{index}}" bind:tap="toggleState">
@@ -26,21 +26,21 @@
             </block>
         </view>
    </view>
-    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{currentTabsIndex ==1}}">
+    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{regionModel}}">
         <view class="commodity_attr_box_content">
             <block wx:for="{{cate}}">
                 <view class="commodity_attr_boxs_item" data-toggle="{{index}}" bind:tap="toggleState">
-                    <view class="item-text">{{item.text}}</view>
+                    <view class="item-text">{{item.Names}}</view>
                     <view class="item-icon active" wx:if="{{item.status}}"></view>
                 </view>
             </block>
         </view>
    </view>
-    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{currentTabsIndex ==2}}">
+    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{cateModel}}">
         <view class="commodity_attr_box_content">
             <block wx:for="{{regions}}">
-                <view class="commodity_attr_boxs_item" data-toggle="{{index}}" bind:tap="toggleState">
-                    <view class="item-text">{{item.text}}</view>
+                <view class="commodity_attr_boxs_item" data-code ="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
+                    <view class="item-text">{{item.Names}}</view>
                     <view class="item-icon active" wx:if="{{item.status}}"></view>
                 </view>
             </block>

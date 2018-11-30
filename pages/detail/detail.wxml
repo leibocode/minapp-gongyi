@@ -9,13 +9,13 @@
          <view>
            开始时间:<text>{{activity.starttime}}</text>
          </view>
-         <view class="detail-status" wx:if="{{activity.flowstate=='1'}}">
+         <view class="detail-status1" wx:if="{{activity.flowstate=='1'}}">
            未开始
          </view>
-         <view class="detail-status" wx:if="{{activity.flowstate=='2'}}">
+         <view class="detail-status2" wx:if="{{activity.flowstate=='2'}}">
            进行中
          </view>
-         <view class="detail-status" wx:if="{{activity.flowstate=='3'}}">
+         <view class="detail-status3" wx:if="{{activity.flowstate=='3'}}">
            已结束
          </view>
        </view>
@@ -24,15 +24,15 @@
        </view>
        <view class="perpon">
          <view>
-           报名人数:<text class="text-nums">30</text>/<text>80</text>
+           报名人数:<text class="text-nums">{{activity.enrollnum}}</text>/<text>{{activity.totalnum}}</text>
          </view>
-         <view class="icon-dianz">
+         <view class="icon-dianz" bind:tap="onDz">
            <image src="../../images/dianzan-icon.png"/>
          </view>
        </view>
        <view class="detail-type">
          <view>
-           所属类型:<text>其他</text>
+           所属类型:<text>{{}}</text>
          </view>
          <view class="icon-fenx" bind:tap="onShare">
            <image src="../../images/fengxiang-icon.png"/>
@@ -40,15 +40,15 @@
        </view>
        <view class="detail-area">
           <view>
-           所属区域:<text>浦东区</text>
+           所属区域:<text>{{}}</text>
           </view>
        </view>
        <view class="detail-address">
-          <view>活动地点:<text>广东汕头市澄海区隆都镇上西村上</text></view>
+          <view>活动地点:<text>{{activity.straddress}}</text></view>
        </view>
      </view>
      <view class="detail-desc">
-        <text>{{activity.desc}}</text>
+        <text>{{activity.activitydetails}}</text>
      </view>
   </view>
   <view class="detail-hr"></view>
@@ -60,14 +60,14 @@
       </view>
     </view>
     <view class="detail-content">
-       <image class="detail-content-img" src="../../images/photo-pic.jpg"/>
+       <!-- <image class="detail-content-img" src="../../images/photo-pic.jpg"/> -->
        <view class="detail-phone">
-          <text>发起人:周洁</text>
-          <text>手机号:15826775622</text>
+          <text>发起人:{{activity.contact}}</text>
+          <text>手机号:{{activity.telephone}}</text>
        </view>
-       <view class="detail-code">
+       <!-- <view class="detail-code">
           <image src="../../images/ichengzhi-ewm.jpg"/>
-       </view>
+       </view> -->
     </view>
   </view>
   <view class="detail-hr"></view>
@@ -79,16 +79,16 @@
       </view>
     </view>
    <view class="detail-bottom-content">
-     <block wx:for="{{activity.list}}" wx:key="index" wx:for-item="signup_item">
+     <block wx:for="{{userList}}" wx:key="index" wx:for-item="signup_item">
        <view class="signup_item">
           <view class="item-info">
             <view class="ingo-img">
-              <image  src="{{signup_item.url}}" />
+              <image  src="{{signup_item.headimgurl}}" />
             </view>
-            <view class="info-name">{{signup_item.name}}</view>
+            <view class="info-name">{{signup_item.membername}}</view>
           </view>
           <view class="item-time">
-            {{signup_item.add_date}}
+            {{signup_item.hddate}}
           </view>
        </view>
      </block>

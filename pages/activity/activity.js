@@ -18,12 +18,17 @@ Page({
         user.token =token
         let that = this
         model.getActvities(user,(data)=>{
-            
+            console.log(data)
         })
     }, 
     onPullDownRefresh:function(){
 
     },
+    onDz:function(){
+        
+    },
+
+
     onShareAppMessage:function(){
         return {
             title:'城志协',

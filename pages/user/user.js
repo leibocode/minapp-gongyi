@@ -1,12 +1,8 @@
-import HomeModel from '../../models/home'
-
-const model = new HomeModel() 
+import Model from '../../models/user.js'
+const model =new Model()
 Page({
     data:{
-        userInfo:{
-            nickname:'icode',
-            avatarUrl:''
-        },
+        userInfo:{},
         bannerArr:[{
             img:'../../images/h-banner.jpg'
         }],
@@ -30,13 +26,23 @@ Page({
             icon_url:'../../images/h-icon1.png',
             title:'成员待审核',
             class:'no-border'
-        }]
+        }],
+        loading:false
     },
     onLoad:function(){
-
+        this._loadData()
     },
     _loadData:function(){
-
+        let user = wx.getStorageSync('user')
+        let token =wx.getStorageSync('token')
+        user.token =token
+        let that = this
+        model.getUserInfo(user,(data)=>{
+            that.setData({
+                loading:true,
+                userInfo:data
+            })
+        })
     }, 
     onPullDownRefresh:function(){
 

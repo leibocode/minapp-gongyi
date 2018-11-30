@@ -1,20 +1,12 @@
-<view class="user-container">
+<view class="user-container" hidden="{{!loading}}">
     <view class="userbox">
-        <view wx:if="{{userInfo}}" class="userinfo">
+        <image src="../../images/my-banner-bg.jpg" mode="aspectFill" class="img-bg" />
         <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}"> </image>
-        <view style='width:30rpx;'></view>
+        <!-- <view style='width:30rpx;'></view>
         <view class='userinfo-text'>
             <text class="userinfo-nickname">{{ userInfo.nickname }}</text>
             <view style='height:10rpx;'></view>
-        </view>
-    </view>
-    <view wx:else class="userinfo">
-      <!-- <wxc-avatar class="userinfo-avatar-no" mold="square" src="https://cdn.it120.cc/apifactory/2018/06/10/527a0d6e3b3f1ffc32748193d743da26.jpg" bindtap="relogin"> </wxc-avatar> -->
-      <view class='userinfo-text'>
-        <text class="userinfo-nickname"> 欢迎您 ，👆 点我登陆 </text>
-        <view style='height:10rpx;'></view>
-      </view>
-    </view>
+        </view> -->
     </view>
     <view class="user-header">
         <view class="user-header-left">
@@ -42,6 +34,7 @@
     <view class="user-code">
         <view class="user-code-text">我的<text>专用二维码</text></view>
         <view class="user-code-desc">分享获取积分，分享不断，积分不断</view>
-        <image class="code-img" src="../../images/ichengzhi-ewm.jpg"/>
+        <!-- <image class="code-img" src="../../images/ichengzhi-ewm.jpg"/> -->
     </view>
 </view>
+<loading hidden="{{loading}}">加载中...</loading>
