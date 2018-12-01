@@ -18,7 +18,7 @@
     </view>
     <view class="user-menu">
            <block wx:for="{{menus}}" wx:key="{{index}}">
-              <view class="user-menu-item {{item.class}}">
+              <view bind:tap="onMenuTap" data-index="{{index}}" class="user-menu-item {{item.class}}">
                 <view class="item-icon">
                     <image  src="{{item.icon}}"/>
                 </view>

@@ -1,18 +1,26 @@
+import organiModel from '../../models/organi.js'
+const model =new organiModel()
 Page({
     data:{
-        tabs:['我报名的组织','我创建的组织','我管理的组织'],
+        tabs:['排序','方式','类型','区域'],
         currentTabsIndex:0,
         organisArr:[{
-            src:'../../images/organi-pic1.jpg',
-            imgs:['../../images/photo-pic.jpg','../../images/photo-pic.jpg','../../images/photo-pic.jpg'],
-            organisStatus:1
+            
         }]
     },
     onLoad:function(){
-
+        this._loadData()
     },
     _loadData:function(){
-
+        let user = wx.getStorageSync('user')
+        let token =wx.getStorageSync('token')
+        user.token =token
+        let that = this
+        model.getMyOrganis(user,(data)=>{
+            this.setData({
+                organisArr:data
+            })
+        })
     }, 
     onTabsItemTap(event){
         let index =model.getDataSet(event,'index')

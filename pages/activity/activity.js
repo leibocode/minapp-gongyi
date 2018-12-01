@@ -19,6 +19,10 @@ Page({
         let that = this
         model.getActvities(user,(data)=>{
             console.log(data)
+            that.setData({
+                activitiesArr:data,
+                loading:true
+            })
         })
     }, 
     onPullDownRefresh:function(){

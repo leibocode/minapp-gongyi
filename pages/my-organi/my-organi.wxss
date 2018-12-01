@@ -26,5 +26,9 @@
     /*color: #AB956D;*/
     color:#e50026;
     /*border-bottom: 2px solid #AB956D;*/
-    border-bottom: 2px solid #e50026;
+}
+
+.item-icon-dowm{
+    width:25rpx;
+    height:25rpx;
 }

@@ -3,7 +3,11 @@
    <view class="my-organi-header-box">
        <block wx:for="{{tabs}}" wx:key="{{index}}">
             <view class="tab-item {{currentTabsIndex==index?'selected':''}}"
-          bindtap="onTabsItemTap" data-index="{{index}}">{{item}}</view>
+          bindtap="onTabsItemTap" data-index="{{index}}">
+            {{item}}
+            <image class="item-icon-dowm" src="../../images/dowm.png" />
+          </view>
+          
         </block>
    </view>
    <view class="my-organi-hr"></view>

@@ -40,6 +40,10 @@ Page({
             })
         })
 
+        model.getActvitiyButtonState(user,(data)=>{
+            
+        })
+
         model.getUserjoin(user,(data)=>{
             that.setData({
                 userList:data

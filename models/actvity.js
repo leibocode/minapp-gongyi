@@ -14,7 +14,7 @@ export default class myActivity extends Http {
         let that = this
         let params ={
             url:`weixin/data/selecthuodong?inner_membergid=${data.userId}&inner_membername=
-            ${data.nickName}&token=${data.token}&orderbyid=""&cbkind=""&cbregion=""`,
+            ${data.nickName}&token=${data.token}&pagesize=10&curpage=1&orderBy=&cbkind=&cbregion=`,
             method:'POST',
             success:function(res){
                 console.log(res)
@@ -102,8 +102,11 @@ export default class myActivity extends Http {
         this.request(params)
     }
 
-    
-
+    /**
+     *  点赞
+     * @param {}} data 
+     * @param {*} callback 
+     */
     createDzStatus(data,callback){
         let that = this
         let params ={
@@ -117,5 +120,7 @@ export default class myActivity extends Http {
         }
         this.request(params)
     }
+
+    
 
 }

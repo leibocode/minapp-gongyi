@@ -48,6 +48,12 @@ Page({
             console.log('加载数据')
         }
     },
+    OnMoreActtivitiesTap:function(){
+        console.log('wx')
+        wx.navigateTo({
+            url: '../activity/activity'
+        })     
+    },
     _loadData: function () {
         let user = wx.getStorageSync('user')
         console.log(user)

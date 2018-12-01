@@ -17,7 +17,7 @@
      <view class="header-hr"></view>
      <view class="home-main-header">
         <view class="header-text_left">热门活动</view>
-        <view class="header-text_right">更多活动</view>
+        <view class="header-text_right" bind:tap="OnMoreActtivitiesTap">更多活动</view>
      </view>
      <view class="home-main-list" wx:if="{{hot.length>0}}">
          <template is="activities" data="{{activitiesArr:hot}}"></template>
@@ -31,7 +31,7 @@
      <view class="header-hr"></view>
      <view class="home-main-header">
         <view class="header-text_left">活动回顾</view>
-        <view class="header-text_right">更多活动</view>
+        <view class="header-text_right" bind:tap="OnMoreActtivitiesTap">更多活动</view>
      </view>
      <view class="home-main-list" wx:if="{{review.length>0}}">
          <template is="activities" data="{{activitiesArr:review}}"></template>
@@ -40,7 +40,8 @@
       没有数据
     </view>
   </view>
-  <view class="home-main">
+  <!--活动预告-->
+  <!-- <view class="home-main">
      <view class="header-hr"></view>
      <view class="home-main-header">
         <view class="header-text_left">活动预告</view>
@@ -63,7 +64,7 @@
           </block>
         </view>
      </view>
-  </view>
+  </view> -->
   <view class="home-footer">
      <text>Copyright©2018 上海常合房地产经纪事务所版权所有沪ICP备02000121号</text>
   </view>

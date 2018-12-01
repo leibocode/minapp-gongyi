@@ -34,28 +34,37 @@ Page({
         loading:false
     },
     onLoad:function(){
-        let user = wx.getStorageSync('user')
-        this.setData({
-            userInfo:user,
-            loading:true
-        })
+        // let user = wx.getStorageSync('user')
+        // this.setData({
+        //     userInfo:user,
+        //     loading:true
+        // })
         this._loadData()
     },
     _loadData:function(){
-        // let user = wx.getStorageSync('user')
-        // let token =wx.getStorageSync('token')
-        // user.token =token
-        // let that = this
-        // model.getUserInfo(user,(data)=>{
-        //     that.setData({
-        //         loading:true,
-        //         userInfo:data
-        //     })
-        // })
+        let user = wx.getStorageSync('user')
+        let token =wx.getStorageSync('token')
+        user.token =token
+        let that = this
+        model.getUserInfo(user,(data)=>{
+            that.setData({
+                loading:true,
+                userInfo:data
+            })
+        })
         
     }, 
     onPullDownRefresh:function(){
 
+    },
+    onMenuTap:function(event){
+        const index = model.getDataSet(event,'index')
+        console.log(index)
+        const path = this.data.menus[index].path
+        console.log(path)
+        wx.navigateTo({
+            url:path
+        })
     },
     onShareAppMessage:function(){
         return {
