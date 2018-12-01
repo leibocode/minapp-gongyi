@@ -6,17 +6,20 @@ export default class myActivity extends Http {
     }
 
     getUserInfo(data, callback) {
-        data.nickName = this.encodeParams(data.nickName)
+        let baseparams = {
+            inner_membergid: data.userId,
+            inner_membername: data.nickName,
+            token: data.token
+        }
         let that = this
-        let params = {
-            url: `api/querydata/getmydataaccess?inner_membergid=${data.userId}&inner_membername=
-            ${data.nickName}&token=${data.token}`,
+        let option = {
+            url: 'api/querydata/getmydataaccess?' + this.toQueryString(baseparams),
             method: 'POST',
             success: function (res) {
                 console.log(res)
                 callback && callback(res)
             }
         }
-        this.request(params)
+        this.request(option)
     }
 }

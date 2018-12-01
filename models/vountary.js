@@ -1,24 +1,27 @@
 import Http from '../utils/http'
 
-export default class myActivity extends Http {
+export default class apiVountary extends Http {
     constructor() {
         super()
     }
 
     registered(data, reginfo, callback) {
-        data.nickName = this.encodeParams(data.nickName)
+        let baseparams = {
+            inner_membergid: data.userId,
+            inner_membername: data.nickName,
+            token: data.token
+        }
         let that = this
-        let params = {
-            url: `/szsetting/SZData/regaccountsubmit?
-            inner_membergid=${data.userId}
-            &inner_membername=${data.nickName}
-            &token=${data.token}`,
+        let option = {
+            url: '/szsetting/SZData/regaccountsubmit?' +
+                this.toQueryString(baseparams) +
+                this.toQueryString(reginfo),
             method: 'POST',
             success: function (res) {
                 console.log(res)
                 callback && callback(res)
             }
         }
-        this.request(params)
+        this.request(option)
     }
 }

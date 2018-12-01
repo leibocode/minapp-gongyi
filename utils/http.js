@@ -67,19 +67,30 @@ export default class Http {
             duration: 2000
         })
     }
-    encodeParams(url) {
-        url = url.replace(';', '%3b')
-        url = url.replace('/', '%2f')
-        url = url.replace('?', '%3f')
-        url = url.replace(':', '%3a')
-        url = url.replace('@', '%40')
-        url = url.replace('&', '%26')
-        url = url.replace('=', '%3d')
-        url = url.replace('+', '%2b')
-        url = url.replace('$', '%24')
-        url = url.replace(',', '%2c')
-        url = url.replace('#', '%23')
-        return url;
+
+    _encodeParams(url) {
+        return url.replace(';', '%3b')
+            .replace('/', '%2f')
+            .replace('?', '%3f')
+            .replace(':', '%3a')
+            .replace('@', '%40')
+            .replace('&', '%26')
+            .replace('=', '%3d')
+            .replace('+', '%2b')
+            .replace('$', '%24')
+            .replace(',', '%2c')
+            .replace('#', '%23')
+    }
+
+    toQueryString(obj) {
+        let keys = Object.keys(obj)
+        let str = ''
+        keys.forEach(key => {
+            if (obj[key]) {
+                str += `&${key}=${this._encodeParams(obj[key].trim())}`
+            }
+        })
+        return str.slice(1)
     }
 
     getDataSet(event, key) {
