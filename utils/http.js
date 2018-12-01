@@ -1,71 +1,88 @@
-import { config } from '../config.js'
+import {
+    config
+} from '../config.js'
 
 /**
  * http 请求类
  */
-const tips ={
-    1:'抱歉,出现一个错误',
-    1000:'',
-    3000:''
+const tips = {
+    1: '抱歉,出现一个错误',
+    1000: '',
+    3000: ''
 }
-export default class Http{
-    constructor(){
+export default class Http {
+    constructor() {
         this.baseRestUrl = config.url
     }
-    
-    request(params){
-       
+
+    request(params) {
+
         let url = this.baseRestUrl + params.url
-        if(!params.method){
-            params.method ='Get'
+
+        if (!params.method) {
+            params.method = 'Get'
         }
-        if(params.token){
-            url =params.token
+        if (params.token) {
+            url = params.token
         }
         wx.request({
-            url:url,
-            method:params.method,
-            data:params.data,
-            headers:{
-                'Content-type':'application/x-www-form-urlencoded'  
+            url: url,
+            method: params.method,
+            data: params.data,
+            headers: {
+                'Content-type': 'application/x-www-form-urlencoded'
             },
-            success:(res)=>{
-                let code =res.statusCode.toString()
-                if(code.startsWith('2')){
+            success: (res) => {
+                let code = res.statusCode.toString()
+                if (code.startsWith('2')) {
                     params.success && params.success(res.data)
-                }else {
-                    let error_code =res.data.error_data
+                } else {
+                    let error_code = res.data.error_data
 
                 }
             },
-            fail:(err)=>{
+            fail: (err) => {
                 this._show_error(1)
             }
         })
     }
 
 
-    _show_error(error_code){
-        if(!error_code){
+    _show_error(error_code) {
+        if (!error_code) {
             error_code = 1
 
         }
         const tip = tips[error_code]
         wx.showToast({
-            title:tip?tip:tips[1],
-            icon:'none',
-            duration:2000
+            title: tip ? tip : tips[1],
+            icon: 'none',
+            duration: 2000
         })
     }
-    _show_error_text(error_text){
+    _show_error_text(error_text) {
         wx.showToast({
-            title:error_text,
-            icon:'none',
-            duration:2000
+            title: error_text,
+            icon: 'none',
+            duration: 2000
         })
+    }
+    encodeParams(url) {
+        url = url.replace(';', '%3b')
+        url = url.replace('/', '%2f')
+        url = url.replace('?', '%3f')
+        url = url.replace(':', '%3a')
+        url = url.replace('@', '%40')
+        url = url.replace('&', '%26')
+        url = url.replace('=', '%3d')
+        url = url.replace('+', '%2b')
+        url = url.replace('$', '%24')
+        url = url.replace(',', '%2c')
+        url = url.replace('#', '%23')
+        return url;
     }
 
-    getDataSet(event,key){
+    getDataSet(event, key) {
         return event.currentTarget.dataset[key]
     }
 

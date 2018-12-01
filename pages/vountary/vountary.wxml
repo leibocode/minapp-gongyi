@@ -5,21 +5,21 @@
                 <text>真实姓名</text>
                 <text class="tred">*</text>
             </text>
-            <input type="text" placeholder="请输入真实姓名" maxlength='6' />
+            <input type="text" placeholder="请输入真实姓名" maxlength='6' value="{{reginfo.name}}" />
         </view>
         <view class="flex-item">
             <text>
                 <text>手机号码</text>
                 <text class="tred">*</text>
             </text>
-            <input type="text" placeholder="请输入手机号码" maxlength='11' />
+            <input type="text" placeholder="请输入手机号码" maxlength='11' value="{{reginfo.mobile}}" />
         </view>
         <view class="flex-item">
             <text>
                 <text>手机验证码</text>
                 <text class="tred">*</text>
             </text>
-            <input type="text" placeholder="请输入验证码" maxlength='6' />
+            <input type="text" placeholder="请输入验证码" maxlength='6' value="{{reginfo.sendcode}}" />
             <button bind:tap="getcode" disabled="{{disabled}}" class="getcode" type="primary">
                 {{getcodetext}}
             </button>
@@ -29,15 +29,15 @@
                 <text>身份证号码</text>
                 <text class="tred">*</text>
             </text>
-            <input type="text" placeholder="请输入身份证号码" maxlength='18' />
+            <input type="text" placeholder="请输入身份证号码" maxlength='18' value="{{reginfo.identitycard}}" />
         </view>
         <view class="flex-item">
             <text>
                 <text>所属志愿队</text>
                 <text class="tred">*</text>
             </text>
-            <picker bindchange="bindzydPickerChange" value="{{zyd_index}}" range="{{zyd_array}}">
-                <view class="picker">{{zyd_array[zyd_index]}}</view>
+            <picker bindchange="defaultvolunteerChange" value="{{reginfo.defaultvolunteer}}" range="{{defaultvolunteerList}}">
+                <view class="picker">{{defaultvolunteerList[reginfo.defaultvolunteer]}}</view>
             </picker>
         </view>
     </view>
@@ -45,31 +45,31 @@
     <view class="flex-wrp">
         <view class="flex-item">
             <text>
-                <text>所属地</text>
+                <text>所属地区</text>
                 <text class="tred">*</text>
             </text>
-            <picker bindchange="bindssdPickerChange" value="{{ssd_index}}" range="{{ssd_array}}">
-                <view class="picker">{{ssd_array[ssd_index]}}</view>
+            <picker bindchange="dependencyChange" value="{{reginfo.dependency}}" range="{{dependencyList}}">
+                <view class="picker">{{dependencyList[reginfo.dependency]}}</view>
             </picker>
         </view>
         <view class="flex-item">
-            <textarea placeholder="所属地详细地址" />
+            <textarea placeholder="所属地详细地址" value="{{reginfo.dencyaddress}}" />
         </view>
     </view>
     <view class="spanview"></view>
     <view class="flex-wrp">
         <view class="flex-item">
             <text>
-                <text>所住地</text>
+                <text>居住地区</text>
                 <text class="tred">*</text>
             </text>
-            <picker bindchange="bindszdPickerChange" value="{{szd_index}}" range="{{szd_array}}">
-                <view class="picker">{{szd_array[szd_index]}}</view>
+            <picker bindchange="dwellingplaceChange" value="{{reginfo.dwellingplace}}" range="{{dwellingplaceList}}">
+                <view class="picker">{{dwellingplaceList[reginfo.dwellingplace]}}</view>
             </picker>
         </view>
         <view class="flex-item">
-            <textarea placeholder="所住地详细地址" />
+            <textarea placeholder="所住地详细地址" value="{{reginfo.placeaddress}}" />
         </view>
-        <button loading="{{loading}}" bind:tap="subform" class="subbtn" type="primary">保存</button>
     </view>
+    <button loading="{{loading}}" bind:tap="subform" class="subbtn" type="primary">保存</button>
 </view>

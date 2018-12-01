@@ -60,5 +60,8 @@
 }
 
 .subbtn {
-    width: 90%;
+    width: 94%;
+    margin: 0px 3% 10px 3%;
+    position: absolute;
+    bottom: 0px;
 }

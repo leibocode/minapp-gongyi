@@ -3,7 +3,7 @@
         <cover-image src="../../images/my-jf-banner.jpg" />
     </view>
     <view class="timetextbox">
-        <view>5600</view>
+        <view>{{myscore}}</view>
         <view>可用积分</view>
     </view>
     <view class="boxlist">

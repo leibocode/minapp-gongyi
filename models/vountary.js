@@ -2,15 +2,17 @@ import Http from '../utils/http'
 
 export default class myActivity extends Http {
     constructor() {
-        super();
+        super()
     }
 
-    getUserInfo(data, callback) {
+    registered(data, reginfo, callback) {
         data.nickName = this.encodeParams(data.nickName)
         let that = this
         let params = {
-            url: `api/querydata/getmydataaccess?inner_membergid=${data.userId}&inner_membername=
-            ${data.nickName}&token=${data.token}`,
+            url: `/szsetting/SZData/regaccountsubmit?
+            inner_membergid=${data.userId}
+            &inner_membername=${data.nickName}
+            &token=${data.token}`,
             method: 'POST',
             success: function (res) {
                 console.log(res)
