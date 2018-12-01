@@ -127,3 +127,13 @@ page{
     font-size:28rpx;
     margin:40rpx 20rpx;
 }
+
+.no-data{
+    width:100%;
+    height:150rpx;
+    background: #ffffff;
+    line-height:150rpx;
+    text-align:center;
+    color:#333;
+    font-size:24rpx;
+}

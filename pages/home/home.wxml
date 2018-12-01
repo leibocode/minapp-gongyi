@@ -13,25 +13,32 @@
         <text>{{item.name}}</text>
     </navigator>
   </view>
-  <view class="home-main">
+  <view class="home-main" >
      <view class="header-hr"></view>
      <view class="home-main-header">
         <view class="header-text_left">热门活动</view>
         <view class="header-text_right">更多活动</view>
      </view>
-     <view class="home-main-list">
+     <view class="home-main-list" wx:if="{{hot.length>0}}">
          <template is="activities" data="{{activitiesArr:hot}}"></template>
      </view>
+     <view class="no-data" wx:else>
+      没有数据
+    </view>
   </view>
+  
   <view class="home-main">
      <view class="header-hr"></view>
      <view class="home-main-header">
         <view class="header-text_left">活动回顾</view>
         <view class="header-text_right">更多活动</view>
      </view>
-     <view class="home-main-list">
+     <view class="home-main-list" wx:if="{{review.length>0}}">
          <template is="activities" data="{{activitiesArr:review}}"></template>
      </view>
+     <view class="no-data" wx:else>
+      没有数据
+    </view>
   </view>
   <view class="home-main">
      <view class="header-hr"></view>

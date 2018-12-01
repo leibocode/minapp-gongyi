@@ -11,17 +11,17 @@
     border-bottom:1rpx solid #f1f1f1;
 }
 .activities-box .activities-item .activities-item-img{
-    width:30%;
+    width:26%;
     border-radius:6rpx;
-    height:186rpx;
+    height:160rpx;
     
 }
 
 
 .activities-box .activities-item .activities-item-right{
-    font-size:24rpx;
+    font-size:20rpx;
     color:#888;
-    width:70%;
+    width:74%;
     margin-left:20rpx;
     height:186rpx;
 }
@@ -39,6 +39,7 @@
 }
 .activities-item-address{
     margin-top:6rpx;
+    overflow:hidden;
 }
 .activities-item-status{
     display:flex;

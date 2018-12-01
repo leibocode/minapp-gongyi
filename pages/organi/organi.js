@@ -5,7 +5,7 @@ Page({
         tabs: ['排序', '类型', '区域'],
         currentTabsIndex:-1,
         organisArr:[],
-        loading:false,
+        loading:true,
         commodity_attr_boxs:[{
             text:'时间',
             status:true,
@@ -25,6 +25,7 @@ Page({
         showModalStatus:false
     },
     onLoad: function () {
+        
         this._loadData()
     },
     _loadData: function () {
@@ -37,20 +38,26 @@ Page({
                 organisArr:data
             })
         })
-        let region = 'voregion'
-        let cate ='volunteertype'
-        model.getValues(user,region,(data)=>{
-            this.setData({
-                regions:data
-            })
+        let region = wx.getStorageSync('region')
+        let category = wx.getStorageSync('category')
+        this.setData({
+            regions:region,
+            cate:category
         })
+        // let region = 'voregion'
+        // let cate ='volunteertype'
+        // model.getValues(user,region,(data)=>{
+        //     this.setData({
+        //         regions:data
+        //     })
+        // })
         
-        model.getValues(user,cate,(data)=>{
-            that.setData({
-                cate:data,
-                loading:true,
-            })
-        })
+        // model.getValues(user,cate,(data)=>{
+        //     that.setData({
+        //         cate:data,
+        //         loading:true,
+        //     })
+        // })
     },
     onTabsItemTap:function(event){
       this.setData({
@@ -88,8 +95,13 @@ Page({
 
     },
     hideModal:function(){
+        let currentTabsIndex = this.data.currentTabsIndex
+
         this.setData({
-            showModalStatus:false
+            showModalStatus:false,
+            orderModel:false,
+            cateModel:false,
+            regionModel:false
         })
     },
     toggleState:function(event){

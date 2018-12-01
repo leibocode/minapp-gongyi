@@ -1,3 +1,6 @@
+page{
+    background-color:#f1f1f1;
+}
 .detail-container{
     background:#f1f1f1;
 }
@@ -127,8 +130,10 @@
 .detail-content{
     display:flex;
     justify-content:space-between;
-    height:220rpx;
     padding:30rpx;
+}
+.select-dz{
+    background-color:#e50026;
 }
 .detail-content-img{
     width:75rpx;

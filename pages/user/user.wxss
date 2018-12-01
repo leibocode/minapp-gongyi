@@ -1,23 +1,42 @@
+page{
+    background-color:#f1f1f1;
+}  
 .user-container{
     background-color:#f1f1f1;
     font-size:24rpx;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
     color:#333;
 }
 .userbox {
     width: 100%;
     height: 375rpx;
+    position:fixed;
+    top:0rpx;
+    left:0rpx;
+    z-index:10;
 }
-
+.userinfo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:300rpx;
+    width:100%;
+    z-index:99;
+    flex-direction:column;
+}
 .userinfo-avatar{
-    width:60rpx;
-    height:60rpx; 
+    width:120rpx;
+    height:120rpx; 
     border-radius:50%;
     z-index:99;
+    margin:20rpx 0;
     background-color:#479de6;
+    border:5rpx solid #eee;
+}
+
+.nickName{
+    z-index:99;
+    font-size:24rpx;
+    color:#333;
 }
 
 .img-bg{
@@ -31,10 +50,12 @@
     background:#fff;
     border-radius:20rpx;
     justify-content:space-between;
-    height:100rpx;
+    height:90rpx;
     margin-bottom:30rpx;
-    margin-top:-80rpx;
     padding:3%;
+    position:fixed;
+    z-index:99;
+    left:4%;
 }
 .user-header-left{
     border-right:1rpx solid #f1f1f1;
@@ -45,18 +66,36 @@
 }
 .user-menu{
     background:#fff;
-    padding:3%;
     border-radius:20rpx;
-    width:86%;
-    margin-bottom:30rpx;
+    width:91%;
+    margin-bottom:16rpx;
+    margin-left:4%;
+    margin-top:150rpx;
 }
 .user-menu-item{
     width:100%;
     display:flex;
     justify-content:space-between;
-    height:78rpx;
+    height:70rpx;
     border-bottom:1rpx solid #f1f1f1;
-    line-height:78rpx;
+    line-height:70rpx;
+    margin-left:4%;
+}
+.item-icon{
+    height:25rpx;
+    width:25rpx;
+}
+.item-td{
+    height:25rpx;
+    width:25rpx;
+}
+.item-td image {
+    width:100%;
+    height:100%;
+}
+.item-icon image{
+    width:100%; 
+    height:100%;
 }
 .user-code{
     display:flex;
@@ -65,13 +104,20 @@
     background:#fff;
     border-radius:20rpx;
     flex-direction:row;
-    height:300rpx;
-    flex-direction:column;
+    height:90rpx;
+    justify-content: space-between;
     margin-bottom:30rpx;
-    padding-top:90rpx;
+    margin-left:4%;
+}
+.user-footer{
+    width:86%;
+    padding:3%;
+    margin-left:4%;
+    text-align:center;
 }
 .menu-item-left {
     margin-left:10rpx;
+    flex:5;
 }
 .no-border{ 
     border-bottom:none;
@@ -89,6 +135,23 @@
 }
 .text-color{
     color:#e50026;
+}
+.code-btn{
+    width:180rpx;
+    height:60rpx;
+    border-radius:30rpx;
+    background-color:#1dee5d;
+    margin-top:20rpx;
+    line-height:60rpx;
+    text-align:center;
+    font-size:24rpx;
+    color:#fff;
+}
+.user-text-title{
+    font-size:26rpx;
+}
+.user-text-desc {
+    font-size:18rpx;
 }
 .user-header text{
     display:block;

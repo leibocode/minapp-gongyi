@@ -2,9 +2,9 @@
 <view class="organi-container"  hidden="{{!loading}}">
     <view class="organi-header-box">
         <block wx:key="index" wx:for="{{tabs}}">
-            <view class="tab-item" bindtap="onTabsItemTap" data-index="{{index}}">
+            <view class="tab-item {{currentTabsIndex==index?selected:''}}" bindtap="onTabsItemTap" data-index="{{index}}">
                 {{item}}
-                <!-- <image src="dowm" /> -->
+                <image class="item-icon-dowm" src="../../images/dowm.png" />
             </view>
         </block>
     </view>
@@ -20,8 +20,8 @@
         <view class="commodity_attr_box_content">
             <block wx:for="{{commodity_attr_boxs}}">
                 <view class="commodity_attr_boxs_item" data-toggle="{{index}}" bind:tap="toggleState">
-                <view class="item-text">{{item.text}}</view>
-                <view class="item-icon active" wx:if="{{item.status}}"></view>
+                    <view class="item-text">{{item.text}}</view>
+                    <view class="item-icon active" wx:if="{{item.status}}"></view>
                 </view>
             </block>
         </view>

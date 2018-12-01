@@ -46,17 +46,31 @@ Page({
             })
         })
         model.getActvitiyDateil(user,(data)=>{
-            that._loadValues(user)
-            let param =user
-           
-            that.setData({
-                loading:true,
-                activity:data,
-                id:id
+            let region = wx.getStorageSync('region')
+            let categoty = wx.getStorageSync('category')
+            console.log(categoty)
+            region.forEach((item)=>{
+                if(data.region===item.sCode){
+                    data.regionText = item.Names
+                }
             })
+
+            categoty.forEach((element)=>{
+                if(data.kind===element.sCode){
+                    data.kindText = element.Names
+                }
+            })
+
+           
             wx.setNavigationBarTitle({
                 title:data.title
             }) 
+            that.setData({
+                loading:true,
+                activity:data,
+                gid:id
+            })
+            
         })
 
         //
@@ -74,37 +88,6 @@ Page({
                 }
             }
         })
-    },
-    _loadValues(user){
-        let region = 'voregion'
-        let cate ='volunteertype'
-        let that = this
-        let region = wx.getStorageSync('region')
-        let category = wx.getStorageSync('category')
-        if(region){
-            that.setData({
-                region:region
-            })
-        }else {
-            organiModel.getValues(user,region,(data)=>{
-                that.setData({
-                    region:data
-                })
-            })
-        }
-
-        if(cate){
-            that.setData({
-                category:cate
-            })
-        }else {
-            organiModel.getValues(user,region,(data)=>{
-                that.setData({
-                    category:data
-                })
-            }) 
-        }
-       
     },
     preview(){
         let imgs =[]
@@ -124,12 +107,16 @@ Page({
         let user = wx.getStorageSync('user')
         let token =wx.getStorageSync('token')
         user.token =token
-        user.gid = id
-        param.title =this.data.title
-        model.getDz(param,data=>{
+        user.gid = this.data.gid
+        user.title =this.data.title
+        model.createDzStatus(user,data=>{
             if(data.result){
+                wx.showToast({
+                    title: '点赞成功',
+                    duration: 2000
+                })
                 that.setData({
-                    dz:data.result
+                    dz:true
                 })
             }
         })

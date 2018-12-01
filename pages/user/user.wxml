@@ -1,12 +1,10 @@
 <view class="user-container" hidden="{{!loading}}">
     <view class="userbox">
         <image src="../../images/my-banner-bg.jpg" mode="aspectFill" class="img-bg" />
-        <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}"> </image>
-        <!-- <view style='width:30rpx;'></view>
-        <view class='userinfo-text'>
-            <text class="userinfo-nickname">{{ userInfo.nickname }}</text>
-            <view style='height:10rpx;'></view>
-        </view> -->
+    </view>
+    <view class="userinfo">
+        <image class="userinfo-avatar" src="{{userInfo.headimgurl}}"> </image>
+        <view class="nickName">{{userInfo.nickName}}</view>
     </view>
     <view class="user-header">
         <view class="user-header-left">
@@ -21,20 +19,34 @@
     <view class="user-menu">
            <block wx:for="{{menus}}" wx:key="{{index}}">
               <view class="user-menu-item {{item.class}}">
+                <view class="item-icon">
+                    <image  src="{{item.icon}}"/>
+                </view>
                  <view class="menu-item-left">
                     <text>{{item.title}}</text>
                  </view>
-                 <view class="menu-item-right">
-                    <text wx:if="{{item.title=='成员待审核'}}" class="text-color">30</text>
-                    <!-- <image src=""/> -->
+                 <view class="item-td">
+
                  </view>
               </view>
            </block>
     </view>
     <view class="user-code">
-        <view class="user-code-text">我的<text>专用二维码</text></view>
+        <!-- <view class="user-code-text">我的<text>专用二维码</text></view>
         <view class="user-code-desc">分享获取积分，分享不断，积分不断</view>
-        <!-- <image class="code-img" src="../../images/ichengzhi-ewm.jpg"/> -->
+        <image class="code-img" src="../../images/ichengzhi-ewm.jpg"/> -->
+        <view class="user-code-text">
+            <view class="user-text-title">分享获取积分</view>
+            <view class="user-text-desc">分享不断,积分不断</view>
+        </view>
+        <view class="user-code-btn">
+            <view class="code-btn">
+                立即分享
+            </view>
+        </view>
+    </view>
+    <view class="user-footer">
+        <text>Copyright©2018 上海常合房地产经纪事务所版权所有沪ICP备02000121号</text>
     </view>
 </view>
 <loading hidden="{{loading}}">加载中...</loading>

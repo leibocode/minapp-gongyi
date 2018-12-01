@@ -1,5 +1,6 @@
 import HomeModel from '../../models/home.js'
-
+import OrganiModel from '../../models/organi.js'
+const organiModel =new OrganiModel()
 const model = new HomeModel()
 Page({
     data: {
@@ -74,19 +75,54 @@ Page({
 
         model.getNoticeList(user,(data)=>{
             that.setData({
-                noticeList:data
-            })
-        })
-        
-        model.getLuvuList(user,(data)=>{
-            that.setData({
-                luvu:data, 
+                noticeList:data,
                 loading:true
             })
         })
+
+        this._loadValues(user)
+        
+        // model.getLuvuList(user,(data)=>{
+        //     that.setData({
+        //         luvu:data, 
+        //         loading:true
+        //     })
+        // })
     },
     onPullDownRefresh: function () {
 
+    },
+    _loadValues(user){
+        let regionKey = 'voregion'
+        let cate ='volunteertype'
+        let that = this
+        let region = wx.getStorageSync('region')
+        let category = wx.getStorageSync('category')
+        if(!region){
+            organiModel.getValues(user,regionKey,(data)=>{
+                data.forEach(element => {
+                    element.status  = false
+                });
+                data.unshift({
+                    Names:'全部',
+                    status:true
+                })
+                wx.setStorageSync('region',data)
+            })
+        }
+
+        if(!category){
+            organiModel.getValues(user,cate,(data)=>{
+                data.forEach(element => {
+                    element.status  = false
+                });
+                data.unshift({
+                    Names:'全部',
+                    status:true
+                })
+                wx.setStorageSync('category',data)
+             }) 
+        }
     },
     onActivityItemTap(event) {
         let id = model.getDataSet(event,'id')

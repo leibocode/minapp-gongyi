@@ -13,7 +13,7 @@
                     </view>
                     <view class="activities-item-address">
                         <view class="icon_address">
-                            <image src="{{}}"/>
+                            <image src="../../images/location-icon.png"/>
                         </view>
                         {{item.straddress}}
                     </view>

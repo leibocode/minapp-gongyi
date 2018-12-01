@@ -26,21 +26,24 @@
          <view>
            报名人数:<text class="text-nums">{{activity.enrollnum}}</text>/<text>{{activity.totalnum}}</text>
          </view>
-         <view class="icon-dianz" bind:tap="onDz">
+         <view wx:if="{{!dz}}" class="icon-dianz" bind:tap="onDz">
            <image src="../../images/dianzan-icon.png"/>
+         </view>
+         <view class="icon-dianz" wx:else>
+            <image src="../../images/dianzan-icon2.png"/>
          </view>
        </view>
        <view class="detail-type">
          <view>
-           所属类型:<text>{{}}</text>
+           所属类型:<text>{{activity.kindText}}</text>
          </view>
-         <view class="icon-fenx" bind:tap="onShare">
+         <view class="icon-fenx" bind:tap="onShare" open-type="share">
            <image src="../../images/fengxiang-icon.png"/>
          </view>
        </view>
        <view class="detail-area">
           <view>
-           所属区域:<text>{{}}</text>
+           所属区域:<text>{{activity.regionText}}</text>
           </view>
        </view>
        <view class="detail-address">
@@ -48,7 +51,7 @@
        </view>
      </view>
      <view class="detail-desc">
-        <text>{{activity.activitydetails}}</text>
+        <view>{{activity.activitydetails}}</view>
      </view>
   </view>
   <view class="detail-hr"></view>

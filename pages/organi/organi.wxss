@@ -4,11 +4,15 @@
 }
 
 .organi-header-box{
-    height:80rpx;
+    height:83rpx;
     display:flex;
     justify-content:space-between;
     background-color:#fff;
     z-index:2099;
+    border-bottom:1rpx solid #f1f1f1;
+    z-index:2099;
+    position:absolute;
+    width:100%;
 }
 .organi-hr{
     background-color:#f1f1f1;
@@ -25,6 +29,10 @@
     border-right:1rpx solid #f1f1f1;
     z-index:2099;
 }
+.item-icon-dowm{
+    width:25rpx;
+    height:25rpx;
+}
 .organi-header-search image {
     width:41rpx;
     height:42rpx;
@@ -36,7 +44,6 @@
     /*color: #AB956D;*/
     color:#e50026;
     /*border-bottom: 2px solid #AB956D;*/
-    border-bottom: 2px solid #e50026;
 }
 
 .commodity_screen {
@@ -54,30 +61,29 @@
   
   .commodity_attr_box {
     width: 100%;
-    height:294rpx;
-    overflow: hidden;
-    position: fixed;
-    top:0rpx;
+    display:flex;
+    position:absolute;
+    top:87rpx;
     left:0rpx;
     z-index: 2000;
     background: #fff;
-    padding-top: 20rpx;
   }
 
   .commodity_attr_box_content{
-    padding:10rpx;
-    padding-top:100rpx;
     color:#000;
     font-size:28rpx;
+    width:100%;
+    height:100%;
   }
   .commodity_attr_boxs_item{
-    margin-top:10rpx;
     margin-left:20rpx;
-    height:50rpx;
-    line-height:50rpx;
-    border-bottom:1rpx solid #f9f9f9;
+    height:70rpx;
+    width:100%;
+    line-height:70rpx;
+    border-bottom:2rpx solid #f1f1f1;
     display:flex;
     justify-content:space-between;
+    margin-left:10rpx;
   }
   .active{
     background:url(https://cdn.it120.cc/images/weappshop/addr-active.png) no-repeat left center;
