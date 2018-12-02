@@ -89,7 +89,7 @@ export default class myActivity extends Http {
         console.log()
         let param = {
             url: `weixin/data/inszorganizationrelation?inner_membergid=${data.user.userId}&inner_membername=
-            ${data.user.nickName}&token=${data.token}&organizationid=${data.gid}&organizationname=${data.name}`,
+            ${this._encodeParams(data.user.nickName)}&token=${data.token}&organizationid=${data.gid}&organizationname=${data.name}`,
             method: 'POST',
             success: function (res) {
                 console.log(res)

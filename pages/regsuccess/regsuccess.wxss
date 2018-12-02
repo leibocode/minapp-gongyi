@@ -1,0 +1,73 @@
+.topbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin: 10rpx auto;
+}
+
+.topbox view:nth-of-type(1) image {
+    width: 110rpx;
+    height: 110rpx;
+    margin: 10rpx 30rpx;
+}
+
+.topbox view:nth-of-type(2) {
+    width: 60%;
+}
+
+.topbox view:nth-of-type(2) text:nth-of-type(1) {
+    line-height: 50rpx;
+    font-size: 40rpx;
+    color: green;
+}
+
+.topbox view:nth-of-type(2) text:nth-of-type(2) {
+    font-size: 22rpx;
+}
+
+.spanview {
+    height: 0.5rem;
+    background-color: #f1f1f1;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info {
+    width: 96%;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.info view:nth-of-type(1) {
+    width: 30%;
+    text-align: right;
+    color: rgb(175, 175, 175);
+    font-size: 28rpx;
+    line-height: 80rpx;
+}
+
+.info view:nth-of-type(2) {
+    width: 60%;
+    font-size: 28rpx;
+    line-height: 80rpx;
+}
+
+.btn {
+    width: 75%;
+    height: 80rpx;
+    font-size: 36rpx;
+    color: #fff;
+    background-color: #e50026;
+    text-align: center;
+    line-height: 80rpx;
+    border-radius: 60rpx;
+    margin: 0 auto;
+    margin-top: 40rpx;
+}
