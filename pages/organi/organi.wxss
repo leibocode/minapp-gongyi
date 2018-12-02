@@ -1,4 +1,7 @@
 @import "../../templates/organis/organis-tpl.wxss";
+page{
+    background-color:#f1f1f1;
+}
 .organi-container{
     background-color:#fff;
 }

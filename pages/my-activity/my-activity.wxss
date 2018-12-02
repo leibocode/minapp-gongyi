@@ -1,13 +1,20 @@
 @import "../../templates/activities/activities-tpl.wxss";
+page {
+    background-color:#f1f1f1;
+}
 .my-activity-container{
     background-color:#fff;
 }
 
 .my-activity-header-box{
-    height:120rpx;
+    height:83rpx;
     display:flex;
     justify-content:space-between;
     background-color:#fff;
+    z-index:2099;
+    border-bottom:1rpx solid #f1f1f1;
+    position:absolute;
+    width:100%;
 }
 .my-activity-hr{
     background-color:#f1f1f1;
@@ -20,11 +27,71 @@
     display:flex;
     align-items:center;
     justify-content:center;
+    margin-left:10rpx;
+    border-right:1rpx solid #f1f1f1;
+    z-index:2099;
+}
+.activity-main-box{
+    margin-top:93rpx;
+    margin-bottom:60rpx;
+}
+
+.item-icon-dowm{
+    width:25rpx;
+    height:25rpx;
 }
 
 .selected{
     /*color: #AB956D;*/
     color:#e50026;
     /*border-bottom: 2px solid #AB956D;*/
-    border-bottom: 2px solid #e50026;
+    /*border-bottom: 2px solid #e50026;*/
 }
+
+.commodity_screen {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.7;
+    overflow: hidden;
+    z-index: 1000;
+    color: #fff;
+  }
+  
+  .commodity_attr_box {
+    width: 100%;
+    display:flex;
+    position:absolute;
+    top:87rpx;
+    left:0rpx;
+    z-index: 2000;
+    background: #fff;
+  }
+
+  .commodity_attr_box_content{
+    color:#000;
+    font-size:28rpx;
+    width:100%;
+    height:100%;
+  }
+  .commodity_attr_boxs_item{
+    margin-left:20rpx;
+    height:70rpx;
+    width:100%;
+    line-height:70rpx;
+    border-bottom:2rpx solid #f1f1f1;
+    display:flex;
+    justify-content:space-between;
+    margin-left:10rpx;
+  }
+  .active{
+    background:url(https://cdn.it120.cc/images/weappshop/addr-active.png) no-repeat left center;
+    background-size:28rpx auto;
+  }
+  .item-icon{
+    width:45rpx;
+    height:45rpx;
+  }
