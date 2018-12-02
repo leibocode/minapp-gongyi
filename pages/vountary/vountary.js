@@ -100,20 +100,44 @@ Page({
             reginfo: reginfo
         })
     },
-    // ** bind ending **
+    // ** bind data ending **
     getcode: function () {
-        console.log('GetCode')
+        //console.log('GetCode')
+        this.setData({
+            disabled: true
+        })
         let user = wx.getStorageSync('user')
         let token = wx.getStorageSync('token')
         user.token = token
         let that = this
         let mobile = this.data.reginfo.mobile
         apiVountary.getsendcode(user, mobile, (data) => {
-            console.log(data);
+            //console.log(data);
+            if (data.result) {
+                wx.showToast({
+                    title: '验证码已发送',
+                    icon: 'succes',
+                    duration: 1000,
+                    mask: true
+                })
+            } else {
+                wx.showModal({
+                    title: '错误',
+                    content: data.msg,
+                    showCancel: false,
+                    success: function (res) {
+                        if (res.confirm) {
+                            that.setData({
+                                disabled: false
+                            })
+                        }
+                    }
+                })
+            }
         })
     },
     subform: function () {
-        console.log('SubForm')
+        //console.log('SubForm')
         this.setData({
             loading: true
         })
@@ -145,19 +169,19 @@ Page({
         user.token = wx.getStorageSync('token')
         let that = this
         apiVountary.getValues(user, 'voregion', (data) => {
-            console.log(data);
+            //console.log(data);
             that.setData({
                 dependencyList: data
             })
         })
         apiVountary.getValues(user, 'working_location', (data) => {
-            console.log(data);
+            //console.log(data);
             that.setData({
                 dwellingplaceList: data
             })
         })
         apiVountary.getDefaultvolunteerList(user, (data) => {
-            console.log(data);
+            //console.log(data);
             that.setData({
                 defaultvolunteerList: data
             })
