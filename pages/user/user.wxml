@@ -37,9 +37,9 @@
             <view class="user-text-title">分享获取积分</view>
             <view class="user-text-desc">分享不断,积分不断</view>
         </view>
-        <view class="user-code-btn">
+        <button class="user-code-btn" open-type="share">
             <view class="code-btn">立即分享</view>
-        </view>
+        </button>
     </view>
     <view class="user-footer">
         <text>Copyright©2018 上海常合房地产经纪事务所版权所有沪ICP备02000121号</text>

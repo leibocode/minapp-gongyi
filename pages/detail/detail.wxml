@@ -1,104 +1,105 @@
-<view class="container detail-container"  hidden="{{!loading}}">
-  <view class="detail-header-box">
-     <view class="detail-topic-img">
-        <image src="{{activity.img}}" mode="aspectFill" bind:tap="preview"/>
-     </view>
-     <view class="detail-hr"></view>
-     <view class="detail-infos">
-       <view class="start-time">
-         <view>
-           开始时间:<text>{{activity.starttime}}</text>
-         </view>
-         <view class="detail-status1" wx:if="{{activity.flowstate=='1'}}">
-           未开始
-         </view>
-         <view class="detail-status2" wx:if="{{activity.flowstate=='2'}}">
-           进行中
-         </view>
-         <view class="detail-status3" wx:if="{{activity.flowstate=='3'}}">
-           已结束
-         </view>
-       </view>
-       <view class="end-time">
-         结束时间:<text>{{activity.endtime}}</text>
-       </view>
-       <view class="perpon">
-         <view>
-           报名人数:<text class="text-nums">{{activity.enrollnum}}</text>/<text>{{activity.totalnum}}</text>
-         </view>
-         <view wx:if="{{!dz}}" class="icon-dianz" bind:tap="onDz">
-           <image src="../../images/dianzan-icon.png"/>
-         </view>
-         <view class="icon-dianz" wx:else>
-            <image src="../../images/dianzan-icon2.png"/>
-         </view>
-       </view>
-       <view class="detail-type">
-         <view>
-           所属类型:<text>{{activity.kindText}}</text>
-         </view>
-         <view class="icon-fenx" bind:tap="onShare" open-type="share">
-           <image src="../../images/fengxiang-icon.png"/>
-         </view>
-       </view>
-       <view class="detail-area">
-          <view>
-           所属区域:<text>{{activity.regionText}}</text>
-          </view>
-       </view>
-       <view class="detail-address">
-          <view>活动地点:<text>{{activity.straddress}}</text></view>
-       </view>
-     </view>
-     <view class="detail-desc">
-        <view>{{activity.activitydetails}}</view>
-     </view>
-  </view>
-  <view class="detail-hr"></view>
-  <view class="detail-main-box">
-    <view class="detail-title">
-      <view class="detail-title-left">联系信息</view>
-      <view class="detail-title-right">
-        
-      </view>
+<view class="container detail-container" hidden="{{!loading}}">
+    <view class="detail-header-box">
+        <view class="detail-topic-img">
+            <image src="{{activity.img}}" mode="aspectFill" bind:tap="preview" />
+        </view>
+        <view class="detail-hr"></view>
+        <view class="detail-infos">
+            <view class="start-time">
+                <view>
+                    开始时间:
+                    <text>{{activity.starttime}}</text>
+                </view>
+                <view class="detail-status1" wx:if="{{activity.flowstate=='1'}}">未开始</view>
+                <view class="detail-status2" wx:if="{{activity.flowstate=='2'}}">进行中</view>
+                <view class="detail-status3" wx:if="{{activity.flowstate=='3'}}">已结束</view>
+            </view>
+            <view class="end-time">
+                结束时间:
+                <text>{{activity.endtime}}</text>
+            </view>
+            <view class="perpon">
+                <view>
+                    报名人数:
+                    <text class="text-nums">{{activity.enrollnum}}</text>
+                    /
+                    <text>{{activity.totalnum}}</text>
+                </view>
+                <view wx:if="{{!dz}}" class="icon-dianz" bind:tap="onDz">
+                    <image src="../../images/dianzan-icon.png" />
+                </view>
+                <view class="icon-dianz" wx:else>
+                    <image src="../../images/dianzan-icon2.png" />
+                </view>
+            </view>
+            <view class="detail-type">
+                <view>
+                    所属类型:
+                    <text>{{activity.kindText}}</text>
+                </view>
+                <button class="icon-fenx fx-btn" bind:tap="onShare" open-type="share">
+                    <image src="../../images/fengxiang-icon.png" />
+                </button>
+            </view>
+            <view class="detail-area">
+                <view>
+                    所属区域:
+                    <text>{{activity.regionText}}</text>
+                </view>
+            </view>
+            <view class="detail-address">
+                <view>
+                    活动地点:
+                    <text>{{activity.straddress}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="detail-desc">
+            <view>{{activity.activitydetails}}</view>
+        </view>
     </view>
-    <view class="detail-content">
-       <!-- <image class="detail-content-img" src="../../images/photo-pic.jpg"/> -->
-       <view class="detail-phone">
-          <text>发起人:{{activity.contact}}</text>
-          <text>手机号:{{activity.telephone}}</text>
-       </view>
-       <!-- <view class="detail-code">
+    <view class="detail-hr"></view>
+    <view class="detail-main-box">
+        <view class="detail-title">
+            <view class="detail-title-left">联系信息</view>
+            <view class="detail-title-right"></view>
+        </view>
+        <view class="detail-content">
+            <!-- <image class="detail-content-img" src="../../images/photo-pic.jpg"/> -->
+            <view class="detail-phone">
+                <text>发起人:{{activity.contact}}</text>
+                <text>手机号:{{activity.telephone}}</text>
+            </view>
+            <!-- <view class="detail-code">
           <image src="../../images/ichengzhi-ewm.jpg"/>
        </view> -->
+        </view>
     </view>
-  </view>
-  <view class="detail-hr"></view>
-  <view class="detail-bottom-box">
-   <view class="detail-title">
-      <view class="detail-title-left">报名列表</view>
-      <view class="detail-title-right">
-        已报名:<text>30人</text>
-      </view>
-    </view>
-   <view class="detail-bottom-content">
-     <block wx:for="{{userList}}" wx:key="index" wx:for-item="signup_item">
-       <view class="signup_item">
-          <view class="item-info">
-            <view class="ingo-img">
-              <image  src="{{signup_item.headimgurl}}" />
+    <view class="detail-hr"></view>
+    <view class="detail-bottom-box">
+        <view class="detail-title">
+            <view class="detail-title-left">报名列表</view>
+            <view class="detail-title-right">
+                已报名:
+                <text>30人</text>
             </view>
-            <view class="info-name">{{signup_item.membername}}</view>
-          </view>
-          <view class="item-time">
-            {{signup_item.hddate}}
-          </view>
-       </view>
-     </block>
-   </view>
-  </view>
-  <view class="detail-bottom-button" bind:tap="onrganizeTap">
-    <view>我要报名</view>
-  </view>
+        </view>
+        <view class="detail-bottom-content dateil-boxs">
+            <block wx:for="{{userList}}" wx:key="index" wx:for-item="signup_item">
+                <view class="signup_item">
+                    <view class="item-info">
+                        <view class="ingo-img">
+                            <image src="{{signup_item.headimgurl}}" />
+                        </view>
+                        <view class="info-name">{{signup_item.membername}}</view>
+                    </view>
+                    <view class="item-time">{{signup_item.hddate}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="detail-bottom-button" bind:tap="onrganizeTap">
+        <view>我要报名</view>
+    </view>
 </view>
 <loading hidden="{{loading}}">加载中...</loading>

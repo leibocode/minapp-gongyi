@@ -162,6 +162,11 @@ page{
     font-size:28rpx;
     font-weight:bold;
 }
+.user-code-btn{
+    padding: 0 !important;
+    border:none !important;
+    margin-right:0rpx;
+}
 .header-right-nums{
     color:#e50026;
     font-size:28rpx;

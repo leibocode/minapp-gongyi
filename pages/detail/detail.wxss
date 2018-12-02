@@ -203,8 +203,20 @@ page{
     margin:22rpx 75rpx;
 }
 
+
+.detail-bottom-content{
+    margin-bottom:170rpx;
+}
+
 .text-nums{
     color:#e50026;
+}
+
+.fx-btn{
+    padding: 0 !important;
+    border:none !important;
+    margin-right:0rpx;
+
 }
 
 

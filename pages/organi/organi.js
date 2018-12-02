@@ -40,21 +40,40 @@ Page({
         let that = this
         model.getOrganis(user, (data) => {
             if (data.length > 0) {
+                let region = wx.getStorageSync('region')
+                let category = wx.getStorageSync('category')
+
+                data.forEach((item) => {
+                    region.forEach((regItem) => {
+                        if (item.region === regItem.sCode) {
+                            item.regionText = regItem.Names
+                        }
+                    })
+                    category.forEach((element) => {
+                        if (item.kind === element.sCode) {
+                            item.kindText = element.Names
+                        }
+                    })
+
+                })
+
+
                 that.setData({
                     organisArr: data,
-                    loading: true
+                    loading: true,
+                    regions: region,
+                    cate: category
                 })
             } else {
 
             }
 
         })
-        let region = wx.getStorageSync('region')
-        let category = wx.getStorageSync('category')
-        this.setData({
-            regions: region,
-            cate: category
-        })
+
+        // this.setData({
+        //     regions: region,
+        //     cate: category
+        // })
         // let region = 'voregion'
         // let cate ='volunteertype'
         // model.getValues(user,region,(data)=>{
