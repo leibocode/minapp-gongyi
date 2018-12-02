@@ -1,14 +1,49 @@
-<import src="../../templates/activities/activities-tpl.wxml"/>
+<import src="../../templates/activities/activities-tpl.wxml" />
 <view class="activity-container" hidden="{{!loading}}">
     <view class="activity-header-box">
         <block wx:for="{{tabs}}">
-            <view class="tab-item {{currentTabsIndex==index?'selected':''}}"
-          bindtap="onTabsItemTap" data-index="{{index}}">{{item}}</view>
+            <view class="tab-item {{currentTabsIndex==index?'selected':''}}" bindtap="onTabsItemTap" data-index="{{index}}">
+                {{item}}
+                <image class="item-icon-dowm" src="../../images/dowm.png" />
+            </view>
         </block>
     </view>
     <view class="activity-hr"></view>
     <view class="activity-main-box">
         <template is="activities" data="{{activitiesArr:activitiesArr}}"></template>
+    </view>
+</view>
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view class="animate-wrap">
+    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{orderModel}}">
+        <view class="commodity_attr_box_content">
+            <block wx:for="{{commodity_attr_boxs}}">
+                <view class="commodity_attr_boxs_item" data-code="0" data-toggle="{{index}}" bind:tap="toggleState">
+                    <view class="item-text">{{item.text}}</view>
+                    <view class="item-icon active" wx:if="{{item.status}}"></view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{categoryModel}}">
+        <view class="commodity_attr_box_content">
+            <block wx:for="{{cate}}">
+                <view class="commodity_attr_boxs_item" data-code="1" data-sCode="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
+                    <view class="item-text">{{item.Names}}</view>
+                    <view class="item-icon active" wx:if="{{item.status}}"></view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{regionModel}}">
+        <view class="commodity_attr_box_content">
+            <block wx:for="{{regions}}">
+                <view class="commodity_attr_boxs_item" data-code="2" data-sCode="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
+                    <view class="item-text">{{item.Names}}</view>
+                    <view class="item-icon active" wx:if="{{item.status}}"></view>
+                </view>
+            </block>
+        </view>
     </view>
 </view>
 <loading hidden="{{loading}}">加载中...</loading>

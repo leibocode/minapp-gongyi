@@ -1,15 +1,15 @@
 <template name="organis">
     <view class="organis-box">
         <block wx:key="index" wx:for="{{organisArr}}">
-            <view class="organis-item" data-id="{{item.gid}}" bind:tap="onActivityItemTap">
+            <view class="organis-item" data-id="{{item.gid}}">
                 <view class="img-warp">
-                    <image class="organis-item-img" src="{{item.src}}" />
+                    <image class="organis-item-img" src="../../images/organi-pic1.jpg" bind:tap="onActivityItemTap" />
                 </view>
-                <view class="organis-item-right">
+                <view class="organis-item-right" bind:tap="onActivityItemTap">
                     <view class="organis-item-title">{{item.name}}</view>
                     <view class="organis-item-time">
                         <view class="icon_time">
-                            <image src="../../images/sj-icon.png" />
+                            <image src="../../images/n-l-else-icon.png" />
                         </view>
                         {{item.kindText}}
                     </view>
@@ -22,14 +22,23 @@
                     <view class="organis-item-status">无</view>
                 </view>
                 <view class="organis-status">
-                    <view class="organis-status-buttons" wx:if="{{item.handelstatus==1}}">
+                    <view class="organis-status-buttons" data-index="index" data-id="{{item.gid}}" data-name="{{item.name}}" bind:tap="onAddOrganiTap" wx:if="{{item.handelstatus==''}}">
                         <view class="buttons">加入组织</view>
                     </view>
-                    <view wx:elif="{{item.handelstatus==2}}">
-                        <view class="buttons">加入组织</view>
+                    <view wx:elif="{{item.handelstatus=='1'}}">
+                        <image class="icon-daishe" src="../../images/dsh-icon.png" />
                     </view>
-                    <view wx:else="{{item.handelstatus==3}}">
-                        <view class="buttons">加入组织</view>
+                    <view wx:elif="{{item.handelstatus=='2'}}">
+                        <view class="buttons">不需审核</view>
+                    </view>
+                    <view wx:elif="{{item.handelstatus=='3'}}">
+                        <view class="buttons">已退出</view>
+                    </view>
+                    <view wx:elif="{{item.handelstatus=='4'}}">
+                        <image class="icon-daishe" src="../../images/yjr-icon.png" />
+                    </view>
+                    <view wx:elif="{{item.handelstatus=='5'}}">
+                        <view>审核通过</view>
                     </view>
                 </view>
             </view>

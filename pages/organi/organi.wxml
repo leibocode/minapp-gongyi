@@ -1,5 +1,5 @@
 <import src="../../templates/organis/organis-tpl.wxml" />
-<view class="organi-container"  hidden="{{!loading}}">
+<view class="organi-container" hidden="{{!loading}}">
     <view class="organi-header-box">
         <block wx:key="index" wx:for="{{tabs}}">
             <view class="tab-item {{currentTabsIndex==index?selected:''}}" bindtap="onTabsItemTap" data-index="{{index}}">
@@ -19,32 +19,32 @@
     <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{orderModel}}">
         <view class="commodity_attr_box_content">
             <block wx:for="{{commodity_attr_boxs}}">
-                <view class="commodity_attr_boxs_item" data-toggle="{{index}}" bind:tap="toggleState">
+                <view class="commodity_attr_boxs_item" data-code="0" data-toggle="{{index}}" bind:tap="toggleState">
                     <view class="item-text">{{item.text}}</view>
                     <view class="item-icon active" wx:if="{{item.status}}"></view>
                 </view>
             </block>
         </view>
-   </view>
-    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{regionModel}}">
+    </view>
+    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{categoryModel}}">
         <view class="commodity_attr_box_content">
             <block wx:for="{{cate}}">
-                <view class="commodity_attr_boxs_item" data-toggle="{{index}}" bind:tap="toggleState">
+                <view class="commodity_attr_boxs_item" data-code="1" data-sCode="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
                     <view class="item-text">{{item.Names}}</view>
                     <view class="item-icon active" wx:if="{{item.status}}"></view>
                 </view>
             </block>
         </view>
-   </view>
-    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{cateModel}}">
+    </view>
+    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{regionModel}}">
         <view class="commodity_attr_box_content">
             <block wx:for="{{regions}}">
-                <view class="commodity_attr_boxs_item" data-code ="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
+                <view class="commodity_attr_boxs_item" data-code="2" data-sCode="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
                     <view class="item-text">{{item.Names}}</view>
                     <view class="item-icon active" wx:if="{{item.status}}"></view>
                 </view>
             </block>
         </view>
-   </view>
+    </view>
 </view>
 <loading hidden="{{loading}}"></loading>

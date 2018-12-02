@@ -3,33 +3,31 @@
         <image src="../../images/my-banner-bg.jpg" mode="aspectFill" class="img-bg" />
     </view>
     <view class="userinfo">
-        <image class="userinfo-avatar" src="{{userInfo.headimgurl}}"> </image>
+        <image class="userinfo-avatar" src="{{userInfo.headimgurl}}"></image>
         <view class="nickName">{{userInfo.nickName}}</view>
     </view>
     <view class="user-header">
         <view class="user-header-left">
-           <text class="header-left-nums">300</text>
-           <text>我的积分</text>
+            <text class="header-left-nums">{{userInfo.score}}</text>
+            <text>我的积分</text>
         </view>
         <view class="user-header-right">
-            <text class="header-right-nums">100</text>
+            <text class="header-right-nums">{{userInfo.duration}}</text>
             <text>志愿时长(时)</text>
         </view>
     </view>
     <view class="user-menu">
-           <block wx:for="{{menus}}" wx:key="{{index}}">
-              <view bind:tap="onMenuTap" data-index="{{index}}" class="user-menu-item {{item.class}}">
+        <block wx:for="{{menus}}" wx:key="{{index}}">
+            <view bind:tap="onMenuTap" data-index="{{index}}" class="user-menu-item {{item.class}}">
                 <view class="item-icon">
-                    <image  src="{{item.icon}}"/>
+                    <image src="{{item.icon}}" />
                 </view>
-                 <view class="menu-item-left">
+                <view class="menu-item-left">
                     <text>{{item.title}}</text>
-                 </view>
-                 <view class="item-td">
-
-                 </view>
-              </view>
-           </block>
+                </view>
+                <view class="item-td"></view>
+            </view>
+        </block>
     </view>
     <view class="user-code">
         <!-- <view class="user-code-text">我的<text>专用二维码</text></view>
@@ -40,9 +38,7 @@
             <view class="user-text-desc">分享不断,积分不断</view>
         </view>
         <view class="user-code-btn">
-            <view class="code-btn">
-                立即分享
-            </view>
+            <view class="code-btn">立即分享</view>
         </view>
     </view>
     <view class="user-footer">
