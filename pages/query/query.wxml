@@ -1,53 +1,13 @@
 <view class="section">
     <view class="querylist">
-        <view class="queryitem">
+        <view class="queryitem" wx:for="{{querylist}}" wx:key="index">
             <view class="title">
                 <text>Q:</text>
-                <text>培训活动是否加入服务时长？</text>
+                <text>{{item.Title}}</text>
             </view>
             <view class="content">
                 <text>A:</text>
-                <text>不可以。发布活动时，请注意选择活动性质，现在新增培训活动，由此产生的时长将录入到培训时长中。（查看培训时长需要在PC端登录账号。）</text>
-            </view>
-        </view>
-        <view class="queryitem">
-            <view class="title">
-                <text>Q:</text>
-                <text>培训活动是否加入服务时长？</text>
-            </view>
-            <view class="content">
-                <text>A:</text>
-                <text>不可以。发布活动时，请注意选择活动性质，现在新增培训活动，由此产生的时长将录入到培训时长中。（查看培训时长需要在PC端登录账号。）</text>
-            </view>
-        </view>
-        <view class="queryitem">
-            <view class="title">
-                <text>Q:</text>
-                <text>培训活动是否加入服务时长？</text>
-            </view>
-            <view class="content">
-                <text>A:</text>
-                <text>不可以。发布活动时，请注意选择活动性质，现在新增培训活动，由此产生的时长将录入到培训时长中。（查看培训时长需要在PC端登录账号。）</text>
-            </view>
-        </view>
-        <view class="queryitem">
-            <view class="title">
-                <text>Q:</text>
-                <text>培训活动是否加入服务时长？</text>
-            </view>
-            <view class="content">
-                <text>A:</text>
-                <text>不可以。发布活动时，请注意选择活动性质，现在新增培训活动，由此产生的时长将录入到培训时长中。（查看培训时长需要在PC端登录账号。）</text>
-            </view>
-        </view>
-        <view class="queryitem">
-            <view class="title">
-                <text>Q:</text>
-                <text>培训活动是否加入服务时长？</text>
-            </view>
-            <view class="content">
-                <text>A:</text>
-                <text>不可以。发布活动时，请注意选择活动性质，现在新增培训活动，由此产生的时长将录入到培训时长中。（查看培训时长需要在PC端登录账号。）</text>
+                <text>{{item.Brief}}</text>
             </view>
         </view>
     </view>
