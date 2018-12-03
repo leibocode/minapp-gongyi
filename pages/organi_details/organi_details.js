@@ -1,6 +1,9 @@
+import ApiOrgniDel from '../../models/organi_delails'
+const apiOrgniDel = new ApiOrgniDel()
+
 Page({
     data: {
-        id: 1,
+        gid: '',
         delinfo: {
             photo: '../../images/organi-pic2.jpg',
             organisStatus: 1,
@@ -29,17 +32,27 @@ Page({
             organisStatus: 1
         }]
     },
-    onload: function () {
+    onLoad: function (options) {
+        console.log(options)
         //console.log(this.data.delinfo);
+        this.setData({
+            gid: options.gid
+        })
+        this._loadData(this.data.gid)
     },
     tomember: function (event) {
         let id = event.target.dataset.id;
         console.log(id);
         wx.navigateTo({
             url: '../member/member',
-            data: {
-                id: id
-            }
+        })
+    },
+    _loadData(gid) {
+        let user = wx.getStorageSync('user')
+        let token = wx.getStorageSync('token')
+        user.token = token
+        apiOrgniDel.getorganizationdetails(user, gid, (data) => {
+            //
         })
     }
 })

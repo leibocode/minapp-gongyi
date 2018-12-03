@@ -1,6 +1,7 @@
 import Model from '../../models/actvity.js'
-
+import Tools from '../../utils/tools'
 const model = new Model()
+const tools = new Tools()
 
 Page({
     data: {
@@ -28,7 +29,7 @@ Page({
         cateModel: false,
         categoryModel: false,
         showModalStatus: false,
-        allLoad:true
+        allLoad: true
     },
     onLoad: function () {
         this._loadData()
@@ -40,18 +41,22 @@ Page({
         user.page = this.data.page
         user.token = token
         model.getActvities(user, (data) => {
-            if(data.length>0){
+            if (data.length > 0) {
+                data.forEach(item => {
+                    item.starttime = tools.dateformat(new Date(item.starttime), 'yyyy-MM-dd hh:mm')
+                    item.endtime = tools.dateformat(new Date(item.endtime), 'yyyy-MM-dd hh:mm')
+                })
                 this.setData({
                     activitiesArr: data,
                     loading: true
                 })
-            }else{
+            } else {
                 this.setData({
-                    activitiesArr:[],
-                    allLoad:false
+                    activitiesArr: [],
+                    allLoad: false
                 })
             }
-          
+
         })
         let region = wx.getStorageSync('region')
         let category = wx.getStorageSync('category')
@@ -117,17 +122,17 @@ Page({
             case '0':
                 console.log('0')
                 const orderList = this.data.commodity_attr_boxs
-                orderList.forEach((item)=>{
+                orderList.forEach((item) => {
                     item.status = false
                 })
                 orderList[index].status = true
                 const orderbyProperty = this.data.commodity_attr_boxs[index].orderby
                 console.log(orderbyProperty)
                 this.setData({
-                    size:10,
-                    page:1,
-                    orderbyProperty:orderbyProperty,
-                    commodity_attr_boxs:orderList
+                    size: 10,
+                    page: 1,
+                    orderbyProperty: orderbyProperty,
+                    commodity_attr_boxs: orderList
                 })
                 break;
             case '1':
@@ -136,44 +141,44 @@ Page({
                     element.status = false
                 })
                 cateList[index].status = true
-                if(scode==='1000'){
+                if (scode === '1000') {
                     this.setData({
-                        categoryCode:null,
+                        categoryCode: null,
                         cate: cateList
                     })
-                }else {
+                } else {
                     console.log('1')
-                   
-                 
+
+
                     console.log(cateList)
                     this.setData({
                         categoryCode: scode,
                         cate: cateList
                     })
                 }
-               
-            break;
+
+                break;
             case '2':
                 let regionList = wx.getStorageSync('region')
-                regionList.forEach((element)=>{
+                regionList.forEach((element) => {
                     element.status = false
                 })
                 regionList[index].status = true
-                if(scode==='1000'){
+                if (scode === '1000') {
                     this.setData({
-                        regionCode:null,
+                        regionCode: null,
                         regions: regionList
                     })
-                }else {
+                } else {
                     console.log('2')
-                   
+
                     console.log(cateList)
                     this.setData({
                         regionCode: scode,
                         regions: regionList
                     })
                 }
-            break;
+                break;
 
         }
         this._loadWhereLoad()
@@ -190,21 +195,25 @@ Page({
         user.regionCode = this.data.regionCode
 
         model.getActvities(user, (data) => {
-             if(data.length>0){
+            if (data.length > 0) {
+                data.forEach(item => {
+                    item.starttime = tools.dateformat(new Date(item.starttime), 'yyyy-MM-dd hh:mm')
+                    item.endtime = tools.dateformat(new Date(item.endtime), 'yyyy-MM-dd hh:mm')
+                })
                 this.setData({
-                    activitiesArr:data,
+                    activitiesArr: data,
                     size: 10,
                     page: 1,
-                    allLoad:true
+                    allLoad: true
                 })
-             }else{
-                 console.log('没有数据')
-                 this.setData({
-                     activitiesArr:[],
-                     allLoad:false
-                 })
-             }
-           
+            } else {
+                console.log('没有数据')
+                this.setData({
+                    activitiesArr: [],
+                    allLoad: false
+                })
+            }
+
         })
     },
     onShareAppMessage: function () {
@@ -214,9 +223,9 @@ Page({
         }
     },
     onActivityItemTap: function (event) {
-        let id = model.getDataSet(event,'id')
+        let id = model.getDataSet(event, 'id')
         wx.navigateTo({
-            url: '../detail/detail?gid='+id,
+            url: '../detail/detail?gid=' + id,
         })
     }
 })

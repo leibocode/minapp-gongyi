@@ -1,6 +1,8 @@
 import Model from '../../models/actvity.js'
 import OrganiModel from '../../models/organi.js'
+import Tools from '../../utils/tools'
 const model = new Model()
+const tools = new Tools()
 const organiModel = new OrganiModel()
 
 Page({
@@ -44,6 +46,9 @@ Page({
         })
 
         model.getUserjoin(user, (data) => {
+            data.forEach(item => {
+                item.hddate = tools.dateformat(new Date(item.hddate), 'yyyy-MM-dd hh:mm')
+            })
             that.setData({
                 userList: data
             })
@@ -103,11 +108,7 @@ Page({
             }
         })
     },
-<<<<<<< HEAD
-    preview () {
-=======
     preview() {
->>>>>>> 24eccd726b62d96628d077028476d2dfd3af94a4
         let imgs = []
         imgs.push(this.data.activity.img)
         wx.previewImage({
@@ -139,25 +140,11 @@ Page({
             }
         })
     },
-<<<<<<< HEAD
-    onShareAppMessage: function (res) {
-        let gid = this.data.gid
-        return {
-            title: '城志协',
-            path: 'pages/detail/detail?id=' + gid,
-            success: function (res) {
-                wx.showToast({
-                    title: '分享成功',
-                    duration: 2000
-                })
-            }
-=======
     onShareAppMessage: function () {
 
         return {
             title: '城志协',
             path: 'pages/home/home'
->>>>>>> 24eccd726b62d96628d077028476d2dfd3af94a4
         }
     }
 })

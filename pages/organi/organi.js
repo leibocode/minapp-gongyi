@@ -278,13 +278,10 @@ Page({
         }
     },
     onActivityItemTap: function (event) {
-        let id = event.target.dataset.id;
+        let id = model.getDataSet(event, 'id')
         console.log(id);
         wx.navigateTo({
-            url: '../organi_details/organi_details',
-            data: {
-                id: id
-            }
+            url: '../organi_details/organi_details?gid=' + id,
         })
     }
 })
