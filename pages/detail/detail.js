@@ -11,7 +11,9 @@ Page({
             loading: false,
             gid: 0,
             dz: false,
-            userList: []
+            userList: [],
+            jsonin: false,
+            wjoin: false
         }
     },
     onLoad: function (options) {
@@ -25,11 +27,13 @@ Page({
         let token = wx.getStorageSync('token')
         user.token = token
         user.gid = id
+        // model.getDetailsState(user,(detailState)=>{
+        //         if(detailState){
+
+        //         }
+        // })
 
 
-        model.getActvitiyButtonState(user, (data) => {
-
-        })
 
 
         model.getDzStatus(user, (data) => {
@@ -39,19 +43,46 @@ Page({
             })
         })
 
-        model.getActvitiyButtonState(user, (data) => {
+        model.getActvitiyDateil(user, (data) => {
+            if (data.flowstate) {
 
+            }
         })
 
+        //
         model.getUserjoin(user, (data) => {
+
             that.setData({
                 userList: data
+            })
+        })
+        model.getActvitiyDateil(user, (data) => {
+            console.log(data)
+            model.getActvitiyButtonState(user, (detailState) => {
+                let join = detailState.isstate === '1' ? true : false
+                if (data.flowstate === '1') {//未开始
+                    if (join) {
+                        that.setData({
+                            jsonin: false,
+                            wjoin: true
+                        })
+                    } else {
+                        that.setData({
+                            jsonin: true,
+                            wjoin: false
+                        })
+                    }
+                }
+
+
             })
         })
         model.getActvitiyDateil(user, (data) => {
             let region = wx.getStorageSync('region')
             let categoty = wx.getStorageSync('category')
             console.log(categoty)
+
+
             region.forEach((item) => {
                 if (data.region === item.sCode) {
                     data.regionText = item.Names
@@ -89,7 +120,7 @@ Page({
 
                     // 报名成功
                     let params = model.toQueryString({
-                        name: '测试',
+                        name: '',
                         address: '万年三林',
                         contact: 'feng',
                         phone: '18221769290'
@@ -103,11 +134,7 @@ Page({
             }
         })
     },
-<<<<<<< HEAD
     preview () {
-=======
-    preview() {
->>>>>>> 24eccd726b62d96628d077028476d2dfd3af94a4
         let imgs = []
         imgs.push(this.data.activity.img)
         wx.previewImage({
@@ -119,6 +146,12 @@ Page({
             title: '城志协',
             path: 'pages/detail/detail?id=' + this.data.gid
         }
+    },
+    onjoinAct: function () {
+
+    },
+    oncancelAct: function () {
+
     },
     onDz: function () {
         let that = this
@@ -139,7 +172,6 @@ Page({
             }
         })
     },
-<<<<<<< HEAD
     onShareAppMessage: function (res) {
         let gid = this.data.gid
         return {
@@ -151,13 +183,6 @@ Page({
                     duration: 2000
                 })
             }
-=======
-    onShareAppMessage: function () {
-
-        return {
-            title: '城志协',
-            path: 'pages/home/home'
->>>>>>> 24eccd726b62d96628d077028476d2dfd3af94a4
         }
     }
 })

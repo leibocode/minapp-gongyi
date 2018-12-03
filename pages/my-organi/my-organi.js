@@ -11,15 +11,15 @@ Page({
         commodity_attr_boxs: [{
             text: '时间',
             status: true,
-            orderby: 'all'
+            orderby: 'builddate'
         }, {
             text: '类型',
             status: false,
-            orderby: 'asc'
+            orderby: 'kind'
         }, {
             text: '区域',
             status: false,
-            orderby: 'desc'
+            orderby: 'region'
         }],
         cateList: [{
             text: '全部',
@@ -38,7 +38,8 @@ Page({
         regionModel: false,
         cateModel: false,
         categoryModel: false,
-        showModalStatus: false
+        showModalStatus: false,
+        allLoad: true
     },
     onLoad: function () {
         this._loadData()
@@ -48,7 +49,22 @@ Page({
         user.token = wx.getStorageSync('token')
         user.size = this.data.size
         user.page = this.data.page
-        model.getMyOrganis(user, () => {
+        model.getMyOrganis(user, (data) => {
+            if (data.length > 0) {
+                let region = wx.getStorageSync('region')
+                let category = wx.getStorageSync('category')
+                let organisList = this.filterData(data)
+                that.setData({
+                    organisArr: organisList,
+                    loading: true,
+                    regions: region,
+                    cate: category
+                })
+            } else {
+                this.setData({
+                    allLoad: false
+                })
+            }
 
         })
 
@@ -110,6 +126,26 @@ Page({
             categoryModel: false
         })
     },
+    filterData: function (list) {
+        let region = wx.getStorageSync('region')
+        let category = wx.getStorageSync('category')
+        let newList = []
+        console.log(list.length)
+        list.forEach((item) => {
+            region.forEach((regItem) => {
+                if (item.region === regItem.sCode) {
+                    item.regionText = regItem.Names
+                }
+            })
+            category.forEach((element) => {
+                if (item.kind === element.sCode) {
+                    item.kindText = element.Names
+                }
+            })
+            newList.push(item)
+        })
+        return newList
+    },
     toggleState: function (event) {
         console.log('切换状态')
         let code = model.getDataSet(event, 'code')
@@ -119,34 +155,75 @@ Page({
         console.log(sCode)
         switch (code) {
             case '0':
-                console.log('0')
-
+                const orderList = this.data.commodity_attr_boxs
+                orderList.forEach((item) => {
+                    item.status = false
+                })
+                orderList[index].status = true
+                const orderbyProperty = this.data.commodity_attr_boxs[index].orderby
+                console.log(orderbyProperty)
+                this.setData({
+                    size: 10,
+                    page: 1,
+                    orderbyProperty: orderbyProperty,
+                    commodity_attr_boxs: orderList
+                })
                 break;
             case '1':
                 console.log('1')
-                let cateList = wx.getStorageSync('category')
-                cateList[0].status = false
+                const cateList = this.data.cateList
+                cateList.forEach((item) => {
+                    item.status = false
+                })
                 cateList[index].status = true
-                console.log(cateList)
+                const cbkind = this.data.cateList[index].categoryCode
+                console.log(orderbyProperty)
                 this.setData({
-                    categoryCode: sCode,
-                    cate: cateList,
                     size: 10,
-                    page: 1
+                    page: 1,
+                    cbkind: cbkind,
+                    cateList: cateList
                 })
                 break;
             case '2':
-                console.log('2')
-                let regionList = wx.getStorageSync('region')
-                regionList[0].status = false
-                regionList[index].status = true
-                console.log(cateList)
-                this.setData({
-                    regionCode: sCode,
-                    regions: regionList,
-                    size: 10,
-                    page: 1
+                const category = wx.getStorageSync('category')
+                category.forEach(element => {
+                    element.status = false
                 })
+                category[index].status = true
+                if (scode === '1000') {
+                    this.setData({
+                        categoryCode: null,
+                        cate: cateList
+                    })
+                } else {
+                    console.log(cateList)
+                    this.setData({
+                        categoryCode: scode,
+                        cate: cateList
+                    })
+                }
+                break;
+            case '3':
+                let regionList = wx.getStorageSync('region')
+                regionList.forEach((element) => {
+                    element.status = false
+                })
+                regionList[index].status = true
+                if (scode === '1000') {
+                    this.setData({
+                        regionCode: null,
+                        regions: regionList
+                    })
+                } else {
+                    console.log('3')
+
+                    console.log(cateList)
+                    this.setData({
+                        regionCode: scode,
+                        regions: regionList
+                    })
+                }
                 break;
 
         }
@@ -161,9 +238,25 @@ Page({
         let that = this
         user.categoryCode = this.data.categoryCode
         user.regionCode = this.data.regionCode
-
+        user.cbkind = this.data.cbkind
+        user.orderbyProperty = this.data.orderbyProperty
         model.getOrganis(user, (data) => {
-
+            if (data.length > 0) {
+                let organisList = this.filterData(data)
+                this.setData({
+                    organisArr: organisList,
+                    size: 10,
+                    page: 1,
+                    allLoad: true
+                })
+            } else {
+                this.setData({
+                    allLoad: false,
+                    organisArr: [],
+                    size: 10,
+                    page: 1,
+                })
+            }
         })
     },
     onPullDownRefresh: function () {

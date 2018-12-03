@@ -4,7 +4,7 @@
     </view>
     <view class="userinfo">
         <image class="userinfo-avatar" src="{{userInfo.headimgurl}}"></image>
-        <view class="nickName">{{userInfo.nickName}}</view>
+        <view class="nickName">{{userInfo.membername}}</view>
     </view>
     <view class="user-header">
         <view class="user-header-left">

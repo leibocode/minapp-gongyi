@@ -2,7 +2,7 @@ import activityModel from '../../models/my-activity.js'
 const model = new activityModel()
 Page({
     data: {
-        tabs: ['排序', '方式', '类型', '区域'],
+        tabs: ['排序','类型', '区域'],
         currentTabsIndex: -1,
         activitiesArr: [],
         loading: false,
@@ -12,34 +12,35 @@ Page({
         commodity_attr_boxs: [{
             text: '时间',
             status: true,
-            orderby: 'all'
+            orderby: 'builddate'
         }, {
             text: '类型',
             status: false,
-            orderby: 'asc'
+            orderby: 'kind'
         }, {
             text: '区域',
             status: false,
-            orderby: 'desc'
+            orderby: 'region'
         }],
         cateList: [{
             text: '全部',
             status: true,
-            orderby: 'all'
+            categoryCode:null
         }, {
             text: '我报名的活动',
             status: false,
-            orderby: '1'
+            categoryCode: '1'
         }, {
             text: '我管理的活动',
             status: false,
-            orderby: '2'
+            categoryCode: '2'
         }],
         orderModel: false,
         regionModel: false,
         cateModel: false,
         categoryModel: false,
-        showModalStatus: false
+        showModalStatus: false,
+        allLoad:true
     },
     onLoad: function () {
         this._loadData()
@@ -49,16 +50,22 @@ Page({
         user.token = wx.getStorageSync('token')
         user.size = this.data.size
         user.page = this.data.page
-        model.getMyActivities(user, () => {
-
+        model.getMyActivities(user, (data) => {
+            if(data.length>0){
+                this.setData({
+                    activitiesArr:data
+                })
+            }else{
+                this.setData({
+                    activitiesArr:[],
+                    allLoad:false
+                })
+            }
         })
 
-
         let region = wx.getStorageSync('region')
-        let category = wx.getStorageSync('category')
         this.setData({
             regions: region,
-            cate: category,
             loading: true
         })
     },
@@ -88,13 +95,6 @@ Page({
             case 2:
                 this.setData({
                     currentTabsIndex: index,
-                    cateModel: true,
-                    showModalStatus: true
-                })
-                break;
-            case 3:
-                this.setData({
-                    currentTabsIndex: index,
                     regionModel: true,
                     showModalStatus: true
                 })
@@ -116,24 +116,38 @@ Page({
         let code = model.getDataSet(event, 'code')
         console.log(code)
         let index = model.getDataSet(event, 'toggle')
-        let sCode = model.getDataSet(event, 'sCode')
-        console.log(sCode)
+        let scode = model.getDataSet(event, 'scode')
+        console.log(scode)
         switch (code) {
             case '0':
-                console.log('0')
-
+                const orderList = this.data.commodity_attr_boxs
+                orderList.forEach((item)=>{
+                    item.status = false
+                })
+                orderList[index].status = true
+                const orderbyProperty = this.data.commodity_attr_boxs[index].orderby
+                console.log(orderbyProperty)
+                this.setData({
+                    size:10,
+                    page:1,
+                    orderbyProperty:orderbyProperty,
+                    commodity_attr_boxs:orderList
+                })
                 break;
             case '1':
                 console.log('1')
-                let cateList = wx.getStorageSync('category')
-                cateList[0].status = false
+                const cateList = this.data.cateList
+                cateList.forEach((item)=>{
+                    item.status = false
+                })
                 cateList[index].status = true
-                console.log(cateList)
+                const categoryCode = this.data.cateList[index].categoryCode
+                console.log(orderbyProperty)
                 this.setData({
-                    categoryCode: sCode,
-                    cate: cateList,
-                    size: 10,
-                    page: 1
+                    size:10,
+                    page:1,
+                    categoryCode:categoryCode,
+                    cateList:cateList
                 })
                 break;
             case '2':
@@ -142,12 +156,17 @@ Page({
                 regionList[0].status = false
                 regionList[index].status = true
                 console.log(cateList)
-                this.setData({
-                    regionCode: sCode,
-                    regions: regionList,
-                    size: 10,
-                    page: 1
-                })
+                if(scode==='1000'){
+                    this.setData({
+                        regionCode: null,
+                        regions: regionList,
+                    })
+                }else{
+                    this.setData({
+                        regionCode:scode,
+                        regions: regionList
+                    }) 
+                }
                 break;
 
         }
@@ -159,12 +178,25 @@ Page({
         user.token = token
         user.size = this.data.size
         user.page = this.data.page
-        let that = this
         user.categoryCode = this.data.categoryCode
         user.regionCode = this.data.regionCode
-
-        model.getOrganis(user, (data) => {
-
+        user.orderbyProperty = this.data.orderbyProperty
+        model.getMyActivities(user, (data) => {
+            if(data.length>0){
+                this.setData({
+                    activitiesArr:data,
+                    size: 10,
+                    page: 1,
+                    allLoad:true
+                })
+            }else{
+                this.setData({
+                    allLoad:false,
+                    activitiesArr:[],
+                    size: 10,
+                    page: 1,
+                })
+            }
         })
     },
     onPullDownRefresh: function () {

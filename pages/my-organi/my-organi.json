@@ -1,4 +1,4 @@
 {
     "navigationBarTitleText": "我的组织",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh":false
 }

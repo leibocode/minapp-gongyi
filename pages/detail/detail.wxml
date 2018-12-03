@@ -98,8 +98,11 @@
             </block>
         </view>
     </view>
-    <view class="detail-bottom-button" bind:tap="onrganizeTap">
+    <view class="detail-bottom-button" wx:if="{{jsonin}}" bind:tap="onjoinAct">
         <view>我要报名</view>
+    </view>
+    <view class="detail-bottom-button" wx:if="{{wjoin}}" bind:tap="oncancelAct">
+        <view>取消报名</view>
     </view>
 </view>
 <loading hidden="{{loading}}">加载中...</loading>
