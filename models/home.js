@@ -9,7 +9,7 @@ export default class HomeModel extends Http{
         let that = this
         let params ={
             url:`/weixin/data/selecttiaomu?inner_membergid=${data.userId}&inner_membername=
-            ${data.nickName}&token=${data.token}`,
+            ${this._encodeParams(data.nickName)}&token=${data.token}`,
             method:'POST',
             success:function(res){
     
@@ -23,7 +23,7 @@ export default class HomeModel extends Http{
         let that = this
         let params ={
             url:`/weixin/data/selectremenhuodong?inner_membergid=${data.userId}&inner_membername=
-            ${data.nickName}&token=${data.token}`,
+            ${this._encodeParams(data.nickName)}&token=${data.token}`,
             method:'POST',
             success:function(res){
                 console.log(res)
@@ -38,7 +38,7 @@ export default class HomeModel extends Http{
         let that =this
         let params ={
             url:`/weixin/data/selecthuiguhuodong?inner_membergid=${data.userId}&inner_membername=
-            ${data.nickName}&token=${data.token}`,
+            ${this._encodeParams(data.nickName)}&token=${data.token}`,
             method:'POST',
             success:function(res){
                 console.log(res)
@@ -54,7 +54,7 @@ export default class HomeModel extends Http{
         let that = this
         let params ={
             url:`/weixin/data/selectyugaohuodong?inner_membergid=${data.userId}&inner_membername=
-            ${data.nickName}&token=${data.token}`,
+            ${this._encodeParams(data.nickName)}&token=${data.token}`,
             method:'POST',
             success:function(res){
                 console.log(res)
@@ -69,7 +69,7 @@ export default class HomeModel extends Http{
         let that = this
         let params ={
             url:`/szsetting/szweixin/indexsszorganization?inner_membergid=${data.userId}&inner_membername=
-            ${data.nickName}&token=${data.token}`,
+            ${this._encodeParams(data.nickName)}&token=${data.token}`,
             method:'POST',
             success:function(res){
                 console.log(res)

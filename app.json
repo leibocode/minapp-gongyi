@@ -15,7 +15,8 @@
         "pages/pending/pending",
         "pages/organi_details/organi_details",
         "pages/authorize/authorize",
-        "pages/member/member"
+        "pages/member/member",
+        "pages/regsuccess/regsuccess"
     ],
     "window": {
         "navigationBarBackgroundColor": "#e50026",

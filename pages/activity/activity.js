@@ -11,23 +11,24 @@ Page({
         page: 1,
         size: 10,
         commodity_attr_boxs: [{
-            text: '时间',
+            text: '创建时间',
             status: true,
-            orderby: 'all'
+            orderby: 'builddate'
         }, {
-            text: '类型',
+            text: '开始时间',
             status: false,
-            orderby: 'asc'
+            orderby: 'starttime'
         }, {
-            text: '区域',
+            text: '报名人数',
             status: false,
-            orderby: 'desc'
+            orderby: 'enrollnum'
         }],
         orderModel: false,
         regionModel: false,
         cateModel: false,
         categoryModel: false,
-        showModalStatus: false
+        showModalStatus: false,
+        allLoad:true
     },
     onLoad: function () {
         this._loadData()
@@ -39,11 +40,18 @@ Page({
         user.page = this.data.page
         user.token = token
         model.getActvities(user, (data) => {
-            console.log(data)
-            this.setData({
-                activitiesArr: data,
-                loading: true
-            })
+            if(data.length>0){
+                this.setData({
+                    activitiesArr: data,
+                    loading: true
+                })
+            }else{
+                this.setData({
+                    activitiesArr:[],
+                    allLoad:false
+                })
+            }
+          
         })
         let region = wx.getStorageSync('region')
         let category = wx.getStorageSync('category')
@@ -103,39 +111,69 @@ Page({
         let code = model.getDataSet(event, 'code')
         console.log(code)
         let index = model.getDataSet(event, 'toggle')
-        let sCode = model.getDataSet(event, 'sCode')
-        console.log(sCode)
+        let scode = model.getDataSet(event, 'scode')
+        console.log(scode)
         switch (code) {
             case '0':
                 console.log('0')
-
+                const orderList = this.data.commodity_attr_boxs
+                orderList.forEach((item)=>{
+                    item.status = false
+                })
+                orderList[index].status = true
+                const orderbyProperty = this.data.commodity_attr_boxs[index].orderby
+                console.log(orderbyProperty)
+                this.setData({
+                    size:10,
+                    page:1,
+                    orderbyProperty:orderbyProperty,
+                    commodity_attr_boxs:orderList
+                })
                 break;
             case '1':
-                console.log('1')
                 let cateList = wx.getStorageSync('category')
-                cateList[0].status = false
+                cateList.forEach(element => {
+                    element.status = false
+                })
                 cateList[index].status = true
-                console.log(cateList)
-                this.setData({
-                    categoryCode: sCode,
-                    cate: cateList,
-                    size: 10,
-                    page: 1
-                })
-                break;
+                if(scode==='1000'){
+                    this.setData({
+                        categoryCode:null,
+                        cate: cateList
+                    })
+                }else {
+                    console.log('1')
+                   
+                 
+                    console.log(cateList)
+                    this.setData({
+                        categoryCode: scode,
+                        cate: cateList
+                    })
+                }
+               
+            break;
             case '2':
-                console.log('2')
                 let regionList = wx.getStorageSync('region')
-                regionList[0].status = false
-                regionList[index].status = true
-                console.log(cateList)
-                this.setData({
-                    regionCode: sCode,
-                    regions: regionList,
-                    size: 10,
-                    page: 1
+                regionList.forEach((element)=>{
+                    element.status = false
                 })
-                break;
+                regionList[index].status = true
+                if(scode==='1000'){
+                    this.setData({
+                        regionCode:null,
+                        regions: regionList
+                    })
+                }else {
+                    console.log('2')
+                   
+                    console.log(cateList)
+                    this.setData({
+                        regionCode: scode,
+                        regions: regionList
+                    })
+                }
+            break;
 
         }
         this._loadWhereLoad()
@@ -147,11 +185,26 @@ Page({
         user.size = this.data.size
         user.page = this.data.page
         let that = this
+        user.orderbyProperty = this.data.orderbyProperty
         user.categoryCode = this.data.categoryCode
         user.regionCode = this.data.regionCode
 
-        model.getOrganis(user, (data) => {
-
+        model.getActvities(user, (data) => {
+             if(data.length>0){
+                this.setData({
+                    activitiesArr:data,
+                    size: 10,
+                    page: 1,
+                    allLoad:true
+                })
+             }else{
+                 console.log('没有数据')
+                 this.setData({
+                     activitiesArr:[],
+                     allLoad:false
+                 })
+             }
+           
         })
     },
     onShareAppMessage: function () {
@@ -160,13 +213,10 @@ Page({
             path: 'pages/activity/activity'
         }
     },
-    onActivityItemTap: function () {
-        let id = event.target.dataset.id
+    onActivityItemTap: function (event) {
+        let id = model.getDataSet(event,'id')
         wx.navigateTo({
-            url: '../organi_details/organi_details',
-            data: {
-                id: id
-            }
+            url: '../detail/detail?gid='+id,
         })
     }
 })

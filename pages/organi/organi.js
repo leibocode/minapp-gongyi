@@ -9,17 +9,17 @@ Page({
         page: 1,
         size: 10,
         commodity_attr_boxs: [{
-            text: '时间',
+            text: '创建时间',
             status: true,
-            orderby: 'all'
+            orderby: 'builddate'
         }, {
-            text: '类型',
+            text: '开始时间',
             status: false,
-            orderby: 'asc'
+            orderby: 'starttime'
         }, {
-            text: '区域',
+            text: '报名人数',
             status: false,
-            orderby: 'desc'
+            orderby: 'enrollnum'
         }],
         orderModel: false,
         regionModel: false,
@@ -140,38 +140,65 @@ Page({
         let code = model.getDataSet(event, 'code')
         console.log(code)
         let index = model.getDataSet(event, 'toggle')
-        let sCode = model.getDataSet(event, 'sCode')
-        console.log(sCode)
+        let scode = model.getDataSet(event, 'scode')
+        
         switch (code) {
             case '0':
                 console.log('0')
-
+                const orderList = this.data.commodity_attr_boxs
+                orderList.forEach((item)=>{
+                    item.status = false
+                })
+                orderList[index].status = true
+                const orderbyProperty = this.data.commodity_attr_boxs[index].orderby
+                this.setData({
+                    size:10,
+                    page:1,
+                    orderbyProperty:orderbyProperty,
+                    commodity_attr_boxs:orderList
+                })
                 break;
             case '1':
                 console.log('1')
                 let cateList = wx.getStorageSync('category')
-                cateList[0].status = false
-                cateList[index].status = true
-                console.log(cateList)
-                this.setData({
-                    categoryCode: sCode,
-                    cate: cateList,
-                    size: 10,
-                    page: 1
+                cateList.forEach(element => {
+                    element.status = false
                 })
+                cateList[index].status = true
+                if(scode==='1000'){
+                    this.setData({
+                        categoryCode:null,
+                        cate: cateList
+                    })
+                }else {
+                    console.log('1')
+                    console.log(cateList)
+                    this.setData({
+                        categoryCode: scode,
+                        cate: cateList
+                    })
+                }
+                
                 break;
             case '2':
                 console.log('2')
                 let regionList = wx.getStorageSync('region')
-                regionList[0].status = false
-                regionList[index].status = true
-                console.log(cateList)
-                this.setData({
-                    regionCode: sCode,
-                    regions: regionList,
-                    size: 10,
-                    page: 1
+                regionList.forEach((element)=>{
+                    element.status = false
                 })
+                regionList[index].status = true
+                if(scode==='1000'){
+                    this.setData({
+                        regionCode:null,
+                        regions: regionList
+                    })
+                }else {
+                    console.log(cateList)
+                    this.setData({
+                        regionCode: scode,
+                        regions: regionList
+                    })
+                }
                 break;
 
         }
@@ -184,12 +211,15 @@ Page({
         user.token = token
         user.size = this.data.size
         user.page = this.data.page
-        let that = this
         user.categoryCode = this.data.categoryCode
         user.regionCode = this.data.regionCode
-
+        user.orderbyProperty = this.data.orderbyProperty
         model.getOrganis(user, (data) => {
-
+            this.setData({
+                organisArr:data,
+                size: 10,
+                page: 1
+            })
         })
     },
     onAddOrganiTap: function (event) {

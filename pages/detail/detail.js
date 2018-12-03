@@ -1,4 +1,3 @@
-
 import Model from '../../models/actvity.js'
 import OrganiModel from '../../models/organi.js'
 const model = new Model()
@@ -87,13 +86,28 @@ Page({
                 if (res.confirm) {
                     console.log('用户点击确定')
                     //请求接口
+
+                    // 报名成功
+                    let params = model.toQueryString({
+                        name: '测试',
+                        address: '万年三林',
+                        contact: 'feng',
+                        phone: '18221769290'
+                    })
+                    wx.navigateTo({
+                        url: '../regsuccess/regsuccess?' + params,
+                    })
                 } else if (res.cancel) {
                     console.log('用户点击取消')
                 }
             }
         })
     },
+<<<<<<< HEAD
     preview () {
+=======
+    preview() {
+>>>>>>> 24eccd726b62d96628d077028476d2dfd3af94a4
         let imgs = []
         imgs.push(this.data.activity.img)
         wx.previewImage({
@@ -125,6 +139,7 @@ Page({
             }
         })
     },
+<<<<<<< HEAD
     onShareAppMessage: function (res) {
         let gid = this.data.gid
         return {
@@ -136,6 +151,13 @@ Page({
                     duration: 2000
                 })
             }
+=======
+    onShareAppMessage: function () {
+
+        return {
+            title: '城志协',
+            path: 'pages/home/home'
+>>>>>>> 24eccd726b62d96628d077028476d2dfd3af94a4
         }
     }
 })

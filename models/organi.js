@@ -9,13 +9,13 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    getOrganis (data, callback) {
+    getOrganis(data, callback) {
         console.log(data)
         const url = `weixin/data/selectszorganization?inner_membergid=${data.userId}&inner_membername=
-        ${data.nickName}&token=${data.token}&pagesize=${data.size}&curpage=${data.page}`
-        let orderBy = data.orderBy ? `&orderBy=${data.orderBy}` : '&orderBy='
-        let cbkind = data.cbkind ? `&cbkind=${data.categoryCode}` : '&cbkind='
-        let cbregion = data.cbregion ? `&cbregion=${data.regionCode}` : '&cbregion='
+        ${this._encodeParams(data.nickName)}&token=${data.token}&pagesize=${data.size}&curpage=${data.page}`
+        let orderBy = data.orderbyProperty ? `&orderBy=${data.orderbyProperty}` : '&orderBy='
+        let cbkind = data.categoryCode ? `&cbkind=${data.categoryCode}` : '&cbkind='
+        let cbregion = data.regionCode ? `&cbregion=${data.regionCode}` : '&cbregion='
 
         let newUrl = url + orderBy + cbkind + cbregion
 
@@ -47,12 +47,12 @@ export default class myActivity extends Http {
      * @param {*} key 
      * @param {*} callback 
      */
-    getValues (data, key, callback) {
+    getValues(data, key, callback) {
         let that = this
 
         let params = {
             url: `ctypb/test/getdict?inner_membergid=${data.userId}&inner_membername=
-            ${data.nickName}&token=${data.token}&dictionarykey=${key}`,
+            ${this._encodeParams(data.nickName)}&token=${data.token}&dictionarykey=${key}`,
             method: 'POST',
             success: function (res) {
                 console.log(res)
@@ -67,10 +67,10 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    getMyOrganis (data, callback) {
+    getMyOrganis(data, callback) {
         let params = {
             url: `weixin/data/selectszorganization?inner_membergid=${data.userId}&inner_membername=
-            ${data.nickName}&token=${data.token}&orderbyid=''&cbkind=''&cbtype=' '&cbregion=' '`,
+            ${this._encodeParams(data.nickName)}&token=${data.token}&orderbyid=''&cbkind=''&cbtype=' '&cbregion=' '`,
             method: 'POST',
             success: function (res) {
                 console.log(res)
@@ -85,11 +85,11 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    joinInOrgani (data, callback) {
+    joinInOrgani(data, callback) {
         console.log()
         let param = {
             url: `weixin/data/inszorganizationrelation?inner_membergid=${data.user.userId}&inner_membername=
-            ${data.user.nickName}&token=${data.token}&organizationid=${data.gid}&organizationname=${data.name}`,
+            ${this._encodeParams(data.user.nickName)}&token=${data.token}&organizationid=${data.gid}&organizationname=${data.name}`,
             method: 'POST',
             success: function (res) {
                 console.log(res)

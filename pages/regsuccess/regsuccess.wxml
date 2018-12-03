@@ -1,0 +1,32 @@
+<view>
+    <view class="topbox">
+        <view>
+            <image src="../../images/tongg-icon2.png" mode="aspectFit" />
+        </view>
+        <view>
+            <text>报名成功</text>
+            <view></view>
+            <text>录用通知将以短信通知，请保持手机畅通</text>
+        </view>
+    </view>
+    <view class="spanview"></view>
+    <view class="info-list">
+        <view class="info">
+            <view>活动名称：</view>
+            <view>{{name}}</view>
+        </view>
+        <view class="info">
+            <view>活动地址：</view>
+            <view>{{address}}</view>
+        </view>
+        <view class="info">
+            <view>联系人：</view>
+            <view>{{contact}}</view>
+        </view>
+        <view class="info">
+            <view>联系电话：</view>
+            <view>{{phone}}</view>
+        </view>
+    </view>
+    <view class="btn" bind:tap="ckbtn">完成报名</view>
+</view>

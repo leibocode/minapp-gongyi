@@ -111,7 +111,8 @@ Page({
                 });
                 data.unshift({
                     Names:'全部',
-                    status:true
+                    status:true,
+                    sCode:'1000'
                 })
                 wx.setStorageSync('region',data)
             })
@@ -124,7 +125,8 @@ Page({
                 });
                 data.unshift({
                     Names:'全部',
-                    status:true
+                    status:true,
+                    sCode:'1000'
                 })
                 wx.setStorageSync('category',data)
              }) 
