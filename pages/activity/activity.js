@@ -224,6 +224,7 @@ Page({
     },
     onActivityItemTap: function (event) {
         let id = model.getDataSet(event, 'id')
+        console.log(id)
         wx.navigateTo({
             url: '../detail/detail?gid=' + id,
         })
