@@ -9,12 +9,12 @@
         </block>
     </view>
     <view class="organi-hr"></view>
-    <view class="organi-main-box" wx:if="{{organisArr.length>0}}">
+    <view class="organi-main-box" wx:if="{{allLoad}}">
         <template is="organis" data="{{organisArr:organisArr}}"></template>
     </view>
-    <view wx:else>
-        <view class="no-data">
-           没有相关组织哦
+    <view class="no-data" wx:if="{{!allLoad}}">
+        <view class="no-data-content">
+           没有相关组织哦~
         </view>
     </view>
 </view>

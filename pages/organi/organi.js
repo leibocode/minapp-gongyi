@@ -15,17 +15,18 @@ Page({
         }, {
             text: '开始时间',
             status: false,
-            orderby: 'starttime'
+            orderby: 'kind'
         }, {
             text: '报名人数',
             status: false,
-            orderby: 'enrollnum'
+            orderby: 'region'
         }],
         orderModel: false,
         regionModel: false,
         cateModel: false,
         categoryModel: false,
-        showModalStatus: false
+        showModalStatus: false,
+        allLoad:true
     },
     onLoad: function () {
 
@@ -42,24 +43,9 @@ Page({
             if (data.length > 0) {
                 let region = wx.getStorageSync('region')
                 let category = wx.getStorageSync('category')
-
-                data.forEach((item) => {
-                    region.forEach((regItem) => {
-                        if (item.region === regItem.sCode) {
-                            item.regionText = regItem.Names
-                        }
-                    })
-                    category.forEach((element) => {
-                        if (item.kind === element.sCode) {
-                            item.kindText = element.Names
-                        }
-                    })
-
-                })
-
-
+                let organisList = this.filterData(data)
                 that.setData({
-                    organisArr: data,
+                    organisArr: organisList,
                     loading: true,
                     regions: region,
                     cate: category
@@ -88,6 +74,25 @@ Page({
         //         loading:true,
         //     })
         // })
+    },
+    filterData:function(list){
+        let region = wx.getStorageSync('region')
+        let category = wx.getStorageSync('category')
+        let newList =[]
+        list.forEach((item) => {
+            region.forEach((regItem) => {
+                if (item.region === regItem.sCode) {
+                    item.regionText = regItem.Names
+                }
+            })
+            category.forEach((element) => {
+                if (item.kind === element.sCode) {
+                    item.kindText = element.Names
+                }
+            })
+            newList.push(item)
+        })
+        return newList
     },
     onTabsItemTap: function (event) {
         this.setData({
@@ -215,11 +220,22 @@ Page({
         user.regionCode = this.data.regionCode
         user.orderbyProperty = this.data.orderbyProperty
         model.getOrganis(user, (data) => {
-            this.setData({
-                organisArr:data,
-                size: 10,
-                page: 1
-            })
+            if(data.length>0){
+                let organisList = this.filterData(data)
+                this.setData({
+                    organisArr:organisList,
+                    size: 10,
+                    page: 1,
+                    allLoad:true
+                })
+            }else{
+                this.setData({
+                    allLoad:false,
+                    organisArr:[],
+                    size: 10,
+                    page: 1,
+                })
+            }
         })
     },
     onAddOrganiTap: function (event) {

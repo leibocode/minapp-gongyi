@@ -42,6 +42,7 @@ export default class Http {
                 }
             },
             fail: (err) => {
+                console.log(err)
                 this._show_error(1)
             }
         })
