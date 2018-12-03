@@ -13,7 +13,9 @@ Page({
             loading: false,
             gid: 0,
             dz: false,
-            userList: []
+            userList: [],
+            jsonin: false,
+            wjoin: false
         }
     },
     onLoad: function (options) {
@@ -27,11 +29,13 @@ Page({
         let token = wx.getStorageSync('token')
         user.token = token
         user.gid = id
+        // model.getDetailsState(user,(detailState)=>{
+        //         if(detailState){
+
+        //         }
+        // })
 
 
-        model.getActvitiyButtonState(user, (data) => {
-
-        })
 
 
         model.getDzStatus(user, (data) => {
@@ -41,22 +45,45 @@ Page({
             })
         })
 
-        model.getActvitiyButtonState(user, (data) => {
+        model.getActvitiyDateil(user, (data) => {
+            if (data.flowstate) {
 
+            }
         })
 
+        //
         model.getUserjoin(user, (data) => {
-            data.forEach(item => {
-                item.hddate = tools.dateformat(new Date(item.hddate), 'yyyy-MM-dd hh:mm')
-            })
             that.setData({
                 userList: data
+            })
+        })
+        model.getActvitiyDateil(user, (data) => {
+            console.log(data)
+            model.getActvitiyButtonState(user, (detailState) => {
+                let join = detailState.isstate === '1' ? true : false
+                if (data.flowstate === '1') { //未开始
+                    if (join) {
+                        that.setData({
+                            jsonin: false,
+                            wjoin: true
+                        })
+                    } else {
+                        that.setData({
+                            jsonin: true,
+                            wjoin: false
+                        })
+                    }
+                }
+
+
             })
         })
         model.getActvitiyDateil(user, (data) => {
             let region = wx.getStorageSync('region')
             let categoty = wx.getStorageSync('category')
             console.log(categoty)
+
+
             region.forEach((item) => {
                 if (data.region === item.sCode) {
                     data.regionText = item.Names
@@ -94,7 +121,7 @@ Page({
 
                     // 报名成功
                     let params = model.toQueryString({
-                        name: '测试',
+                        name: '',
                         address: '万年三林',
                         contact: 'feng',
                         phone: '18221769290'
@@ -121,6 +148,12 @@ Page({
             path: 'pages/detail/detail?id=' + this.data.gid
         }
     },
+    onjoinAct: function () {
+
+    },
+    oncancelAct: function () {
+
+    },
     onDz: function () {
         let that = this
         let user = wx.getStorageSync('user')
@@ -140,11 +173,17 @@ Page({
             }
         })
     },
-    onShareAppMessage: function () {
-
+    onShareAppMessage: function (res) {
+        let gid = this.data.gid
         return {
             title: '城志协',
-            path: 'pages/home/home'
+            path: 'pages/detail/detail?id=' + gid,
+            success: function (res) {
+                wx.showToast({
+                    title: '分享成功',
+                    duration: 2000
+                })
+            }
         }
     }
 })

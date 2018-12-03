@@ -10,19 +10,19 @@ export default class myActivity extends Http {
      * @param {}} data 
      * @param {*} callback 
      */
-    getActvities(data, callback) {
-        
+    getActvities (data, callback) {
+
         const url = `weixin/data/selecthuodong?inner_membergid=${data.userId}&inner_membername=
         ${this._encodeParams(data.nickName)}&token=${data.token}&pagesize=${data.size}&curpage=${data.page}`
-        
-        let orderBy = data.orderbyProperty?`&orderBy=${data.orderbyProperty}`:`&orderBy='builddate'`
+        console.log(data)
+        let orderBy = data.orderbyProperty ? `&orderBy=${data.orderbyProperty}` : `&orderBy='builddate'`
         let cbkind = data.categoryCode ? `&cbkind=${data.categoryCode}` : '&cbkind='
         let cbregion = data.regionCode ? `&cbregion=${data.regionCode}` : '&cbregion='
         let newUrl = url + orderBy + cbkind + cbregion
 
 
         let params = {
-            url:newUrl,
+            url: newUrl,
             method: 'POST',
             success: function (res) {
                 console.log(res)
@@ -37,7 +37,7 @@ export default class myActivity extends Http {
      * @param {*} data 
      * @param {*} callback 
      */
-    getActvitiyDateil(data, callback) {
+    getActvitiyDateil (data, callback) {
         let that = this
         let params = {
             url: `/api/querydata/getactivitydetail?inner_membergid=${data.userId}&inner_membername=
@@ -57,7 +57,7 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    getUserjoin(data, callback) {
+    getUserjoin (data, callback) {
         let that = this
         let params = {
             url: `api/querydata/getorganizers?inner_membergid=${data.userId}&inner_membername=
@@ -77,11 +77,11 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    getActvitiyButtonState(data, callback) {
+    getActvitiyButtonState (data, callback) {
         let that = this
         let params = {
-            url: `weixin/data/inszactivitystaff?inner_membergid=${data.userId}&inner_membername=
-            ${this._encodeParams(data.nickName)}&token=${data.token}&activityid=${data.gid}`,
+            url: `api/querydata/getissignin?inner_membergid=${data.userId}&inner_membername=
+            ${this._encodeParams(data.nickName)}&token=${data.token}&keyid=${data.gid}`,
             method: 'POST',
             success: function (res) {
                 console.log(res)
@@ -96,7 +96,7 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    getDzStatus(data, callback) {
+    getDzStatus (data, callback) {
         let that = this
         let params = {
             url: `szsetting/szweixin/getdeterminewhether?inner_membergid=${data.userId}&inner_membername=
@@ -115,7 +115,7 @@ export default class myActivity extends Http {
      * @param {}} data 
      * @param {*} callback 
      */
-    createDzStatus(data, callback) {
+    createDzStatus (data, callback) {
         let that = this
         let params = {
             url: `szsetting/szweixin/getgivealike?inner_membergid=${data.userId}&inner_membername=
@@ -129,6 +129,17 @@ export default class myActivity extends Http {
         this.request(params)
     }
 
-
+    getDetailsState (data, callback) {
+        let that = this
+        let params = {
+            url: `szsetting/SZData/thesubsidiary?inner_membergid=${data.userId}&inner_membername=
+            ${this._encodeParams(data.nickName)}&token=${data.token}&activityid=${data.gid}&activityname=${data.title}`,
+            method: 'POST',
+            success: function (res) {
+                callback && callback(res)
+            }
+        }
+        this.request(params)
+    }
 
 }

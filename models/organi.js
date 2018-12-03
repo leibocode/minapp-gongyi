@@ -68,9 +68,18 @@ export default class myActivity extends Http {
      * @param {*} callback 
      */
     getMyOrganis(data, callback) {
+        console.log(data)
+        const url = `weixin/data/selectszorganization?inner_membergid=${data.userId}&inner_membername=
+        ${this._encodeParams(data.nickName)}&token=${data.token}&pagesize=${data.size}&curpage=${data.page}`
+        let orderBy = data.orderbyProperty ? `&orderBy=${data.orderbyProperty}` : '&orderBy='
+        //方式
+        let cbkind = data.cbkind ? `&cbkind=${data.cbkind}` : '&cbkind='
+        let cbregion = data.regionCode ? `&cbregion=${data.regionCode}` : '&cbregion='
+        //类型
+        let cbtype =  data.categoryCode ? `&cbkind=${data.categoryCode}` : '&cbkind='
+        let newUrl = url + orderBy + cbkind + cbregion
         let params = {
-            url: `weixin/data/selectszorganization?inner_membergid=${data.userId}&inner_membername=
-            ${this._encodeParams(data.nickName)}&token=${data.token}&orderbyid=''&cbkind=''&cbtype=' '&cbregion=' '`,
+            url: newUrl,
             method: 'POST',
             success: function (res) {
                 console.log(res)

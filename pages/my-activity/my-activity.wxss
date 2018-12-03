@@ -2,7 +2,7 @@
 page {
     background-color:#f1f1f1;
 }
-.my-activity-container{
+.activity-container{
     background-color:#fff;
 }
 
@@ -31,21 +31,38 @@ page {
     border-right:1rpx solid #f1f1f1;
     z-index:2099;
 }
-.activity-main-box{
+.my-activity-main-box{
     margin-top:93rpx;
     margin-bottom:60rpx;
 }
+.no-data{
+    margin-top:93rpx;
+    width:100%;
+    height:120rpx;
+    text-align:center;
+    line-height:120rpx;
+    background-color:#fff;
+    font-size:24rpx;
+    color:#333;
+}
+.node-data-content{
 
+}
 .item-icon-dowm{
     width:25rpx;
     height:25rpx;
 }
+.activity-header-search image {
+    width:41rpx;
+    height:42rpx;
+    margin-left:50rpx;
+}
+
 
 .selected{
     /*color: #AB956D;*/
     color:#e50026;
     /*border-bottom: 2px solid #AB956D;*/
-    /*border-bottom: 2px solid #e50026;*/
 }
 
 .commodity_screen {

@@ -9,15 +9,15 @@ Page({
         page: 1,
         size: 10,
         commodity_attr_boxs: [{
-            text: '创建时间',
+            text: '时间',
             status: true,
             orderby: 'builddate'
         }, {
-            text: '开始时间',
+            text: '类型',
             status: false,
             orderby: 'kind'
         }, {
-            text: '报名人数',
+            text: '区域',
             status: false,
             orderby: 'region'
         }],
@@ -26,7 +26,7 @@ Page({
         cateModel: false,
         categoryModel: false,
         showModalStatus: false,
-        allLoad:true
+        allLoad: true
     },
     onLoad: function () {
 
@@ -75,10 +75,10 @@ Page({
         //     })
         // })
     },
-    filterData:function(list){
+    filterData: function (list) {
         let region = wx.getStorageSync('region')
         let category = wx.getStorageSync('category')
-        let newList =[]
+        let newList = []
         list.forEach((item) => {
             region.forEach((regItem) => {
                 if (item.region === regItem.sCode) {
@@ -146,21 +146,21 @@ Page({
         console.log(code)
         let index = model.getDataSet(event, 'toggle')
         let scode = model.getDataSet(event, 'scode')
-        
+
         switch (code) {
             case '0':
                 console.log('0')
                 const orderList = this.data.commodity_attr_boxs
-                orderList.forEach((item)=>{
+                orderList.forEach((item) => {
                     item.status = false
                 })
                 orderList[index].status = true
                 const orderbyProperty = this.data.commodity_attr_boxs[index].orderby
                 this.setData({
-                    size:10,
-                    page:1,
-                    orderbyProperty:orderbyProperty,
-                    commodity_attr_boxs:orderList
+                    size: 10,
+                    page: 1,
+                    orderbyProperty: orderbyProperty,
+                    commodity_attr_boxs: orderList
                 })
                 break;
             case '1':
@@ -170,12 +170,12 @@ Page({
                     element.status = false
                 })
                 cateList[index].status = true
-                if(scode==='1000'){
+                if (scode === '1000') {
                     this.setData({
-                        categoryCode:null,
+                        categoryCode: null,
                         cate: cateList
                     })
-                }else {
+                } else {
                     console.log('1')
                     console.log(cateList)
                     this.setData({
@@ -183,21 +183,21 @@ Page({
                         cate: cateList
                     })
                 }
-                
+
                 break;
             case '2':
                 console.log('2')
                 let regionList = wx.getStorageSync('region')
-                regionList.forEach((element)=>{
+                regionList.forEach((element) => {
                     element.status = false
                 })
                 regionList[index].status = true
-                if(scode==='1000'){
+                if (scode === '1000') {
                     this.setData({
-                        regionCode:null,
+                        regionCode: null,
                         regions: regionList
                     })
-                }else {
+                } else {
                     console.log(cateList)
                     this.setData({
                         regionCode: scode,
@@ -220,18 +220,18 @@ Page({
         user.regionCode = this.data.regionCode
         user.orderbyProperty = this.data.orderbyProperty
         model.getOrganis(user, (data) => {
-            if(data.length>0){
+            if (data.length > 0) {
                 let organisList = this.filterData(data)
                 this.setData({
-                    organisArr:organisList,
+                    organisArr: organisList,
                     size: 10,
                     page: 1,
-                    allLoad:true
+                    allLoad: true
                 })
-            }else{
+            } else {
                 this.setData({
-                    allLoad:false,
-                    organisArr:[],
+                    allLoad: false,
+                    organisArr: [],
                     size: 10,
                     page: 1,
                 })
