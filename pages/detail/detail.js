@@ -1,5 +1,8 @@
 import Model from '../../models/actvity.js'
 import OrganiModel from '../../models/organi.js'
+import {
+    config
+} from '../../config.js'
 import Tools from '../../utils/tools'
 const model = new Model()
 const tools = new Tools()
@@ -46,6 +49,8 @@ Page({
         })
 
         model.getActvitiyDateil(user, (data) => {
+
+            console.log(data.flowstate)
             if (data.flowstate) {
 
             }
@@ -57,10 +62,12 @@ Page({
                 userList: data
             })
         })
-        model.getActvitiyDateil(user, (data) => {
+        model.getDetailsState(user, (data) => {
+            console.log('data')
             console.log(data)
             model.getActvitiyButtonState(user, (detailState) => {
                 let join = detailState.isstate === '1' ? true : false
+                console.log(data.flowstate)
                 if (data.flowstate === '1') { //未开始
                     if (join) {
                         that.setData({
@@ -83,6 +90,7 @@ Page({
             let categoty = wx.getStorageSync('category')
             console.log(categoty)
 
+            data.images = `${config.imageUrl}=${data.img_fileid}`
 
             region.forEach((item) => {
                 if (data.region === item.sCode) {
@@ -111,6 +119,7 @@ Page({
         //
     },
     onrganizeTap: function () {
+        let that = this
         wx.showModal({
             title: '提示',
             content: '您确定参与本次活动吗？',
@@ -118,26 +127,34 @@ Page({
                 if (res.confirm) {
                     console.log('用户点击确定')
                     //请求接口
-
+                    let user = wx.getStorageSync('user')
+                    let token = wx.getStorageSync('token')
+                    user.token = token
+                    user.gid = id
+                    model.joinAct(user, (data) => {
+                        if (data) {
+                            let params = model.toQueryString({
+                                name: that.data.activity.title,
+                                address: that.data.activity.straddress,
+                                contact: that.data.activity.contact,
+                                phone: that.data.activity.telephone,
+                            })
+                            wx.navigateTo({
+                                url: '../regsuccess/regsuccess?' + params,
+                            })
+                        }
+                    })
                     // 报名成功
-                    let params = model.toQueryString({
-                        name: '',
-                        address: '万年三林',
-                        contact: 'feng',
-                        phone: '18221769290'
-                    })
-                    wx.navigateTo({
-                        url: '../regsuccess/regsuccess?' + params,
-                    })
                 } else if (res.cancel) {
                     console.log('用户点击取消')
                 }
             }
         })
     },
-    preview() {
+    //预览图片
+    preview () {
         let imgs = []
-        imgs.push(this.data.activity.img)
+        imgs.push(this.data.activity.images)
         wx.previewImage({
             urls: imgs
         })
@@ -148,11 +165,35 @@ Page({
             path: 'pages/detail/detail?id=' + this.data.gid
         }
     },
-    onjoinAct: function () {
-
-    },
     oncancelAct: function () {
-
+        let that = this
+        wx.showModal({
+            title: '提示',
+            content: '您确定退出本次活动吗？',
+            success: function (res) {
+                if (res.confirm) {
+                    console.log('用户点击确定')
+                    //请求接口
+                    let user = wx.getStorageSync('user')
+                    let token = wx.getStorageSync('token')
+                    user.token = token
+                    user.gid = id
+                    model.cancelAct(user, (data) => {
+                        if (data) {
+                            let params = model.toQueryString({
+                                name: that.data.activity.title,
+                                address: that.data.activity.title,
+                                contact: that.data.activity.title,
+                                phone: that.data.activity.title,
+                            })
+                        }
+                    })
+                    // 报名成功
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
     },
     onDz: function () {
         let that = this

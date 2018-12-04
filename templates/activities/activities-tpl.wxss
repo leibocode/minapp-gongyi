@@ -11,10 +11,10 @@
     border-bottom:1rpx solid #f1f1f1;
 }
 .activities-box .activities-item .activities-item-img{
-    width:26%;
+    width:33%;
     border-radius:6rpx;
     height:160rpx;
-    
+
 }
 
 
@@ -30,7 +30,7 @@
     font-size:28rpx;
     color:#333;
     flex-wrap:nowrap;
-    
+
 }
 .activities-item-time{
     margin-top:6rpx;

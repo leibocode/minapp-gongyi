@@ -12,7 +12,7 @@ export default class HomeModel extends Http{
             ${this._encodeParams(data.nickName)}&token=${data.token}`,
             method:'POST',
             success:function(res){
-    
+
                 callback && callback(res)
             }
         }
@@ -72,6 +72,23 @@ export default class HomeModel extends Http{
             ${this._encodeParams(data.nickName)}&token=${data.token}`,
             method:'POST',
             success:function(res){
+                console.log(res)
+                callback && callback(res)
+            }
+        }
+        this.request(params)
+    }
+    /**
+     * 请求图片文件
+     * @param {} data
+     * @param {*} callback
+     */
+    getFileByKey(data,callback){
+        console.log(data)
+        let params = {
+            url: `file/Filedata/ReadLocalFile?filekey=${data.img_key}`,
+            method: 'GET',
+            success: function (res) {
                 console.log(res)
                 callback && callback(res)
             }

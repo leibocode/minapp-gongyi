@@ -1,7 +1,7 @@
 <view class="container detail-container" hidden="{{!loading}}">
     <view class="detail-header-box">
         <view class="detail-topic-img">
-            <image src="{{activity.img}}" mode="aspectFill" bind:tap="preview" />
+            <image src="{{activity.images}}" mode="aspectFill" bind:tap="preview" />
         </view>
         <view class="detail-hr"></view>
         <view class="detail-infos">

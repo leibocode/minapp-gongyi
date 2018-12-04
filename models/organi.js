@@ -9,7 +9,7 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    getOrganis(data, callback) {
+    getOrganis (data, callback) {
         console.log(data)
         const url = `weixin/data/selectszorganization?inner_membergid=${data.userId}&inner_membername=
         ${this._encodeParams(data.nickName)}&token=${data.token}&pagesize=${data.size}&curpage=${data.page}`
@@ -47,7 +47,7 @@ export default class myActivity extends Http {
      * @param {*} key 
      * @param {*} callback 
      */
-    getValues(data, key, callback) {
+    getValues (data, key, callback) {
         let that = this
 
         let params = {
@@ -67,7 +67,7 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    getMyOrganis(data, callback) {
+    getMyOrganis (data, callback) {
         console.log(data)
         const url = `weixin/data/selectszorganization?inner_membergid=${data.userId}&inner_membername=
         ${this._encodeParams(data.nickName)}&token=${data.token}&pagesize=${data.size}&curpage=${data.page}`
@@ -76,7 +76,7 @@ export default class myActivity extends Http {
         let cbkind = data.cbkind ? `&cbkind=${data.cbkind}` : '&cbkind='
         let cbregion = data.regionCode ? `&cbregion=${data.regionCode}` : '&cbregion='
         //类型
-        let cbtype =  data.categoryCode ? `&cbkind=${data.categoryCode}` : '&cbkind='
+        let cbtype = data.categoryCode ? `&cbtype=${data.categoryCode}` : '&cbtype='
         let newUrl = url + orderBy + cbkind + cbregion
         let params = {
             url: newUrl,
@@ -94,7 +94,7 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    joinInOrgani(data, callback) {
+    joinInOrgani (data, callback) {
         console.log()
         let param = {
             url: `weixin/data/inszorganizationrelation?inner_membergid=${data.user.userId}&inner_membername=

@@ -1,5 +1,8 @@
 import organiModel from '../../models/organi.js'
 const model = new organiModel()
+import {
+    config
+} from '../../config.js'
 Page({
     data: {
         tabs: ['排序', '方式', '类型', '区域'],
@@ -24,15 +27,15 @@ Page({
         cateList: [{
             text: '全部',
             status: true,
-            orderby: 'all'
+            sCode: null
         }, {
             text: '我报名的组织',
             status: false,
-            orderby: '1'
+            sCode: '1'
         }, {
             text: '我管理的组织',
             status: false,
-            orderby: '2'
+            sCode: '2'
         }],
         orderModel: false,
         regionModel: false,
@@ -51,10 +54,11 @@ Page({
         user.page = this.data.page
         model.getMyOrganis(user, (data) => {
             if (data.length > 0) {
+
                 let region = wx.getStorageSync('region')
                 let category = wx.getStorageSync('category')
                 let organisList = this.filterData(data)
-                that.setData({
+                this.setData({
                     organisArr: organisList,
                     loading: true,
                     regions: region,
@@ -132,6 +136,7 @@ Page({
         let newList = []
         console.log(list.length)
         list.forEach((item) => {
+            item.images = `${config.imageUrl}=${item.headimg_fileid}`
             region.forEach((regItem) => {
                 if (item.region === regItem.sCode) {
                     item.regionText = regItem.Names
@@ -147,12 +152,10 @@ Page({
         return newList
     },
     toggleState: function (event) {
-        console.log('切换状态')
         let code = model.getDataSet(event, 'code')
-        console.log(code)
         let index = model.getDataSet(event, 'toggle')
-        let sCode = model.getDataSet(event, 'sCode')
-        console.log(sCode)
+        let scode = model.getDataSet(event, 'scode')
+        console.log(scode)
         switch (code) {
             case '0':
                 const orderList = this.data.commodity_attr_boxs
@@ -176,7 +179,7 @@ Page({
                     item.status = false
                 })
                 cateList[index].status = true
-                const cbkind = this.data.cateList[index].categoryCode
+                const cbkind = this.data.cateList[index].sCode
                 console.log(orderbyProperty)
                 this.setData({
                     size: 10,
@@ -197,10 +200,9 @@ Page({
                         cate: cateList
                     })
                 } else {
-                    console.log(cateList)
                     this.setData({
                         categoryCode: scode,
-                        cate: cateList
+                        cate: category
                     })
                 }
                 break;
@@ -216,9 +218,6 @@ Page({
                         regions: regionList
                     })
                 } else {
-                    console.log('3')
-
-                    console.log(cateList)
                     this.setData({
                         regionCode: scode,
                         regions: regionList
@@ -240,7 +239,7 @@ Page({
         user.regionCode = this.data.regionCode
         user.cbkind = this.data.cbkind
         user.orderbyProperty = this.data.orderbyProperty
-        model.getOrganis(user, (data) => {
+        model.getMyOrganis(user, (data) => {
             if (data.length > 0) {
                 let organisList = this.filterData(data)
                 this.setData({

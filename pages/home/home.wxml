@@ -3,7 +3,7 @@
   <swiper indicator-dots="true" autoplay="true" class="swiper">
     <block wx:for="{{bannerArr}}" wx:key="index">
        <swiper-item class="banner-item">
-         <image  class="item-image" src="{{item.img}}" mode="aspectFill"/>
+         <image  class="item-image" src="{{item.images}}" mode="aspectFill"/>
        </swiper-item>
     </block>
   </swiper>
@@ -26,7 +26,7 @@
       没有数据
     </view>
   </view>
-  
+
   <view class="home-main">
      <view class="header-hr"></view>
      <view class="home-main-header">
@@ -40,6 +40,7 @@
       没有数据
     </view>
   </view>
+  <image src="{{QrCodeUrl}}" style='width:90rpx;height:90rpx;' />
   <!--活动预告-->
   <!-- <view class="home-main">
      <view class="header-hr"></view>

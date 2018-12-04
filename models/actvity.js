@@ -7,8 +7,8 @@ export default class myActivity extends Http {
 
     /**
      * 获取所以的活动信息
-     * @param {}} data 
-     * @param {*} callback 
+     * @param {}} data
+     * @param {*} callback
      */
     getActvities (data, callback) {
 
@@ -34,8 +34,8 @@ export default class myActivity extends Http {
 
     /**
      * 获取活动详情
-     * @param {*} data 
-     * @param {*} callback 
+     * @param {*} data
+     * @param {*} callback
      */
     getActvitiyDateil (data, callback) {
         let that = this
@@ -54,8 +54,8 @@ export default class myActivity extends Http {
 
     /**
      * 获取列表信息
-     * @param {} data 
-     * @param {*} callback 
+     * @param {} data
+     * @param {*} callback
      */
     getUserjoin (data, callback) {
         let that = this
@@ -73,9 +73,9 @@ export default class myActivity extends Http {
     }
 
     /**
-     * 
-     * @param {} data 
-     * @param {*} callback 
+     *
+     * @param {} data
+     * @param {*} callback
      */
     getActvitiyButtonState (data, callback) {
         let that = this
@@ -93,8 +93,8 @@ export default class myActivity extends Http {
 
     /**
      * 获取活动状态
-     * @param {} data 
-     * @param {*} callback 
+     * @param {} data
+     * @param {*} callback
      */
     getDzStatus (data, callback) {
         let that = this
@@ -112,8 +112,8 @@ export default class myActivity extends Http {
 
     /**
      *  点赞
-     * @param {}} data 
-     * @param {*} callback 
+     * @param {}} data
+     * @param {*} callback
      */
     createDzStatus (data, callback) {
         let that = this
@@ -133,7 +133,7 @@ export default class myActivity extends Http {
         let that = this
         let params = {
             url: `szsetting/SZData/thesubsidiary?inner_membergid=${data.userId}&inner_membername=
-            ${this._encodeParams(data.nickName)}&token=${data.token}&activityid=${data.gid}&activityname=${data.title}`,
+            ${this._encodeParams(data.nickName)}&token=${data.token}&keyid=${data.gid}`,
             method: 'POST',
             success: function (res) {
                 callback && callback(res)
@@ -142,4 +142,37 @@ export default class myActivity extends Http {
         this.request(params)
     }
 
+    /**
+     * 加入活动
+     * @param {} data
+     * @param {*} callback
+     */
+    joinAct(data,callback){
+        let params = {
+            url: `szsetting/SZData/thesubsidiary?inner_membergid=${data.userId}&inner_membername=
+            ${this._encodeParams(data.nickName)}&token=${data.token}&keyid=${data.gid}`,
+            method: 'POST',
+            success: function (res) {
+                callback && callback(res)
+            }
+        }
+        this.request(params)
+    }
+
+    /**
+     * 取消活动
+     * @param {*} data
+     * @param {*} callback
+     */
+    cancelAct(data,callback){
+         let params = {
+             url: `szsetting/SZData/thesubsidiary?inner_membergid=${data.userId}&inner_membername=
+            ${this._encodeParams(data.nickName)}&token=${data.token}&keyid=${data.gid}`,
+             method: 'POST',
+             success: function (res) {
+                 callback && callback(res)
+             }
+         }
+         this.request(params)
+    }
 }

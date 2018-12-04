@@ -28,7 +28,7 @@
     <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{categoryModel}}">
         <view class="commodity_attr_box_content">
             <block wx:for="{{cateList}}">
-                <view class="commodity_attr_boxs_item" data-code="1" data-sCode="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
+                <view class="commodity_attr_boxs_item" data-code="1" data-scode="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
                     <view class="item-text">{{item.text}}</view>
                     <view class="item-icon active" wx:if="{{item.status}}"></view>
                 </view>
@@ -38,7 +38,7 @@
     <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{cateModel}}">
         <view class="commodity_attr_box_content">
             <block wx:for="{{cate}}">
-                <view class="commodity_attr_boxs_item" data-code="2" data-sCode="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
+                <view class="commodity_attr_boxs_item" data-code="2" data-scode="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
                     <view class="item-text">{{item.Names}}</view>
                     <view class="item-icon active" wx:if="{{item.status}}"></view>
                 </view>
@@ -48,7 +48,7 @@
     <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{regionModel}}">
         <view class="commodity_attr_box_content">
             <block wx:for="{{regions}}">
-                <view class="commodity_attr_boxs_item" data-code="3" data-sCode="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
+                <view class="commodity_attr_boxs_item" data-code="3" data-scode="{{item.sCode}}" data-toggle="{{index}}" bind:tap="toggleState">
                     <view class="item-text">{{item.Names}}</view>
                     <view class="item-icon active" wx:if="{{item.status}}"></view>
                 </view>

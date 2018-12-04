@@ -1,5 +1,6 @@
 import HomeModel from '../../models/home.js'
 import OrganiModel from '../../models/organi.js'
+import { config } from '../../config.js'
 import Tools from '../../utils/tools'
 const organiModel = new OrganiModel()
 const model = new HomeModel()
@@ -64,15 +65,21 @@ Page({
         user.token = token
         let that = this
         model.getBannerData(user, (data) => {
+            let imgs = []
+            data.forEach((item)=>{
+                user.img_key =item.img_fileid
+                item.images = `${config.imageUrl}=${item.img_fileid}`
+            })
             that.setData({
                 bannerArr: data
             })
         })
-
+2
         model.getHotActivities(user, (data) => {
             data.forEach(item => {
                 item.starttime = tools.dateformat(new Date(item.starttime), 'yyyy-MM-dd hh:mm')
                 item.endtime = tools.dateformat(new Date(item.endtime), 'yyyy-MM-dd hh:mm')
+                item.images = `${config.imageUrl}=${item.img_fileid}`
             })
             that.setData({
                 hot: data
@@ -83,6 +90,7 @@ Page({
             data.forEach(item => {
                 item.starttime = tools.dateformat(new Date(item.starttime), 'yyyy-MM-dd hh:mm')
                 item.endtime = tools.dateformat(new Date(item.endtime), 'yyyy-MM-dd hh:mm')
+                item.images = `${config.imageUrl}=${item.img_fileid}`
             })
             that.setData({
                 review: data
@@ -100,7 +108,7 @@ Page({
 
         // model.getLuvuList(user,(data)=>{
         //     that.setData({
-        //         luvu:data, 
+        //         luvu:data,
         //         loading:true
         //     })
         // })

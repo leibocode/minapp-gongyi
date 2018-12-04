@@ -8,11 +8,15 @@
     </view>
     <view class="user-header">
         <view class="user-header-left">
-            <text class="header-left-nums">{{userInfo.score}}</text>
+            <text class="header-left-nums" wx:if="{{userInfo.score}}">{{userInfo.score}}</text>
+            <text class="header-left-nums" wx:else>0</text>
             <text>我的积分</text>
         </view>
         <view class="user-header-right">
-            <text class="header-right-nums">{{userInfo.duration}}</text>
+            <text class="header-right-nums" wx:if="{{userInfo.duration}}">
+                {{userInfo.duration}}
+            </text>
+            <text class="header-right-nums" wx:else>0.00</text>
             <text>志愿时长(时)</text>
         </view>
     </view>
@@ -37,9 +41,7 @@
             <view class="user-text-title">分享获取积分</view>
             <view class="user-text-desc">分享不断,积分不断</view>
         </view>
-        <button class="user-code-btn" open-type="share">
-            <view class="code-btn">立即分享</view>
-        </button>
+        <button class="user-code-btn code-btn" open-type="share">立即分享</button>
     </view>
     <view class="user-footer">
         <text>Copyright©2018 上海常合房地产经纪事务所版权所有沪ICP备02000121号</text>

@@ -1,5 +1,8 @@
 import Model from '../../models/actvity.js'
 import Tools from '../../utils/tools'
+import {
+    config
+} from '../../config.js'
 const model = new Model()
 const tools = new Tools()
 
@@ -45,6 +48,7 @@ Page({
                 data.forEach(item => {
                     item.starttime = tools.dateformat(new Date(item.starttime), 'yyyy-MM-dd hh:mm')
                     item.endtime = tools.dateformat(new Date(item.endtime), 'yyyy-MM-dd hh:mm')
+                    item.images = `${config.imageUrl}=${item.img_fileid}`
                 })
                 this.setData({
                     activitiesArr: data,
@@ -199,6 +203,7 @@ Page({
                 data.forEach(item => {
                     item.starttime = tools.dateformat(new Date(item.starttime), 'yyyy-MM-dd hh:mm')
                     item.endtime = tools.dateformat(new Date(item.endtime), 'yyyy-MM-dd hh:mm')
+                    item.images = `${config.imageUrl}=${item.img_fileid}`
                 })
                 this.setData({
                     activitiesArr: data,
@@ -226,7 +231,7 @@ Page({
         let id = model.getDataSet(event, 'id')
         console.log(id)
         wx.navigateTo({
-            url: '../detail/detail?gid=' + id,
+            url: '../detail/detail?id=' + id
         })
     }
 })

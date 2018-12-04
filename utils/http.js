@@ -18,7 +18,6 @@ export default class Http {
     request(params) {
 
         let url = this.baseRestUrl + params.url
-
         if (!params.method) {
             params.method = 'Get'
         }

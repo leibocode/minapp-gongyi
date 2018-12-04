@@ -11,7 +11,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "wx075f73f7350c7286",
-	"projectname": "ctz-6",
+	"projectname": "ctz",
 	"condition": {
 		"search": {
 			"current": -1,

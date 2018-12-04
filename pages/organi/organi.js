@@ -1,4 +1,7 @@
 import Model from '../../models/organi.js'
+import {
+    config
+} from '../../config.js'
 const model = new Model()
 Page({
     data: {
@@ -80,6 +83,7 @@ Page({
         let category = wx.getStorageSync('category')
         let newList = []
         list.forEach((item) => {
+            item.images = `${config.imageUrl}=${item.headimg_fileid}`
             region.forEach((regItem) => {
                 if (item.region === regItem.sCode) {
                     item.regionText = regItem.Names

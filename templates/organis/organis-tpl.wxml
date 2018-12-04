@@ -3,7 +3,7 @@
         <block wx:key="index" wx:for="{{organisArr}}">
             <view class="organis-item" data-id="{{item.gid}}">
                 <view class="img-warp">
-                    <image class="organis-item-img" src="../../images/organi-pic1.jpg" bind:tap="onActivityItemTap" />
+                    <image class="organis-item-img" src="{{item.images}}" bind:tap="onActivityItemTap" />
                 </view>
                 <view class="organis-item-right" bind:tap="onActivityItemTap">
                     <view class="organis-item-title">{{item.name}}</view>

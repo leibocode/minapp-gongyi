@@ -1,7 +1,4 @@
 @import "../../templates/activities/activities-tpl.wxss";
-page {
-    background-color:#f1f1f1;
-}
 .activity-container{
     background-color:#fff;
 }
