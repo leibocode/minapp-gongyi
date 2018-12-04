@@ -56,8 +56,10 @@ Page({
             }
         })
 
-        //
         model.getUserjoin(user, (data) => {
+            data.forEach(item => {
+                item.hddate = tools.dateformat(new Date(item.hddate), 'yyyy-MM-dd hh:mm')
+            })
             that.setData({
                 userList: data
             })
