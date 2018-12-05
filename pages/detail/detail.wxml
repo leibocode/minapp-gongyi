@@ -98,7 +98,7 @@
             </block>
         </view>
     </view>
-    <view class="detail-bottom-button" wx:if="{{jsonin}}" bind:tap="onjoinAct">
+    <view class="detail-bottom-button" wx:if="{{jsonin}}" bind:tap="onActJoinTap">
         <view>我要报名</view>
     </view>
     <view class="detail-bottom-button" wx:if="{{wjoin}}" bind:tap="oncancelAct">

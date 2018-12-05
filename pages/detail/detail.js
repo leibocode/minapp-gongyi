@@ -32,15 +32,6 @@ Page({
         let token = wx.getStorageSync('token')
         user.token = token
         user.gid = id
-        // model.getDetailsState(user,(detailState)=>{
-        //         if(detailState){
-
-        //         }
-        // })
-
-
-
-
         model.getDzStatus(user, (data) => {
             let dz = data.msg === '1' ? true : false
             that.setData({
@@ -64,29 +55,19 @@ Page({
                 userList: data
             })
         })
-        model.getDetailsState(user, (data) => {
-            console.log('data')
-            console.log(data)
-            model.getActvitiyButtonState(user, (detailState) => {
-                let join = detailState.isstate === '1' ? true : false
-                console.log(data.flowstate)
-                if (data.flowstate === '1') { //未开始
-                    if (join) {
-                        that.setData({
-                            jsonin: false,
-                            wjoin: true
-                        })
-                    } else {
-                        that.setData({
-                            jsonin: true,
-                            wjoin: false
-                        })
-                    }
-                }
 
 
-            })
-        })
+        // model.getDetailsState(user, (data) => {
+
+        // })
+
+
+        // model.getActvitiyButtonState(user,(data)=>{
+        //    let join = detailState.isstate === '1' ? true : false
+        //    this.setData({
+        //        jsonin:join
+        //    })
+        // })
         model.getActvitiyDateil(user, (data) => {
             let region = wx.getStorageSync('region')
             let categoty = wx.getStorageSync('category')
@@ -106,6 +87,26 @@ Page({
                 }
             })
 
+             model.getActvitiyButtonState(user, (detailState) => {
+                 let join = detailState.isstate === '1' ? true : false
+                 console.log(data.flowstate)
+                 if (data.flowstate === '1') { //未开始
+                     if (join) {
+                         that.setData({
+                             jsonin: false,
+                             wjoin: true
+                         })
+                     } else {
+                         that.setData({
+                             jsonin: true,
+                             wjoin: false
+                         })
+                     }
+                 }
+
+
+             })
+
 
             wx.setNavigationBarTitle({
                 title: data.title
@@ -120,7 +121,7 @@ Page({
 
         //
     },
-    onrganizeTap: function () {
+    onActJoinTap: function () {
         let that = this
         wx.showModal({
             title: '提示',
@@ -132,9 +133,9 @@ Page({
                     let user = wx.getStorageSync('user')
                     let token = wx.getStorageSync('token')
                     user.token = token
-                    user.gid = id
+                    user.gid = that.data.id
                     model.joinAct(user, (data) => {
-                        if (data) {
+                        if (data.result) {
                             let params = model.toQueryString({
                                 name: that.data.activity.title,
                                 address: that.data.activity.straddress,
@@ -181,12 +182,16 @@ Page({
                     user.token = token
                     user.gid = id
                     model.cancelAct(user, (data) => {
-                        if (data) {
-                            let params = model.toQueryString({
-                                name: that.data.activity.title,
-                                address: that.data.activity.title,
-                                contact: that.data.activity.title,
-                                phone: that.data.activity.title,
+                        if (data.result) {
+                            this.showToast({
+                                title: '取消成功',
+                                duration: 1000
+                            })
+                        }else{
+                            this.showToast({
+                                title: '操作失败',
+                                icon: 'none',
+                                duration: 1000
                             })
                         }
                     })

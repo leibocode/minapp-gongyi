@@ -147,10 +147,10 @@ export default class myActivity extends Http {
      * @param {} data
      * @param {*} callback
      */
-    joinAct(data,callback){
+    joinAct(data, callback) { ///weixin/data/inszactivitystaff
         let params = {
-            url: `szsetting/SZData/thesubsidiary?inner_membergid=${data.userId}&inner_membername=
-            ${this._encodeParams(data.nickName)}&token=${data.token}&keyid=${data.gid}`,
+            url: `weixin/data/inszactivitystaff?inner_membergid=${data.userId}&inner_membername=
+            ${this._encodeParams(data.nickName)}&token=${data.token}&activityid=${data.gid}`,
             method: 'POST',
             success: function (res) {
                 callback && callback(res)
@@ -166,8 +166,8 @@ export default class myActivity extends Http {
      */
     cancelAct(data,callback){
          let params = {
-             url: `szsetting/SZData/thesubsidiary?inner_membergid=${data.userId}&inner_membername=
-            ${this._encodeParams(data.nickName)}&token=${data.token}&keyid=${data.gid}`,
+             url: `weixin/data/qxinszactivitystaff?inner_membergid=${data.userId}&inner_membername=
+            ${this._encodeParams(data.nickName)}&token=${data.token}&activityid=${data.gid}`,
              method: 'POST',
              success: function (res) {
                  callback && callback(res)

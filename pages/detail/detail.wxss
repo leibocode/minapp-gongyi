@@ -45,7 +45,7 @@ page{
     margin-top:-38rpx;
 }
 .end-time{
-    margin-top:16rpx; 
+    margin-top:16rpx;
 }
 .perpon{
     display:flex;
@@ -82,7 +82,7 @@ page{
     justify-content:center;
     align-items:center;
     margin-top:-5rpx;
-} 
+}
 .detail-type .icon-fenx image {
     width:35rpx;
     height:35rpx;
@@ -100,7 +100,7 @@ page{
     font-size:24rpx;
     color:#333;
     border-bottom:1rpx solid #ebebeb;
-    padding:30rpx; 
+    padding:30rpx;
     line-height:45rpx;
 }
 .detail-main-box{
@@ -216,6 +216,11 @@ page{
     padding: 0 !important;
     border:none !important;
     margin-right:0rpx;
+
+}
+
+.detail-status1{
+    width:70rpx;
 
 }
 
