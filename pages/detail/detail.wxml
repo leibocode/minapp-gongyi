@@ -21,8 +21,8 @@
             <view class="perpon">
                 <view>
                     报名人数:
-                    <text class="text-nums">{{activity.enrollnum}}</text>
-                    /
+                    <text style="color:#e50026;">{{activity.enrollnum}}</text>
+                    <text>/</text>
                     <text>{{activity.totalnum}}</text>
                 </view>
                 <view wx:if="{{!dz}}" class="icon-dianz" bind:tap="onDz">
