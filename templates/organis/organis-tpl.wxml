@@ -1,11 +1,11 @@
 <template name="organis">
     <view class="organis-box">
         <block wx:key="index" wx:for="{{organisArr}}">
-            <view class="organis-item" data-id="{{item.gid}}">
+            <view class="organis-item">
                 <view class="img-warp">
-                    <image class="organis-item-img" src="{{item.images}}" bind:tap="onActivityItemTap" />
+                    <image class="organis-item-img" data-id="{{item.gid}}" src="{{item.images}}" bind:tap="onActivityItemTap" />
                 </view>
-                <view class="organis-item-right" bind:tap="onActivityItemTap">
+                <view class="organis-item-right" data-id="{{item.gid}}" bind:tap="onActivityItemTap">
                     <view class="organis-item-title">{{item.name}}</view>
                     <view class="organis-item-time">
                         <view class="icon_time">

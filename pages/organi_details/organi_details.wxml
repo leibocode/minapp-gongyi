@@ -14,18 +14,18 @@
     <view class="spanview"></view>
     <view class="dz-box">
         <view class="col-blue">队长</view>
-        <view>></view>
+        <view></view>
     </view>
-    <view class="dz-info">
+    <view class="dz-info" wx:for="{{dz_list}}" wx:key="index" data-gid="{{item.gid}}" bind:tap="tomember">
         <view class="dz-info-img">
-            <image src="{{dzinfo.photo}}" mode="aspectFill" />
+            <image src="{{item.headimgurl}}" mode="aspectFill" />
         </view>
         <view class="dz-info-list">
             <text class="del-info-key">发起人：</text>
-            <text class="del-info-value">{{dzinfo.name}}</text>
+            <text class="del-info-value">{{item.membername}}</text>
             <view></view>
             <text class="del-info-key">手机号：</text>
-            <text class="del-info-value">{{dzinfo.iphonexs}}</text>
+            <text class="del-info-value">{{item.iphonexs}}</text>
         </view>
     </view>
     <view class="spanview"></view>
@@ -42,16 +42,17 @@
         </view>
     </view>
     <view class="p-list">
-        <view class="p-item" wx:key="index" wx:for="{{p_list}}" data-id="{{item.id}}" bind:tap="tomember">
+        <view class="p-item" wx:key="index" wx:for="{{p_list}}" data-gid="{{item.gid}}" bind:tap="tomember">
             <view class="list-img">
-                <image src="{{item.photo}}" mode="aspectFill" />
+                <image src="{{item.headimgurl}}" mode="aspectFill" />
             </view>
-            <view>{{item.name}}</view>
+            <view>{{item.membername}}</view>
             <view class="list-state">
-                <image src="../../images/o-d-p-s-icon.png" />
-                <text>审核中</text>
+                <image src="../../images/o-d-p-s-icon.png" wx:if="{{item.handelname != '审核通过'}}" />
+                <text>{{item.handelname}}</text>
             </view>
             <view style="color: #d7d7d7">></view>
         </view>
     </view>
+    <view class="btns" bind:tap="ckbommbtn">{{isstate == 0 ? '加入组织':'退出组织'}}</view>
 </view>

@@ -149,3 +149,17 @@
 .p-item view:nth-last-of-type(1) {
     width: 8%;
 }
+
+.btns {
+    display: inline-block;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 90%;
+    border-radius: 3rem;
+    vertical-align: middle;
+    font-size: 0.8rem;
+    margin: 1rem 1rem;
+    text-align: center;
+    background: #e50026;
+    color: #fff;
+}

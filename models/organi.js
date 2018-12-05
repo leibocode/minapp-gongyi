@@ -9,7 +9,7 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    getOrganis (data, callback) {
+    getOrganis(data, callback) {
         console.log(data)
         const url = `weixin/data/selectszorganization?inner_membergid=${data.userId}&inner_membername=
         ${this._encodeParams(data.nickName)}&token=${data.token}&pagesize=${data.size}&curpage=${data.page}`
@@ -47,7 +47,7 @@ export default class myActivity extends Http {
      * @param {*} key 
      * @param {*} callback 
      */
-    getValues (data, key, callback) {
+    getValues(data, key, callback) {
         let that = this
 
         let params = {
@@ -67,7 +67,7 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    getMyOrganis (data, callback) {
+    getMyOrganis(data, callback) {
         console.log(data)
         const url = `weixin/data/selectszorganization?inner_membergid=${data.userId}&inner_membername=
         ${this._encodeParams(data.nickName)}&token=${data.token}&pagesize=${data.size}&curpage=${data.page}`
@@ -94,10 +94,30 @@ export default class myActivity extends Http {
      * @param {} data 
      * @param {*} callback 
      */
-    joinInOrgani (data, callback) {
-        console.log()
+    joinInOrgani(data, callback) {
+        console.log(data)
         let param = {
             url: `weixin/data/inszorganizationrelation?inner_membergid=${data.user.userId}&inner_membername=
+            ${this._encodeParams(data.user.nickName)}&token=${data.token}&organizationid=${data.gid}&organizationname=${data.name}`,
+            method: 'POST',
+            success: function (res) {
+                console.log(res)
+                callback && callback(res)
+            }
+        }
+
+        this.request(param)
+    }
+
+    /**
+     * 退出组织
+     * @param {} data 
+     * @param {*} callback 
+     */
+    exitthegroup(data, callback) {
+        console.log(data)
+        let param = {
+            url: `api/querydata/getexitthegroup?inner_membergid=${data.user.userId}&inner_membername=
             ${this._encodeParams(data.user.nickName)}&token=${data.token}&organizationid=${data.gid}&organizationname=${data.name}`,
             method: 'POST',
             success: function (res) {

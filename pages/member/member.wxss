@@ -1,6 +1,6 @@
 .top-box image {
     width: 100%;
-    height: 76px;
+    height: 84px;
 }
 
 .photo-box {

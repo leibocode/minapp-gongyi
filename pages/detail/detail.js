@@ -55,19 +55,25 @@ Page({
                 userList: data
             })
         })
-
-
-        // model.getDetailsState(user, (data) => {
-
-        // })
-
-
-        // model.getActvitiyButtonState(user,(data)=>{
-        //    let join = detailState.isstate === '1' ? true : false
-        //    this.setData({
-        //        jsonin:join
-        //    })
-        // })
+        model.getActvitiyDateil(user, (data) => {
+            console.log(data)
+            model.getActvitiyButtonState(user, (detailState) => {
+                let join = detailState.isstate === '1' ? true : false
+                if (data.flowstate === '1') { //未开始
+                    if (join) {
+                        that.setData({
+                            jsonin: false,
+                            wjoin: true
+                        })
+                    } else {
+                        that.setData({
+                            jsonin: true,
+                            wjoin: false
+                        })
+                    }
+                }
+            })
+        })
         model.getActvitiyDateil(user, (data) => {
             let region = wx.getStorageSync('region')
             let categoty = wx.getStorageSync('category')
@@ -87,25 +93,25 @@ Page({
                 }
             })
 
-             model.getActvitiyButtonState(user, (detailState) => {
-                 let join = detailState.isstate === '1' ? true : false
-                 console.log(data.flowstate)
-                 if (data.flowstate === '1') { //未开始
-                     if (join) {
-                         that.setData({
-                             jsonin: false,
-                             wjoin: true
-                         })
-                     } else {
-                         that.setData({
-                             jsonin: true,
-                             wjoin: false
-                         })
-                     }
-                 }
+            model.getActvitiyButtonState(user, (detailState) => {
+                let join = detailState.isstate === '1' ? true : false
+                console.log(data.flowstate)
+                if (data.flowstate === '1') { //未开始
+                    if (join) {
+                        that.setData({
+                            jsonin: false,
+                            wjoin: true
+                        })
+                    } else {
+                        that.setData({
+                            jsonin: true,
+                            wjoin: false
+                        })
+                    }
+                }
 
 
-             })
+            })
 
 
             wx.setNavigationBarTitle({
@@ -155,7 +161,7 @@ Page({
         })
     },
     //预览图片
-    preview () {
+    preview() {
         let imgs = []
         imgs.push(this.data.activity.images)
         wx.previewImage({
@@ -187,7 +193,7 @@ Page({
                                 title: '取消成功',
                                 duration: 1000
                             })
-                        }else{
+                        } else {
                             this.showToast({
                                 title: '操作失败',
                                 icon: 'none',
