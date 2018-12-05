@@ -4,7 +4,8 @@
         <block wx:for="{{tabs}}" wx:key="{{index}}">
             <view class="tab-item {{currentTabsIndex==index?'selected':''}}" bindtap="onTabsItemTap" data-index="{{index}}">
                 {{item}}
-                <image class="item-icon-dowm" src="../../images/dowm.png" />
+                <image class="item-icon-dowm" wx:if="{{currentTabsIndex!=index}}" src="../../images/dowm.png" />
+                <image class="item-icon-dowm" wx:if="{{currentTabsIndex==index}}" src="../../images/down-select.png" />
             </view>
         </block>
     </view>

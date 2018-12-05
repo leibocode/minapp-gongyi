@@ -23,6 +23,12 @@ Page({
     },
     onLoad: function (options) {
         const id = options.id
+        this.setData({
+            gid: id
+        })
+    },
+    onShow: function () {
+        let id = this.data.gid
         this._loadData(id)
     },
     //加载数据
@@ -87,25 +93,29 @@ Page({
                 }
             })
 
-             model.getActvitiyButtonState(user, (detailState) => {
-                 let join = detailState.isstate === '1' ? true : false
-                 console.log(data.flowstate)
-                 if (data.flowstate === '1') { //未开始
-                     if (join) {
-                         that.setData({
-                             jsonin: false,
-                             wjoin: true
-                         })
-                     } else {
-                         that.setData({
-                             jsonin: true,
-                             wjoin: false
-                         })
-                     }
-                 }
+            model.getActvitiyButtonState(user, (detailState) => {
+                let join = detailState.isstate === '1' ? true : false
+                console.log(data.flowstate)
+                if (data.flowstate === '1') { //未开始
+                    if (join) {//报名成功
+                        that.setData({
+                            jsonin: false,
+                            wjoin: true
+                        })
+                    } else {
+                        that.setData({
+                            jsonin: true,
+                            wjoin: false
+                        })
+                    }
+                } else if (data.flowstate === '2') {
+                    this.setData({
+                        jsonin: !join
+                    })
+                }
 
 
-             })
+            })
 
 
             wx.setNavigationBarTitle({
@@ -123,6 +133,7 @@ Page({
     },
     onActJoinTap: function () {
         let that = this
+        console.log(that)
         wx.showModal({
             title: '提示',
             content: '您确定参与本次活动吗？',
@@ -133,9 +144,12 @@ Page({
                     let user = wx.getStorageSync('user')
                     let token = wx.getStorageSync('token')
                     user.token = token
-                    user.gid = that.data.id
+                    user.gid = that.data.gid
                     model.joinAct(user, (data) => {
+                        console.log('报名')
+                        console.log(data)
                         if (data.result) {
+
                             let params = model.toQueryString({
                                 name: that.data.activity.title,
                                 address: that.data.activity.straddress,
@@ -144,6 +158,12 @@ Page({
                             })
                             wx.navigateTo({
                                 url: '../regsuccess/regsuccess?' + params,
+                            })
+                        } else {
+                            wx.showToast({
+                                title: '报名失败',
+                                icon: 'none',
+                                duration: 1000
                             })
                         }
                     })
@@ -180,15 +200,15 @@ Page({
                     let user = wx.getStorageSync('user')
                     let token = wx.getStorageSync('token')
                     user.token = token
-                    user.gid = id
+                    user.gid = that.data.gid
                     model.cancelAct(user, (data) => {
                         if (data.result) {
-                            this.showToast({
+                            wx.showToast({
                                 title: '取消成功',
                                 duration: 1000
                             })
-                        }else{
-                            this.showToast({
+                        } else {
+                            wx.showToast({
                                 title: '操作失败',
                                 icon: 'none',
                                 duration: 1000

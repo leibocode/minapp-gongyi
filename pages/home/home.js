@@ -53,7 +53,7 @@ Page({
     },
     OnMoreActtivitiesTap: function () {
         console.log('wx')
-        wx.navigateTo({
+        wx.switchTab({
             url: '../activity/activity'
         })
     },
@@ -66,15 +66,15 @@ Page({
         let that = this
         model.getBannerData(user, (data) => {
             let imgs = []
-            data.forEach((item)=>{
-                user.img_key =item.img_fileid
+            data.forEach((item) => {
+                user.img_key = item.img_fileid
                 item.images = `${config.imageUrl}=${item.img_fileid}`
             })
             that.setData({
                 bannerArr: data
             })
         })
-2
+        2
         model.getHotActivities(user, (data) => {
             data.forEach(item => {
                 item.starttime = tools.dateformat(new Date(item.starttime), 'yyyy-MM-dd hh:mm')
@@ -116,7 +116,7 @@ Page({
     onPullDownRefresh: function () {
 
     },
-    _loadValues(user) {
+    _loadValues (user) {
         let regionKey = 'voregion'
         let cate = 'volunteertype'
         let that = this
@@ -148,7 +148,7 @@ Page({
             })
         }
     },
-    onActivityItemTap(event) {
+    onActivityItemTap (event) {
         let id = model.getDataSet(event, 'id')
         console.log(id)
         wx.navigateTo({

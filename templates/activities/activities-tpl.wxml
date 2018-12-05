@@ -2,7 +2,8 @@
     <view class="activities-box">
         <block wx:key="index" wx:for="{{activitiesArr}}">
             <view class="activities-item" data-id="{{item.gid}}" bind:tap="onActivityItemTap">
-                <image class="activities-item-img" src="{{item.images}}" mode="aspectFill" />
+                <image class="activities-item-img" wx:if="{{item.img_fileid}}" src="{{item.images}}" mode="aspectFill" />
+                <image class="activities-item-img" wx:if="{{!item.img_fileid}}" src="../../images/default-pic.jpg" mode="aspectFill" />
                 <view class="activities-item-right">
                     <view class="activities-item-title">{{item.title}}</view>
                     <view class="activities-item-time">

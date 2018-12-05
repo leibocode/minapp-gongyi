@@ -4,7 +4,8 @@
         <block wx:key="index" wx:for="{{tabs}}">
             <view class="tab-item {{currentTabsIndex==index?selected:''}}" bindtap="onTabsItemTap" data-index="{{index}}">
                 {{item}}
-                <image class="item-icon-dowm" src="../../images/dowm.png" />
+                <image class="item-icon-dowm" wx:if="{{currentTabsIndex!=index}}" src="../../images/dowm.png" />
+                <image class="item-icon-dowm" wx:if="{{currentTabsIndex==index}}" src="../../images/down-select.png" />
             </view>
         </block>
     </view>
@@ -13,9 +14,7 @@
         <template is="organis" data="{{organisArr:organisArr}}"></template>
     </view>
     <view class="no-data" wx:if="{{!allLoad}}">
-        <view class="no-data-content">
-           没有相关组织哦~
-        </view>
+        <view class="no-data-content">没有相关组织哦~</view>
     </view>
 </view>
 <!-- <loading hidden="{{loading}}">加载中...</loading> -->

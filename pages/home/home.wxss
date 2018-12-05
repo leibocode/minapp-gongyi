@@ -137,3 +137,8 @@ page{
     color:#333;
     font-size:24rpx;
 }
+
+.icon-xy{
+    width:25rpx;
+    height:25rpx;   
+}
