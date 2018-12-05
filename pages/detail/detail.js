@@ -103,11 +103,7 @@ Page({
                 let join = detailState.isstate === '1' ? true : false
                 console.log(data.flowstate)
                 if (data.flowstate === '1') { //未开始
-<<<<<<< HEAD
-                    if (join) {
-=======
-                    if (join) {//报名成功
->>>>>>> acfd34ed8221d05e1817b0f97154e349cbbd8169
+                    if (join) { //报名成功
                         that.setData({
                             jsonin: false,
                             wjoin: true
@@ -118,13 +114,10 @@ Page({
                             wjoin: false
                         })
                     }
-<<<<<<< HEAD
-=======
                 } else if (data.flowstate === '2') {
                     this.setData({
                         jsonin: !join
                     })
->>>>>>> acfd34ed8221d05e1817b0f97154e349cbbd8169
                 }
 
 
@@ -221,11 +214,7 @@ Page({
                                 duration: 1000
                             })
                         } else {
-<<<<<<< HEAD
-                            this.showToast({
-=======
                             wx.showToast({
->>>>>>> acfd34ed8221d05e1817b0f97154e349cbbd8169
                                 title: '操作失败',
                                 icon: 'none',
                                 duration: 1000
