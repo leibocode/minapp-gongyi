@@ -16,7 +16,8 @@
         "pages/organi_details/organi_details",
         "pages/authorize/authorize",
         "pages/member/member",
-        "pages/regsuccess/regsuccess"
+        "pages/regsuccess/regsuccess",
+        "pages/myinfo/myinfo"
     ],
     "window": {
         "navigationBarBackgroundColor": "#e50026",

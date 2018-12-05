@@ -101,4 +101,30 @@ export default class apiVountary extends Http {
         }
         this.request(option)
     }
+
+    /**
+     * 修改个人信息
+     * @param {*} data 
+     * @param {*} reginfo 
+     * @param {*} callback 
+     */
+    updateregaccountsubmit(data, reginfo, callback) {
+        let baseparams = {
+            inner_membergid: data.userId,
+            inner_membername: data.nickName,
+            token: data.token
+        }
+        let that = this
+        let option = {
+            url: '/szsetting/SZData/updateregaccountsubmit?' +
+                this.toQueryString(baseparams) + '&' +
+                this.toQueryString(reginfo),
+            method: 'POST',
+            success: function (res) {
+                console.log(res)
+                callback && callback(res)
+            }
+        }
+        this.request(option)
+    }
 }

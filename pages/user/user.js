@@ -10,7 +10,7 @@ Page({
             icon_url: '../../images/h-icon1.png',
             title: '个人信息',
             icon: '../../images/my-cont-icon1.png',
-            path: ''
+            path: '../myinfo/myinfo'
         }, {
             icon_url: '../../images/h-icon1.png',
             title: '我的组织',
