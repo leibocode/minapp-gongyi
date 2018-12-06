@@ -32,7 +32,7 @@ page {
     z-index:2099;
 }
 .activity-main-box{
-    margin-top:93rpx;
+    margin-top:65rpx;
     margin-bottom:60rpx;
 }
 .no-data{

@@ -220,10 +220,43 @@ page{
 }
 
 .detail-status1{
-    width:70rpx;
+  color:#fff;
+  width:104rpx;
+  height:50rpx;
+  background-color:#218ccd;
+  margin-bottom:2rpx;
+  position:absolute;
+  right:34rpx;
+  bottom:231px;
+  text-align:center;
+  line-height:50rpx;
 
 }
-
+.detail-status2{
+  color:#fff;
+  width:104rpx;
+  height:50rpx;
+  background-color:#218ccd;
+  margin-bottom:2rpx;
+  position:absolute;
+  right:34rpx;
+  bottom:231px;
+  text-align:center;
+  line-height:50rpx;
+}
+.detail-status3{
+  color:#fff;
+  width:104rpx;
+  height:50rpx;
+  background-color:#9a9a9a;
+  margin-bottom:2rpx;
+  position:absolute;
+  right:34rpx;
+  bottom:239px;
+  text-align:center;
+  line-height:50rpx;
+  
+}
 
 
 
