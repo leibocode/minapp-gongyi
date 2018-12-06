@@ -1,9 +1,6 @@
 import Http from '../utils/http'
 
 export default class ApiScores extends Http {
-    constructor() {
-
-    }
 
     /**
      * 获取我的积分

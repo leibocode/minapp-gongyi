@@ -8,7 +8,7 @@
         </view>
     </view>
     <!-- <div class="member-state"><img src="images/dsh-icon.png" alt=""></div> -->
-    <image class="member-state" src="../../images/dsh-icon.png" mode="aspectFill" />
+    <image class="member-state" src="../../images/dsh-icon.png" wx:if="{{status == 1}}" mode="aspectFill" />
     <view class="info-name">{{info.nickname}}</view>
     <view class="info-item">
         <text>性别</text>
@@ -22,7 +22,7 @@
         <text>志愿时长</text>
         <text>{{info.duration}}</text>
     </view>
-    <view class="btns" wx:if="{{isadmin == 1}}">
+    <view class="btns" wx:if="{{isadmin == 1 && status == 1}}">
         <view bind:tap="isnot">不通过</view>
         <view bind:tap="isyse">通过</view>
     </view>

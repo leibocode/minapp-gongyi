@@ -185,8 +185,9 @@ export default class ApiOrgniDel extends Http {
             inner_membergid: data.userId,
             inner_membername: data.nickName,
             token: data.token,
-            key: key
+            keyid: key
         }
+        console.log(baseparams)
         let that = this
         let params = {
             url: 'api/querydata/getauditstatus?' + this.toQueryString(baseparams),

@@ -32,10 +32,19 @@ Page({
         this._loadData(this.data.gid)
     },
     tomember: function (event) {
-        let gid = event.target.dataset.gid
+        let gid = apiOrgni.getDataSet(event, 'gid')
+        let gxid = apiOrgni.getDataSet(event, 'gxid')
+        //let gxid = event.target.dataset.gxid
         console.log(gid)
+        var qsdata = {
+            gid: gid,
+            kid: this.data.gid,
+            gxid: gxid
+        }
+        console.log('tomember')
+        console.log(qsdata)
         wx.navigateTo({
-            url: '../member/member?gid=' + gid + '&kid=' + this.data.gid,
+            url: '../member/member?' + apiOrgni.toQueryString(qsdata),
         })
     },
     _loadData(gid) {
@@ -65,6 +74,9 @@ Page({
                     content: data.remark,
                     organizaadminbid: data.organizaadminbid
                 }
+            })
+            wx.setNavigationBarTitle({
+                title: data.name
             })
         })
         apiOrgniDel.getissignin(user, gid, (data) => {

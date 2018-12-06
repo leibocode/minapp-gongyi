@@ -4,6 +4,7 @@ const apiOrgniDel = new ApiOrgniDel()
 Page({
     data: {
         gid: '',
+        gxid: '',
         kid: '',
         status: 0,
         isadmin: 0,
@@ -13,7 +14,8 @@ Page({
         console.log(options)
         this.setData({
             gid: options.gid,
-            kid: options.kid
+            kid: options.kid,
+            gxid: options.gxid
         })
         this._onload(this.data.gid)
     },
@@ -37,7 +39,7 @@ Page({
                 isadmin: 1
             })
         })
-        apiOrgniDel.getauditstatus(user, gid, (data) => {
+        apiOrgniDel.getauditstatus(user, this.data.gxid, (data) => {
             this.setData({
                 status: data.status
             })
@@ -49,6 +51,9 @@ Page({
         user.token = token
         apiOrgniDel.handelszorganizationrelation(user, this.data.gid, this.data.kid, '5', (data) => {
             if (data.result) {
+                this.setData({
+                    status: 5
+                })
                 wx.showModal({
                     title: '提示',
                     content: '此成员审核为：不通过'
@@ -62,6 +67,9 @@ Page({
         user.token = token
         apiOrgniDel.handelszorganizationrelation(user, this.data.gid, this.data.kid, '5', (data) => {
             if (data.result) {
+                this.setData({
+                    status: 4
+                })
                 wx.showModal({
                     title: '提示',
                     content: '此成员审核为：通过'
