@@ -1,8 +1,11 @@
 import User from '../../models/user'
+import ApiScores from '../../models/scores'
 const userapi = new User()
+const apiScores = new ApiScores()
 Page({
     data: {
-        myscore: 0
+        myscore: 0,
+        myscoreList: []
     },
 
     onLoad: function () {
@@ -15,14 +18,15 @@ Page({
         console.log(token)
         user.token = token
         let that = this
-        userapi.getUserInfo(user, (data) => {
-            if (data.result) {
-                that.setData({
-                    myscore: data.score
-                })
-            } else {
-
-            }
+        apiScores.myintegral(user, (data) => {
+            that.setData({
+                myscore: data.totalscore
+            })
+        })
+        apiScores.thesubsidiary(user, (data) => {
+            that.setData({
+                myscoreList: data
+            })
         })
     }
 })
