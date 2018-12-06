@@ -31,7 +31,7 @@
     <view class="spanview"></view>
     <view class="dz-box">
         <view class="col-blue">组织活动</view>
-        <view style="color: #e50026;">30 ></view>
+        <view style="color: #e50026;">30 <image class="icon-xy" src="../../images/xy.png" /></view>
     </view>
     <view class="spanview"></view>
     <view class="dz-box">
@@ -51,7 +51,7 @@
                 <image src="../../images/o-d-p-s-icon.png" wx:if="{{item.handelname != '审核通过'}}" />
                 <text>{{item.handelname}}</text>
             </view>
-            <view style="color: #d7d7d7">></view>
+            <view style="color: #d7d7d7"><image class="icon-xy" src="../../images/xy.png" /></view>
         </view>
     </view>
     <view class="btns" bind:tap="ckbommbtn">{{isstate == 0 ? '加入组织':'退出组织'}}</view>

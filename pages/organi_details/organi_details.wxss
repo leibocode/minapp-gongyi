@@ -23,6 +23,13 @@
     border-bottom: 1px solid #ddd
 }
 
+
+.icon-xy{
+    width:25rpx;
+    height:25rpx;   
+}
+
+
 .del-info-key {
 
     font-size: 0.8rem;
