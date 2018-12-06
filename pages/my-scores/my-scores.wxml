@@ -7,49 +7,13 @@
         <view>可用积分</view>
     </view>
     <view class="boxlist">
-        <view class="boxitem">
+        <view class="boxitem" wx:for="{{myscoreList}}" wx:for-index="index">
             <view class="boxitem-left">
-                <text>积分兑换</text>
-                <text>2018-11-11</text>
+                <text>{{item.title}}</text>
+                <text>{{item.builddate}}</text>
             </view>
             <view class="boxitem-right">
-                <text style="color: #218ccd">-500</text>
-            </view>
-        </view>
-        <view class="boxitem">
-            <view class="boxitem-left">
-                <text>成功分享二维码</text>
-                <text>2018-11-11</text>
-            </view>
-            <view class="boxitem-right">
-                <text>+200</text>
-            </view>
-        </view>
-        <view class="boxitem">
-            <view class="boxitem-left">
-                <text>成功分享二维码</text>
-                <text>2018-11-11</text>
-            </view>
-            <view class="boxitem-right">
-                <text>+200</text>
-            </view>
-        </view>
-        <view class="boxitem">
-            <view class="boxitem-left">
-                <text>成功分享二维码</text>
-                <text>2018-11-11</text>
-            </view>
-            <view class="boxitem-right">
-                <text>+200</text>
-            </view>
-        </view>
-        <view class="boxitem">
-            <view class="boxitem-left">
-                <text>成功分享二维码</text>
-                <text>2018-11-11</text>
-            </view>
-            <view class="boxitem-right">
-                <text>+200</text>
+                <text style="color: #218ccd">{{item.integral}}</text>
             </view>
         </view>
     </view>
