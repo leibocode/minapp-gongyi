@@ -5,11 +5,6 @@ export default class myActivity extends Http {
         super();
     }
 
-    /**
-     * 获取所以的活动信息
-     * @param {}} data
-     * @param {*} callback
-     */
     getActvities (data, callback) {
 
         const url = `weixin/data/selecthuodong?inner_membergid=${data.userId}&inner_membername=
@@ -174,5 +169,29 @@ export default class myActivity extends Http {
              }
          }
          this.request(params)
+    }
+
+    getComments(){
+        let params = {
+             url: `weixin/data/selectszacomment?inner_membergid=${data.userId}&inner_membername=
+            ${this._encodeParams(data.nickName)}&token=${data.token}&kindid=${data.gid}`,
+             method: 'POST',
+             success: function (res) {
+                 callback && callback(res)
+             }
+        }
+        this.request(params)
+    }
+
+    createComment(){
+        let params = {
+            url: `weixin/data/qxinszactivitystaff?inner_membergid=${data.userId}&inner_membername=
+        ${this._encodeParams(data.nickName)}&token=${data.token}&activityid=${data.gid}`,
+            method: 'POST',
+            success: function (res) {
+                callback && callback(res)
+            }
+        }
+        this.request(params)
     }
 }

@@ -21,9 +21,7 @@
             <view class="perpon">
                 <view>
                     报名人数:
-                    <text style="color:#e50026;">{{activity.enrollnum}}</text>
-                    <text>/</text>
-                    <text>{{activity.totalnum}}</text>
+                    <text style="color:#e50026;">{{activity.enrollnum}}<text>/</text><text>{{activity.totalnum}}</text></text>
                 </view>
                 <view wx:if="{{!dz}}" class="icon-dianz" bind:tap="onDz">
                     <image src="../../images/dianzan-icon.png" />
@@ -76,7 +74,7 @@
         </view>
     </view>
     <view class="detail-hr"></view>
-    <view class="detail-bottom-box">
+    <view class="detail-bottom-box" wx:if="{{flowstate !=='3'}}">
         <view class="detail-title">
             <view class="detail-title-left">报名列表</view>
             <view class="detail-title-right">
@@ -96,6 +94,39 @@
                     <view class="item-time">{{signup_item.hddate}}</view>
                 </view>
             </block>
+        </view>
+    </view>
+    <view class="detail-bottom-box contents" wx:if="{{flowstate=='3'}}">
+        <view class="detail-title">
+             <view class="detail-title-left">活动点评 {{}}</view>
+             <view class="detail-title-right">
+                 已评论:
+                 <text>条</text>
+             </view>
+         </view>
+         <view class="detail-bottom-content dateil-boxs">
+            <view wx:if="{{comments.length>0}}">
+                <block wx:for="{{comments}}" wx:key="index" wx:for-item="comment">
+                    <view class="signup_item">
+                        <view class="item-info">
+                            <view class="ingo-img">
+                                <image src="{{comment.headimgurl}}" />
+                            </view>
+                            <view class="info-name">{{comment.membername}}</view>
+                            <view>{{comment.content}}</view>
+                        </view>
+                        <view class="item-time">{{comment.commenttime}}</view>
+                    </view>
+                </block>
+            </view>
+            <view wx:else class="no-data">暂无评论~</view>
+         </view>
+     </view>
+    <view class="" wx:if="{{flowstate=='3'}}">
+        <view class="talk" bindtap="bindReply">回复</view>
+        <view class="release" hidden="{{!releaseFocus}}">
+            <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" placeholder="回复 {{releaseName}}"></textarea>
+            <view class="submit">发送</view>
         </view>
     </view>
     <view class="detail-bottom-button" wx:if="{{jsonin}}" bind:tap="onActJoinTap">

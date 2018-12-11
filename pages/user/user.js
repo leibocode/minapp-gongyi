@@ -21,16 +21,15 @@ Page({
             title: '我的活动',
             path: '../my-activity/my-activity',
             icon: '../../images/my-cont-icon3.png'
-        }, {
-            icon_url: '../../images/h-icon1.png',
+        },{
+            icon_url: '../../images/my-cont-icon4.png',
             title: '队长授权',
             path: '../captain-auth/captain-auth'
+        },{
+            icon_url: '../../images/my-cont-icon5.png',
+            title:'成员待审核',
+            class:'no-border'
         }],
-        // ,{
-        //     icon_url:'../../images/h-icon1.png',
-        //     title:'成员待审核',
-        //     class:'no-border'
-        // }
         loading: false
     },
     onLoad: function () {

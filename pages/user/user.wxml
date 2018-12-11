@@ -29,7 +29,7 @@
                 <view class="menu-item-left">
                     <text>{{item.title}}</text>
                 </view>
-                <view class="item-td"></view>
+                <view class="item-td" wx:if="{{item.title==='成员待审核'}}">30人</view>
             </view>
         </block>
     </view>

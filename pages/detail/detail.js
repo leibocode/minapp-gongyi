@@ -18,7 +18,9 @@ Page({
             dz: false,
             userList: [],
             jsonin: false,
-            wjoin: false
+            wjoin: false,
+            comments:[],
+            releaseFocus:false
         }
     },
     onLoad: function (options) {
@@ -53,14 +55,7 @@ Page({
             }
         })
 
-        model.getUserjoin(user, (data) => {
-            data.forEach(item => {
-                item.hddate = tools.dateformat(new Date(item.hddate), 'yyyy-MM-dd hh:mm')
-            })
-            that.setData({
-                userList: data
-            })
-        })
+
         model.getActvitiyDateil(user, (data) => {
             console.log(data)
             model.getActvitiyButtonState(user, (detailState) => {
@@ -114,9 +109,35 @@ Page({
                             wjoin: false
                         })
                     }
-                } else if (data.flowstate === '2') {
+
+                     model.getUserjoin(user, (data) => {
+                          data.forEach(item => {
+                              item.hddate = tools.dateformat(new Date(item.hddate), 'yyyy-MM-dd hh:mm')
+                          })
+                          that.setData({
+                              userList: data
+                          })
+                    })
+                } else if (data.flowstate === '2') {//已开始
                     this.setData({
                         jsonin: !join
+                    })
+                    model.getUserjoin(user, (data) => {
+                          data.forEach(item => {
+                              item.hddate = tools.dateformat(new Date(item.hddate), 'yyyy-MM-dd hh:mm')
+                          })
+                          that.setData({
+                              userList: data
+                          })
+                    })
+                } else if (data.flowstate==='3') {//已结束
+                    model.getComments(user,(data)=>{
+                        data.forEach(()=>{
+                            item.commenttime = tools.dateformat(new Date(item.commenttime), 'yyyy-MM-dd hh:mm')
+                        })
+                        that.setData({
+                            comments:data
+                        })
                     })
                 }
 

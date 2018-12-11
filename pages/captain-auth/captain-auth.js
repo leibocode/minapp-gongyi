@@ -1,3 +1,8 @@
 Page({
-    
+    data:{
+
+    },
+    onCaptainTap:function() {
+
+    }
 })

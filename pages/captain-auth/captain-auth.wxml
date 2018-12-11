@@ -6,7 +6,7 @@
             </text>
             <input type="text" placeholder="请输入授权码" maxlength='6' />
     </view>
-    <view class="captain-auth-btn">
+    <view class="captain-auth-btn" bind:tap="onCaptainTap">
           <view>保存</view>
     </view>
 </view>
