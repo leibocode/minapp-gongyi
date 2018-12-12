@@ -29,11 +29,11 @@
     <view class="spanview"></view>
     <view class="dz-box">
         <view class="col-blue">加入的群聊</view>
-        <view style="color: #e50026">5 ></view>
+        <view style="color: #e50026">></view>
     </view>
     <view class="spanview"></view>
     <view class="dz-box">
         <view class="col-blue">参加过的活动</view>
-        <view style="color: #e50026">4 ></view>
+        <view style="color: #e50026">></view>
     </view>
 </view>

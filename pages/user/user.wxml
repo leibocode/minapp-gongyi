@@ -1,21 +1,25 @@
 <view class="user-container" hidden="{{!loading}}">
     <view class="userbox">
-        <image src="../../images/my-banner-bg.jpg" mode="aspectFill" class="img-bg" />
+        <image class="userinfo-avatar" src="{{ userInfo.headimgurl }}"></image>
+        <view style='width:30rpx;'></view>
+        <view class='userinfo-text'>
+            <text class="userinfo-nickname">{{ userInfo.membername }}</text>
+            <view style='height:10rpx;'></view>
+        </view>
+        <!-- <image src="../../images/my-banner-bg.jpg" mode="aspectFill" class="img-bg" /> -->
     </view>
-    <view class="userinfo">
+    <!-- <view class="userinfo">
         <image class="userinfo-avatar" src="{{userInfo.headimgurl}}"></image>
         <view class="nickName">{{userInfo.membername}}</view>
-    </view>
+    </view> -->
     <view class="user-header">
-        <view class="user-header-left">
+        <view class="user-header-left" bind:tap="onScoresTap">
             <text class="header-left-nums" wx:if="{{userInfo.score}}">{{userInfo.score}}</text>
             <text class="header-left-nums" wx:else>0</text>
             <text>我的积分</text>
         </view>
-        <view class="user-header-right">
-            <text class="header-right-nums" wx:if="{{userInfo.duration}}">
-                {{userInfo.duration}}
-            </text>
+        <view class="user-header-right" bind:tap="onZyTap">
+            <text class="header-right-nums" wx:if="{{userInfo.duration}}">{{userInfo.duration}}</text>
             <text class="header-right-nums" wx:else>0.00</text>
             <text>志愿时长(时)</text>
         </view>
@@ -29,7 +33,7 @@
                 <view class="menu-item-left">
                     <text>{{item.title}}</text>
                 </view>
-                <view class="item-td" wx:if="{{item.title==='成员待审核'}}">30人</view>
+                <!-- <view class="item-td" wx:if="{{item.title==='成员待审核'}}">30人</view> -->
             </view>
         </block>
     </view>

@@ -13,7 +13,7 @@
 .activities-box .activities-item .activities-item-img{
     width:33%;
     border-radius:6rpx;
-    height:160rpx;
+    height:175rpx;
 
 }
 
@@ -23,7 +23,7 @@
     color:#888;
     width:74%;
     margin-left:20rpx;
-    height:186rpx;
+    height:203rpx;
 }
 
 .activities-item .activities-item-right .activities-item-title{

@@ -19,8 +19,8 @@ Page({
             userList: [],
             jsonin: false,
             wjoin: false,
-            comments:[],
-            releaseFocus:false
+            inputBoxShow: false,
+            isScroll: true,
         }
     },
     onLoad: function (options) {
@@ -54,8 +54,6 @@ Page({
 
             }
         })
-
-
         model.getActvitiyDateil(user, (data) => {
             console.log(data)
             model.getActvitiyButtonState(user, (detailState) => {
@@ -72,6 +70,32 @@ Page({
                             wjoin: false
                         })
                     }
+                    model.getUserjoin(user, (userList) => {
+                      userList.forEach(item => {
+                        item.hddate = tools.dateformat(new Date(item.hddate), 'yyyy-MM-dd hh:mm')
+                      })
+                      that.setData({
+                        userList: userList
+                      })
+                    })
+                }else if(data.flowstate==='2'){
+                  model.getUserjoin(user, (userList) => {
+                    userList.forEach(item => {
+                      item.hddate = tools.dateformat(new Date(item.hddate), 'yyyy-MM-dd hh:mm')
+                    })
+                    that.setData({
+                      userList: userList
+                    })
+                  })
+                }else if(data.flowstate==='3'){
+                  model.getComments(user,(comments)=>{
+                     comments.forEach(item=>{
+
+                     })
+                     that.setData({
+                       comments:comments
+                     })
+                  })
                 }
             })
         })
@@ -109,35 +133,9 @@ Page({
                             wjoin: false
                         })
                     }
-
-                     model.getUserjoin(user, (data) => {
-                          data.forEach(item => {
-                              item.hddate = tools.dateformat(new Date(item.hddate), 'yyyy-MM-dd hh:mm')
-                          })
-                          that.setData({
-                              userList: data
-                          })
-                    })
-                } else if (data.flowstate === '2') {//已开始
+                } else if (data.flowstate === '2') {
                     this.setData({
                         jsonin: !join
-                    })
-                    model.getUserjoin(user, (data) => {
-                          data.forEach(item => {
-                              item.hddate = tools.dateformat(new Date(item.hddate), 'yyyy-MM-dd hh:mm')
-                          })
-                          that.setData({
-                              userList: data
-                          })
-                    })
-                } else if (data.flowstate==='3') {//已结束
-                    model.getComments(user,(data)=>{
-                        data.forEach(()=>{
-                            item.commenttime = tools.dateformat(new Date(item.commenttime), 'yyyy-MM-dd hh:mm')
-                        })
-                        that.setData({
-                            comments:data
-                        })
                     })
                 }
 
@@ -158,7 +156,18 @@ Page({
 
         //
     },
-    onActJoinTap: function () {
+    onCreateComment:function(){
+      
+    },
+  showInputBox: function () {
+    this.setData({ inputBoxShow: true });
+    this.setData({ isScroll: false });
+  },
+  invisible: function () {
+    this.setData({ inputBoxShow: false });
+    this.setData({ isScroll: true });
+  },
+  onActJoinTap: function () {
         let that = this
         console.log(that)
         wx.showModal({

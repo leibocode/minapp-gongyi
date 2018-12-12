@@ -106,4 +106,5 @@
 
 .col-blue {
     color: #218ccd;
+    font-size: 32rpx;
 }

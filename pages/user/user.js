@@ -38,7 +38,10 @@ Page({
         //     userInfo:user,
         //     loading:true
         // })
-        this._loadData()
+        //this._loadData();
+    },
+    onShow:function(){
+        this._loadData();
     },
     _loadData: function () {
         let user = wx.getStorageSync('user')
@@ -64,6 +67,16 @@ Page({
         wx.navigateTo({
             url: path
         })
+    },
+    onScoresTap:function(){
+      wx.navigateTo({
+        url: '../my-scores/my-scores',
+      })
+    },
+    onZyTap:function(){
+      wx.navigateTo({
+        url: '../volunteertime/volunteertime',
+      })
     },
     onShareAppMessage: function (res) {
         return {

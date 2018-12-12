@@ -7,22 +7,16 @@ page{
     color:#333;
 }
 .userbox {
-    width: 100%;
-    height: 375rpx;
-    position:fixed;
-    top:0rpx;
-    left:0rpx;
-    z-index:10;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   height: 375rpx;
+   align-items: center;
+   justify-content: center;
+   background-image: url(http://love.imtudou.cn/img/my-banner-bg.jpg);
 }
-.userinfo{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:300rpx;
-    width:100%;
-    z-index:99;
-    flex-direction:column;
-}
+.userbox .userinfo {}
 .userinfo-avatar{
     width:120rpx;
     height:120rpx;
@@ -32,6 +26,20 @@ page{
     border:5rpx solid #eee;
     z-index:199;
 }
+
+.userbox .userinfo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.userbox .userinfo-text .userinfo-nickname {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #333;
+}
+
 
 .nickName{
     z-index:99;
@@ -51,11 +59,10 @@ page{
     border-radius:20rpx;
     justify-content:space-between;
     height:90rpx;
-    margin-bottom:30rpx;
+    margin-bottom:20rpx;
     padding:3%;
-    position:fixed;
-    z-index:99;
-    left:4%;
+    margin-top:-65rpx;
+    margin-left:4%;
 }
 .user-header-left{
     border-right:1rpx solid #f1f1f1;
@@ -68,9 +75,8 @@ page{
     background:#fff;
     border-radius:20rpx;
     width:91%;
-    margin-bottom:16rpx;
+    margin-bottom:20rpx;
     margin-left:4%;
-    margin-top:150rpx;
 }
 .user-menu-item{
     width:100%;

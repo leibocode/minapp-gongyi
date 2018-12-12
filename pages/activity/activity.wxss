@@ -82,7 +82,7 @@ page {
     width: 100%;
     display:flex;
     position:absolute;
-    top:87rpx;
+    top:83rpx;
     left:0rpx;
     z-index: 2000;
     background: #fff;

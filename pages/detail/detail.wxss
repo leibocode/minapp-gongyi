@@ -227,7 +227,7 @@ page{
   margin-bottom:2rpx;
   position:absolute;
   right:34rpx;
-  bottom:231px;
+  bottom:332px;
   text-align:center;
   line-height:50rpx;
 
@@ -240,7 +240,7 @@ page{
   margin-bottom:2rpx;
   position:absolute;
   right:34rpx;
-  bottom:231px;
+  bottom:332px;
   text-align:center;
   line-height:50rpx;
 }
@@ -252,10 +252,56 @@ page{
   margin-bottom:2rpx;
   position:absolute;
   right:34rpx;
-  bottom:239px;
+  bottom:332px;
   text-align:center;
   line-height:50rpx;
   
+}
+
+.model {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+.input-box {
+  position: absolute;
+  background-color: #f8f8f8;
+  padding: 30rpx;
+  padding-bottom: 130rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+}
+
+.textarea {
+  background-color: #fff;
+  width: 100%;
+  padding: 5rpx;
+  height: 3.3em;
+  font-size: 15px;
+  position: static;
+}
+
+.send {
+  font-size: 14px;
+  margin-top: 5rpx;
+  color: #09bb07;
+  float: right;
+  position: static;
+}
+
+.invisible_model{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
 }
 
 

@@ -32,16 +32,16 @@
     <view class="dz-box">
         <view class="col-blue">组织活动</view>
         <view style="color: #e50026;">
-            30
             <image class="icon-xy" src="../../images/xy.png" />
         </view>
     </view>
     <view class="spanview"></view>
     <view class="dz-box">
         <view class="col-blue">组织成员</view>
-        <view>
+        <view style="font-size:32rpx">
             <text>人数</text>
-            <text style="color: #e50026;">7人</text>
+            <text style="color: #e50026">{{p_list.length}}</text>
+            <text>人</text>
         </view>
     </view>
     <view class="p-list">

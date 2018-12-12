@@ -171,7 +171,7 @@ export default class myActivity extends Http {
          this.request(params)
     }
 
-    getComments(){
+    getComments(data,callback){
         let params = {
              url: `weixin/data/selectszacomment?inner_membergid=${data.userId}&inner_membername=
             ${this._encodeParams(data.nickName)}&token=${data.token}&kindid=${data.gid}`,
@@ -183,7 +183,7 @@ export default class myActivity extends Http {
         this.request(params)
     }
 
-    createComment(){
+    createComment(data,callback){
         let params = {
             url: `weixin/data/qxinszactivitystaff?inner_membergid=${data.userId}&inner_membername=
         ${this._encodeParams(data.nickName)}&token=${data.token}&activityid=${data.gid}`,
