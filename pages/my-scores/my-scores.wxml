@@ -1,11 +1,17 @@
 <view class="section">
     <view class="timebox">
+        <view class="timetextbox">
+            <view>{{myscore}}</view>
+            <view>可用积分</view>
+        </view>
+    </view>
+    <!-- <view class="timebox">
         <cover-image src="../../images/my-jf-banner.jpg" />
     </view>
     <view class="timetextbox">
         <view>{{myscore}}</view>
         <view>可用积分</view>
-    </view>
+    </view> -->
     <view class="boxlist">
         <view class="boxitem" wx:for="{{myscoreList}}" wx:for-index="index">
             <view class="boxitem-left">

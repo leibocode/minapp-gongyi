@@ -9,7 +9,7 @@ Page({
             "memberid": "c7384b3f-39f8-48a7-b65f-a92d327adc9c", //会员id
             "membername": "wangsheng", //会员名称
             "activityid": "4a8387bd-2e3e-d243-8681-58be61a19c96", //活动id
-            "activityname": null, //活动标题
+            "activityname": '示例', //活动标题
             "duration": 10, //志愿时长
             "isSign": "Y", //是否签到 枚举：YorN（Y:是,N:否）
             "builder": "c8000007-0000-0000-0000-000000000000",
@@ -30,14 +30,16 @@ Page({
         user.token = token
         let that = this
         apiVolunteertime.getdetailshours(user, (data) => {
-            let hours = 0
-            data.forEach(item => {
-                hours += item.duration
-            });
-            that.setData({
-                tlist: data,
-                thours: hours
-            })
+            if (data.length != 0) {
+                let hours = 0
+                data.forEach(item => {
+                    hours += item.duration
+                });
+                that.setData({
+                    tlist: data,
+                    thours: hours
+                })
+            }
         })
 
     }

@@ -5,7 +5,11 @@ const apiScores = new ApiScores()
 Page({
     data: {
         myscore: 0,
-        myscoreList: []
+        myscoreList: [{
+            title: '示例',
+            builddate: '2018-12-12',
+            integral: '+6'
+        }]
     },
 
     onLoad: function () {
@@ -24,9 +28,11 @@ Page({
             })
         })
         apiScores.thesubsidiary(user, (data) => {
-            that.setData({
-                myscoreList: data
-            })
+            if (data.length != 0) {
+                that.setData({
+                    myscoreList: data
+                })
+            }
         })
     }
 })

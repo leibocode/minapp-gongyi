@@ -16,7 +16,7 @@
                         <view class="icon_address">
                             <image src="../../images/location-icon.png" />
                         </view>
-                        {{item.straddress}}
+                        <text style="margin-left:6rpx">{{item.straddress}}</text>
                     </view>
                     <view class="activities-item-status">
                         <view class="status_text {{item.flowstate=='3'?'status_text3':''}}" wx:if="{{item.flowstate=='1'}}">
