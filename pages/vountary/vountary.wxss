@@ -18,9 +18,9 @@
 }
 
 .flex-item>text {
-    font-size: 0.8rem;
-    height: 2.5rem;
-    line-height: 2.5rem;
+    font-size: 30rpx;
+    height: 80rpx;
+    line-height: 80rpx;
     color: #333;
     width: 35%;
 }
@@ -31,31 +31,31 @@
 
 .flex-item input,
 .flex-item picker {
-    font-size: 0.8rem;
-    height: 2.5rem;
-    line-height: 2.5rem;
+    font-size: 30rpx;
+    height: 50rpx;
+    line-height: 50rpx;
     color: #333;
 }
 
 .flex-item textarea {
-    font-size: 0.8rem;
-    height: 2rem;
-    line-height: 0.8rem;
+    font-size: 30rpx;
+    height: 100rpx;
+    line-height: 50rpx;
     color: #333;
-    padding: 0.5rem;
+    padding: 15rpx;
     background-color: #f0f0f0;
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-bottom: 15rpx;
 }
 
 .getcode {
-    font-size: 0.8rem;
-    height: 1.5rem;
-    line-height: 1.5rem;
+    font-size: 26rpx;
+    height: 45rpx;
+    line-height: 45rpx;
 }
 
 .spanview {
-    height: 0.5rem;
+    height: 15rpx;
     background-color: #f1f1f1;
 }
 

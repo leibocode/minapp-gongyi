@@ -10,6 +10,7 @@ Page({
     data: {
         gid: '',
         isstate: 0,
+        curradmin: 0,
         delinfo: {
             photo: '',
             organisStatus: 0,
@@ -32,6 +33,13 @@ Page({
         this._loadData(this.data.gid)
     },
     tomember: function (event) {
+        if (this.data.curradmin == 0) {
+            wx.showModal({
+                title: '提示',
+                content: '只有管理员才可查看'
+            })
+            return;
+        }
         let gid = apiOrgni.getDataSet(event, 'gid')
         let gxid = apiOrgni.getDataSet(event, 'gxid')
         //let gxid = event.target.dataset.gxid
@@ -67,7 +75,7 @@ Page({
             console.log(typename + ',' + regionname)
             this.setData({
                 delinfo: {
-                  photo: data.headimg_fileid == '' ? null : `${config.imageUrl}=${data.headimg_fileid}`,
+                    photo: data.headimg_fileid == '' ? null : `${config.imageUrl}=${data.headimg_fileid}`,
                     organisStatus: data.status,
                     type: typename,
                     city: regionname,
@@ -93,6 +101,11 @@ Page({
                 ids.forEach((id) => {
                     if (item.gid == id) {
                         dzlist.push(item)
+                    }
+                    if (user.userId == id) {
+                        this.setData({
+                            curradmin: 1
+                        })
                     }
                 })
                 if (item.gid == user.userId) {

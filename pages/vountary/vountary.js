@@ -6,7 +6,7 @@ Page({
         defaultvolunteerList: [],
         dependencyList: [],
         dwellingplaceList: [],
-        getcodetext: '获取',
+        getcodetext: '获取二维码',
         loading: false,
         disabled: false,
         //registeredinfo 注册参数

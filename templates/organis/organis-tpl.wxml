@@ -39,7 +39,7 @@
                         <image class="icon-daishe" src="../../images/yjr-icon.png" />
                     </view>
                     <view wx:elif="{{item.handelstatus=='5'}}">
-                        <view>审核通过</view>
+                        <view style="font-size:30rpx;margin-right:20rpx;">审核通过</view>
                     </view>
                 </view>
             </view>

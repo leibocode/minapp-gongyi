@@ -19,7 +19,7 @@
                 <text>手机验证码</text>
                 <text class="tred">*</text>
             </text>
-            <input type="text" placeholder="请输入验证码" maxlength='6' value="{{reginfo.sendcode}}" bindchange="sendcodeChange" />
+            <input type="text" style="width: 35%" placeholder="验证码" maxlength='6' value="{{reginfo.sendcode}}" bindchange="sendcodeChange" />
             <button bind:tap="getcode" disabled="{{disabled}}" class="getcode" type="primary">
                 {{getcodetext}}
             </button>

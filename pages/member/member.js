@@ -8,6 +8,8 @@ Page({
         kid: '',
         status: 0,
         isadmin: 0,
+        qcount: 0,
+        hdcount: 0,
         info: {}
     },
     onLoad(options) {
@@ -42,6 +44,16 @@ Page({
         apiOrgniDel.getauditstatus(user, this.data.gxid, (data) => {
             this.setData({
                 status: data.status
+            })
+        })
+        apiOrgniDel.getQCount(user, gid, (data) => {
+            this.setData({
+                qcount: data.QCount
+            })
+        })
+        apiOrgniDel.getHDCount(user, gid, (data) => {
+            this.setData({
+                hdcount: data.HDCount
             })
         })
     },

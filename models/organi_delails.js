@@ -226,4 +226,54 @@ export default class ApiOrgniDel extends Http {
         }
         this.request(params)
     }
+
+    /**
+     * 组织成员详情-加入的群组数
+     * @param {*} data 
+     * @param {*} callback 
+     */
+    getQCount(data, memberid, callback) {
+        let baseparams = {
+            inner_membergid: data.userId,
+            inner_membername: data.nickName,
+            token: data.token,
+            memberid: memberid
+        }
+        console.log(baseparams)
+        let that = this
+        let params = {
+            url: 'api/querydata/getQCount?' + this.toQueryString(baseparams),
+            method: 'POST',
+            success: function (res) {
+                console.log(res)
+                callback && callback(res)
+            }
+        }
+        this.request(params)
+    }
+
+    /**
+     * 组织成员详情-参加过的活动数
+     * @param {*} data 
+     * @param {*} callback 
+     */
+    getHDCount(data, memberid, callback) {
+        let baseparams = {
+            inner_membergid: data.userId,
+            inner_membername: data.nickName,
+            token: data.token,
+            memberid: memberid
+        }
+        console.log(baseparams)
+        let that = this
+        let params = {
+            url: 'api/querydata/getHDCount?' + this.toQueryString(baseparams),
+            method: 'POST',
+            success: function (res) {
+                console.log(res)
+                callback && callback(res)
+            }
+        }
+        this.request(params)
+    }
 }
