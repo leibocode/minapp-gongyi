@@ -1,3 +1,4 @@
+
 <import src="../../templates/activities/activities-tpl.wxml" />
 <view class="container home-container" hidden="{{!loading}}">
     <swiper indicator-dots="true" autoplay="true" class="swiper">
@@ -42,7 +43,6 @@
         </view>
         <view class="no-data" wx:else>没有数据</view>
     </view>
-    <image src="{{QrCodeUrl}}" style='width:90rpx;height:90rpx;' />
     <!-- 活动预告 -->
     <!-- <view class="home-main">
      <view class="header-hr"></view>

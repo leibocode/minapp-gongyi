@@ -1,7 +1,9 @@
 <view class="container detail-container" hidden="{{!loading}}">
     <view class="detail-header-box">
         <view class="detail-topic-img">
-            <image src="{{activity.images}}" mode="aspectFill" bind:tap="preview" />
+          
+            <image src="{{activity.images}}" wx:if="{{activity.img_fileid}}" mode="aspectFill" bind:tap="preview" />
+            <image src="http://love.imtudou.cn/img/default-pic.jpg" wx:if="{{!activity.img_fileid}}" mode="aspectFill" bind:tap="preview" />
         </view>
         <view class="detail-hr"></view>
         <view class="detail-infos">
@@ -82,7 +84,7 @@
                 <text style="color:#e50026;">{{activity.enrollnum}}</text>人
             </view>
         </view>
-        <view class="detail-bottom-content dateil-boxs">
+        <view class="detail-bottom-content dateil-boxs" wx:if="{{userList.length>0}}">
             <block wx:for="{{userList}}" wx:key="index" wx:for-item="signup_item">
                 <view class="signup_item">
                     <view class="item-info">
@@ -95,27 +97,33 @@
                 </view>
             </block>
         </view>
+        <view class="no-data">没有数据</view>
     </view>
      <view class="detail-bottom-box" wx:if="{{activity.flowstate=='3'}}">
         <view class="detail-title">
             <view class="detail-title-left">评论列表</view>
             <view class="detail-title-right">
-               <view>评论</view>
+               <view bind:tap="showInputBox">评论</view>
             </view>
         </view>
-        <view class="detail-bottom-content dateil-boxs">
+        <view class="detail-bottom-content dateil-boxs" wx:if="{{comments.length>0}}">
             <block wx:for="{{comments}}" wx:key="index" wx:for-item="comment_item">
-                <view class="signup_item">
+                <view class="comment_item">
                     <view class="item-info">
                         <view class="ingo-img">
                             <image src="{{comment_item.headimgurl}}" />
+                            <text class="info-con">{{comment_item.membername}}</text>
                         </view>
-                        <view class="info-name">{{comment_item.membername}}</view>
-                        <view class="info-name">{{comment_item.content}}</view>
+                        <view class="item-time">{{comment_item.commenttime}}</view>
                     </view>
-                    <view class="item-time">{{comment_item.commenttime}}</view>
+                   
+                     <view class="info-content">{{comment_item.content}}</view>
+                   
                 </view>
             </block>
+        </view>
+        <view wx:else class="no-data">
+           没有数据显示
         </view>
     </view>
     <view class="detail-bottom-button" wx:if="{{jsonin}}" bind:tap="onActJoinTap">
@@ -132,7 +140,7 @@
         <!-- invisible_model view 用于点击隐藏model评论框 -->
         <view class='invisible_model' catchtap='invisible'></view>
         <view class='input-box'>
-          <textarea class="textarea" placeholder="请输入你的看法" cursor-spacing="{{65}}" show-confirm-bar="{{false}}" adjust-position="{{true}}" auto-focus="{{true}}" />
+          <textarea class="textarea" placeholder="请输入你的看法" cursor-spacing="{{65}}" show-confirm-bar="{{false}}" adjust-position="{{true}}" auto-focus="{{true}}" bindinput="oncommentInput"/>
           <text class='send'>发送</text>
         </view>
       </view>

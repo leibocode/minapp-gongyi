@@ -15,7 +15,7 @@
 .activities-box .activities-item .activities-item-img {
     width: 33%;
     border-radius: 6rpx;
-    height: 175rpx;
+    height: 160rpx;
     text-align: center;
 }
 
@@ -51,7 +51,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    margin-top: 6rpx;
+    margin-top: 12rpx;
     align-items: center;
 }
 

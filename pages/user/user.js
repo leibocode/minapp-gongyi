@@ -12,23 +12,20 @@ Page({
             icon: '../../images/my-cont-icon1.png',
             path: '../myinfo/myinfo'
         }, {
-            icon_url: '../../images/h-icon1.png',
+            icon_url: 'http://love.imtudou.cn/img/h-icon1.png',
             title: '我的组织',
             path: '../my-organi/my-organi',
             icon: '../../images/my-cont-icon2.png'
         }, {
-            icon_url: '../../images/h-icon1.png',
+            icon_url: 'http://love.imtudou.cn/img/h-icon1.png',
             title: '我的活动',
             path: '../my-activity/my-activity',
             icon: '../../images/my-cont-icon3.png'
         },{
-            icon_url: '../../images/my-cont-icon4.png',
+            icon_url: 'http://love.imtudou.cn/img/my-cont-icon4.png',
             title: '队长授权',
+            icon: 'http://love.imtudou.cn/img/my-cont-icon4.png',
             path: '../captain-auth/captain-auth'
-        },{
-            icon_url: '../../images/my-cont-icon5.png',
-            title:'成员待审核',
-            class:'no-border'
         }],
         loading: false
     },
