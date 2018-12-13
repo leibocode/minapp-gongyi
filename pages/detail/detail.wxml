@@ -12,7 +12,7 @@
                     开始时间:
                     <text>{{activity.starttime}}</text>
                 </view>
-                <view class="detail-status1" wx:if="{{activity.flowstate=='1'}}">未开始</view>
+                <view class="detail-status1" wx:if="{{activity.flowstate=='1'}}">报名中的</view>
                 <view class="detail-status2" wx:if="{{activity.flowstate=='2'}}">进行中</view>
                 <view class="detail-status3" wx:if="{{activity.flowstate=='3'}}">已结束</view>
             </view>
@@ -97,7 +97,7 @@
                 </view>
             </block>
         </view>
-        <view class="no-data">没有数据</view>
+        <view class="no-data" wx:else>没有数据</view>
     </view>
      <view class="detail-bottom-box" wx:if="{{activity.flowstate=='3'}}">
         <view class="detail-title">
