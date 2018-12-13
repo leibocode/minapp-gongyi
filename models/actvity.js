@@ -185,8 +185,8 @@ export default class myActivity extends Http {
 
     createComment(data,callback){
         let params = {
-            url: `weixin/data/qxinszactivitystaff?inner_membergid=${data.userId}&inner_membername=
-        ${this._encodeParams(data.nickName)}&token=${data.token}&activityid=${data.gid}`,
+          url: `weixin/data/submitszacomment?inner_membergid=${data.userId}&inner_membername=
+        ${this._encodeParams(data.nickName)}&token=${data.token}&kindid=${data.gid}&kindname=${data.title}&content=${data.content} `,
             method: 'POST',
             success: function (res) {
                 callback && callback(res)

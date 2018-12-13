@@ -67,7 +67,7 @@ Page({
             console.log(typename + ',' + regionname)
             this.setData({
                 delinfo: {
-                    photo: `${config.imageUrl}=${data.headimg_fileid}`,
+                  photo: data.headimg_fileid == '' ? null : `${config.imageUrl}=${data.headimg_fileid}`,
                     organisStatus: data.status,
                     type: typename,
                     city: regionname,

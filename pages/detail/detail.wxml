@@ -20,10 +20,10 @@
                 结束时间:
                 <text>{{activity.endtime}}</text>
             </view>
-            <view class="perpon">
+            <view class='perpon'>
                 <view>
                     报名人数:
-                    <text style="color:#e50026;">{{activity.enrollnum}}</text>/{{activity.totalnum}}
+                    <text style="color:#e50026;">{{activity.enrollnum}}</text>/{{activity.maxparticipantsnum}}人
                 </view>
                 <view wx:if="{{!dz}}" class="icon-dianz" bind:tap="onDz">
                     <image src="../../images/dianzan-icon.png" />
@@ -81,7 +81,7 @@
             <view class="detail-title-left">报名列表</view>
             <view class="detail-title-right">
                 已报名:
-                <text style="color:#e50026;">{{activity.enrollnum}}</text>人
+                <text style="color:#e50026;">{{activity.enrollnum}}/{{activity.maxparticipantsnum}}人</text>
             </view>
         </view>
         <view class="detail-bottom-content dateil-boxs" wx:if="{{userList.length>0}}">
@@ -97,7 +97,7 @@
                 </view>
             </block>
         </view>
-        <view class="no-data">没有数据</view>
+        <view class="no-data" wx:else>没有数据</view>
     </view>
      <view class="detail-bottom-box" wx:if="{{activity.flowstate=='3'}}">
         <view class="detail-title">
@@ -141,7 +141,7 @@
         <view class='invisible_model' catchtap='invisible'></view>
         <view class='input-box'>
           <textarea class="textarea" placeholder="请输入你的看法" cursor-spacing="{{65}}" show-confirm-bar="{{false}}" adjust-position="{{true}}" auto-focus="{{true}}" bindinput="oncommentInput"/>
-          <text class='send'>发送</text>
+          <text class='send' bindtap='onCreateComment'>发送</text>
         </view>
       </view>
 </scroll-view>

@@ -241,11 +241,8 @@ page{
   width:104rpx;
   height:50rpx;
   background-color:#218ccd;
-  margin-bottom:2rpx;
-  position:absolute;
-  right:34rpx;
-  bottom:332px;
   text-align:center;
+  margin-top:-36rpx;
   line-height:50rpx;
 
 }
@@ -254,10 +251,7 @@ page{
   width:104rpx;
   height:50rpx;
   background-color:#218ccd;
-  margin-bottom:2rpx;
-  position:absolute;
-  right:34rpx;
-  bottom:332px;
+  margin-top:-36rpx;
   text-align:center;
   line-height:50rpx;
 }
@@ -266,10 +260,7 @@ page{
   width:104rpx;
   height:50rpx;
   background-color:#9a9a9a;
-  margin-bottom:2rpx;
-  position:absolute;
-  right:34rpx;
-  bottom:332px;
+  margin-top:-36rpx;
   text-align:center;
   line-height:50rpx;
   

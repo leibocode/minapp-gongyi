@@ -157,10 +157,32 @@ Page({
     //
   },
   onCreateComment: function(event) {
-    model.createComment(user,()=>{
-      // if(){
-      //   wx:
-      // }
+    let that = this
+    let user = wx.getStorageSync('user')
+    let token = wx.getStorageSync('token')
+    user.token = token
+    user.gid = this.data.gid
+    user.title = this.data.activity.title
+    user.content = this.data.commtext
+    model.createComment(user,(data)=>{ 
+      console.log()
+      if(data.result){
+        wx.showToast({
+          title: '评论成功'
+        })
+        this.setData({
+          inputBoxShow: false
+        });
+        this.setData({
+          isScroll: true
+        });
+        this.onShow()
+      }else{
+        wx.showToast({
+          title: '评论失败'
+        })
+
+      }
     })
   },
   showInputBox: function() {

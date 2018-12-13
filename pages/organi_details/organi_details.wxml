@@ -1,6 +1,6 @@
 <view class="section">
     <view class="pic-box">
-        <image class="pic-box-img" src="{{delinfo.photo}}" mode="aspectFill" />
+        <image class="pic-box-img" src="{{delinfo.photo == null ? '../../images/default-pic.jpg':delinfo.photo}}" mode="aspectFill" />
     </view>
     <view class="del-info">
         <view class="del-info-key">类型：</view>
