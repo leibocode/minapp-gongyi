@@ -133,6 +133,7 @@ Page({
                         title: '提示',
                         content: '加入成功'
                     })
+                    this._loadData(this.data.gid)
                 }
             })
         } else {
@@ -145,6 +146,7 @@ Page({
                         title: '提示',
                         content: '退出成功'
                     })
+                    this._loadData(this.data.gid)
                 }
             })
         }
