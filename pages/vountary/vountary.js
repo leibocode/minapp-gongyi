@@ -1,5 +1,6 @@
 import ApiVountary from '../../models/vountary'
 const apiVountary = new ApiVountary()
+var interval = null //倒计时函数
 
 Page({
     data: {
@@ -7,6 +8,7 @@ Page({
         dependencyList: [],
         dwellingplaceList: [],
         getcodetext: '获取二维码',
+        currentTime: 30,
         loading: false,
         disabled: false,
         //registeredinfo 注册参数
@@ -100,6 +102,24 @@ Page({
             reginfo: reginfo
         })
     },
+    djsCode: function () {
+        var that = this;
+        var currentTime = that.data.currentTime
+        interval = setInterval(function () {
+            currentTime--;
+            that.setData({
+                getcodetext: currentTime + '秒'
+            })
+            if (currentTime <= 0) {
+                clearInterval(interval)
+                that.setData({
+                    getcodetext: '重新发送',
+                    currentTime: 30,
+                    disabled: false
+                })
+            }
+        }, 100)
+    },
     // ** bind data ending **
     getcode: function () {
         //console.log('GetCode')
@@ -120,6 +140,7 @@ Page({
                     duration: 1000,
                     mask: true
                 })
+                this.djsCode()
             } else {
                 wx.showModal({
                     title: '错误',
