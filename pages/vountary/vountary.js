@@ -217,43 +217,6 @@ Page({
       }
     }, 100)
   },
-  // ** bind data ending **
-  getcode: function () {
-    //console.log('GetCode')
-    this.setData({
-      disabled: true
-    })
-    let user = wx.getStorageSync('user')
-    let token = wx.getStorageSync('token')
-    user.token = token
-    let that = this
-    let mobile = this.data.reginfo.mobile
-    apiVountary.getsendcode(user, mobile, (data) => {
-      //console.log(data);
-      if (data.result) {
-        wx.showToast({
-          title: '验证码已发送',
-          icon: 'succes',
-          duration: 1000,
-          mask: true
-        })
-        this.djsCode()
-      } else {
-        wx.showModal({
-          title: '错误',
-          content: data.msg,
-          showCancel: false,
-          success: function (res) {
-            if (res.confirm) {
-              that.setData({
-                disabled: false
-              })
-            }
-          }
-        })
-      }
-    })
-  },
 subform: function () {
   if (this.data.reginfo.membername == "") {
     wx.showToast({
