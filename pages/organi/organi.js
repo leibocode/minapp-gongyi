@@ -33,7 +33,10 @@ Page({
     },
     onLoad: function () {
 
-        this._loadData()
+      //this._loadData()
+    },
+    onShow:function(){
+      this._loadData()
     },
     _loadData: function () {
         let user = wx.getStorageSync('user')
@@ -262,7 +265,7 @@ Page({
             console.log(data)
             if (data.result) {
                 let organisArr = this.data.organisArr
-                organisArr[index].handelstatus = '1'
+                // organisArr[index].handelstatus = '1'
                 this.setData({
                     organisArr: organisArr
                 })
@@ -272,6 +275,7 @@ Page({
                     icon: 'none',
                     duration: 2000
                 })
+                this.onShow();
             }
         })
     },

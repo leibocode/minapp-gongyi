@@ -21,6 +21,7 @@ Page({
       wjoin: false,
       inputBoxShow: false,
       isScroll: true,
+      isShow:false
     }
   },
   onLoad: function(options) {
@@ -32,6 +33,11 @@ Page({
   onShow: function() {
     let id = this.data.gid
     this._loadData(id)
+  },
+  onHide:function(){
+    this.setData({
+      loading:false
+    })
   },
   //加载数据
   _loadData: function(id) {
@@ -157,41 +163,49 @@ Page({
     //
   },
   onCreateComment: function(event) {
-    let that = this
-    let user = wx.getStorageSync('user')
-    let token = wx.getStorageSync('token')
-    user.token = token
-    user.gid = this.data.gid
-    user.title = this.data.activity.title
-    user.content = this.data.commtext
-    model.createComment(user,(data)=>{ 
-      console.log()
-      if(data.result){
-        wx.showToast({
-          title: '评论成功'
-        })
-        this.setData({
-          inputBoxShow: false
-        });
-        this.setData({
-          isScroll: true
-        });
-        this.onShow()
-      }else{
-        wx.showToast({
-          title: '评论失败'
-        })
+    if (this.data.commtext>0){
+      let that = this
+      let user = wx.getStorageSync('user')
+      let token = wx.getStorageSync('token')
+      user.token = token
+      user.gid = this.data.gid
+      user.title = this.data.activity.title
+      user.content = this.data.commtext
+      model.createComment(user, (data) => {
+        console.log()
+        if (data.result) {
+          wx.showToast({
+            title: '评论成功'
+          })
+          this.setData({
+            inputBoxShow: false
+          });
+          this.setData({
+            isScroll: true
+          });
+          this.onShow()
+        } else {
+          wx.showToast({
+            title: '评论失败',
+            icon: 'none',
+            duration: 1000
+          })
 
-      }
-    })
+        }
+      })
+    }else {
+      wx.showToast({
+        title: '评论字数不够',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+   
   },
   showInputBox: function() {
     this.setData({
-      inputBoxShow: true
-    });
-    this.setData({
-      isScroll: false
-    });
+      isShow:true
+    })
   },
   oncommentInput: function(event) {
     this.setData({
@@ -205,6 +219,11 @@ Page({
     this.setData({
       isScroll: true
     });
+  },
+  closeCommentBox:function(){
+    this.setData({
+      isShow:false
+    })
   },
   onActJoinTap: function() {
     let that = this
@@ -282,6 +301,7 @@ Page({
                 title: '取消成功',
                 duration: 1000
               })
+              that.onShow();
             } else {
               wx.showToast({
                 title: '操作失败',

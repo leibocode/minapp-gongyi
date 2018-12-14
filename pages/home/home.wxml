@@ -69,7 +69,7 @@
      </view>
   </view> -->
     <view class="home-footer">
-        <text>Copyright©2018 上海常合房地产经纪事务所版权所有沪ICP备02000121号</text>
+        <text>{{brief}}</text>
     </view>
 </view>
 <loading hidden="{{loading}}">加载中...</loading>

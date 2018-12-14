@@ -24,4 +24,7 @@
             </view>
         </view>
     </view>
+    <view class="volunteertime-footer">
+        <text>{{brief}}</text>
+    </view>
 </view>

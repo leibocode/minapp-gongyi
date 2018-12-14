@@ -1,6 +1,6 @@
 <view class="section">
     <view class="querylist">
-        <view class="queryitem" wx:for="{{querylist}}" wx:key="index">
+        <view class="queryitem" wx:for="{{querylist}}" wx:if="querylist.length>0" wx:key="index">
             <view class="title">
                 <text>Q:</text>
                 <text>{{item.Title}}</text>
@@ -9,6 +9,9 @@
                 <text>A:</text>
                 <text>{{item.Brief}}</text>
             </view>
+        </view>
+        <view class="no-data">
+          没有显示数据
         </view>
     </view>
 </view>

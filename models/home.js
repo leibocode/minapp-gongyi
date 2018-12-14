@@ -95,4 +95,17 @@ export default class HomeModel extends Http{
         }
         this.request(params)
     }
+   getCopyrightInfo(data,callback){
+     let that = this
+     let params = {
+       url: `api/querydata/getcmscontentbar?inner_membergid=${data.userId}&inner_membername=
+            ${this._encodeParams(data.nickName)}&token=${data.token}`,
+       method: 'POST',
+       success: function (res) {
+         console.log(res)
+         callback && callback(res)
+       }
+     }
+     this.request(params)
+   } 
 }

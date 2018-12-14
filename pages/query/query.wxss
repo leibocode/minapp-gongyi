@@ -56,3 +56,13 @@
 .content text:nth-of-type(2) {
     flex: 1;
 }
+
+.no-data {
+    width:100%;
+    height:150rpx;
+    background: #ffffff;
+    line-height:150rpx;
+    text-align:center;
+    color:#333;
+    font-size:24rpx;
+}

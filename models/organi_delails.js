@@ -276,4 +276,8 @@ export default class ApiOrgniDel extends Http {
         }
         this.request(params)
     }
+
+    getCaptains(data,){
+      
+    }
 }

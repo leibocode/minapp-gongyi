@@ -12,7 +12,7 @@
                     开始时间:
                     <text>{{activity.starttime}}</text>
                 </view>
-                <view class="detail-status1" wx:if="{{activity.flowstate=='1'}}">报名中的</view>
+                <view class="detail-status1" wx:if="{{activity.flowstate=='1'}}">报名中</view>
                 <view class="detail-status2" wx:if="{{activity.flowstate=='2'}}">进行中</view>
                 <view class="detail-status3" wx:if="{{activity.flowstate=='3'}}">已结束</view>
             </view>
@@ -102,8 +102,13 @@
      <view class="detail-bottom-box" wx:if="{{activity.flowstate=='3'}}">
         <view class="detail-title">
             <view class="detail-title-left">评论列表</view>
+            <view class="comment-nums" wx:if="{{comments.length>0}}">{{comments.length}}条</view>
+            <view class="comment-nums" wx:else>0条</view>
             <view class="detail-title-right">
-               <view bind:tap="showInputBox">评论</view>
+               <view class="comment-btn" bind:tap="showInputBox">
+                 <image class='comment-img' src="http://love.imtudou.cn/img/houses-deta-pl-icon.png"/>
+                 <text class='comment-text'>评论</text>
+              </view>
             </view>
         </view>
         <view class="detail-bottom-content dateil-boxs" wx:if="{{comments.length>0}}">
@@ -134,14 +139,19 @@
     </view>
 </view>
 <loading hidden="{{loading}}">加载中...</loading>
-<scroll-view scroll-y="{{isScroll}}">
-      <!-- 评论框 -->
+<!-- <scroll-view scroll-y="{{isScroll}}">
       <view class='model' wx:if="{{inputBoxShow}}">
-        <!-- invisible_model view 用于点击隐藏model评论框 -->
         <view class='invisible_model' catchtap='invisible'></view>
         <view class='input-box'>
           <textarea class="textarea" placeholder="请输入你的看法" cursor-spacing="{{65}}" show-confirm-bar="{{false}}" adjust-position="{{true}}" auto-focus="{{true}}" bindinput="oncommentInput"/>
           <text class='send' bindtap='onCreateComment'>发送</text>
         </view>
       </view>
-</scroll-view>
+</scroll-view> -->
+
+<view catchtap="closeCommentBox" catchtouchmove="move" wx:if="{{isShow}}" class="back-page" >
+    <view class="release">
+        <textarea autoFocus="true" autoHeight="true" bindblur="hideKeyboard" bindinput="setValue" catchtap="catchBubble" class="text" cursorSpacing="20" fixed="true" focus="true" placeholder="{{placeholder?placeholder:'写评论'}}" placeholderClass="input_null" showConfirmBar="" bindinput="oncommentInput"></textarea>
+        <view catchtap="onCreateComment" class="submit">发送</view>
+    </view>
+</view>

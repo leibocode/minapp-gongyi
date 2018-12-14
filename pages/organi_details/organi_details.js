@@ -88,6 +88,7 @@ Page({
             })
         })
         apiOrgniDel.getissignin(user, gid, (data) => {
+            console.log('组织状态')
             this.setData({
                 isstate: data.isstate
             })
@@ -150,5 +151,6 @@ Page({
                 }
             })
         }
+        this.onShow();
     }
 })

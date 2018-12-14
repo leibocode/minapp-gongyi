@@ -81,6 +81,13 @@ Page({
             loading: true
         })
     },
+    onActivityItemTap(event){
+        let id = model.getDataSet(event, 'id')
+        console.log(id);
+        wx.navigateTo({
+          url: '../organi_details/organi_details?gid=' + id,
+        })
+    },
     onTabsItemTap (event) {
         this.setData({
             orderModel: false,

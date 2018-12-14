@@ -20,7 +20,7 @@
                     </view>
                     <view class="activities-item-status">
                         <view class="status_text {{item.flowstate=='3'?'status_text3':''}}" wx:if="{{item.flowstate=='1'}}">
-                            未开始
+                            报名中
                         </view>
                         <view class="status_text" wx:if="{{item.flowstate=='2'}}">进行中</view>
                         <view class="status_text {{item.flowstate=='3'?'status_text3':''}}" wx:if="{{item.flowstate=='3'}}">

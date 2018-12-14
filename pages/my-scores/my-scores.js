@@ -1,7 +1,9 @@
 import User from '../../models/user'
 import ApiScores from '../../models/scores'
+import HomeModel from '../../models/home.js'
 const userapi = new User()
 const apiScores = new ApiScores()
+const homeModel = new HomeModel()
 Page({
     data: {
         myscore: 0,
@@ -33,6 +35,12 @@ Page({
                     myscoreList: data
                 })
             }
+        })
+        
+        homeModel.getCopyrightInfo(user, (data) => {
+          this.setData({
+            brief: data.Brief
+          })
         })
     }
 })

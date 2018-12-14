@@ -23,4 +23,7 @@
             </view>
         </view>
     </view>
+    <view class="scores-footer">
+        <text>{{brief}}</text>
+    </view>
 </view>

@@ -106,6 +106,12 @@ Page({
 
         this._loadValues(user)
 
+        model.getCopyrightInfo(user,(data)=>{
+          this.setData({
+            brief: data.Brief
+          })
+        })
+
         // model.getLuvuList(user,(data)=>{
         //     that.setData({
         //         luvu:data,

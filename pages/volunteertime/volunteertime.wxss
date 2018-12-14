@@ -1,3 +1,6 @@
+page{
+
+}
 .timetextbox {
     text-align: center;
     width: 100%;
@@ -62,4 +65,11 @@
 
 .boxitem-right {
     color: #e50026;
+}
+
+.volunteertime-footer{
+  height:70rpx;
+  text-align:center;
+  font-size:28rpx;
+  margin:40rpx 20rpx;
 }
