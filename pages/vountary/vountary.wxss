@@ -19,8 +19,8 @@
 
 .flex-item>text {
     font-size: 30rpx;
-    height: 80rpx;
-    line-height: 80rpx;
+    height: 90rpx;
+    line-height: 90rpx;
     color: #333;
     width: 35%;
 }
@@ -50,8 +50,8 @@
 
 .getcode {
     font-size: 26rpx;
-    height: 45rpx;
-    line-height: 45rpx;
+    height: 60rpx;
+    line-height: 60rpx;
 }
 
 .spanview {
