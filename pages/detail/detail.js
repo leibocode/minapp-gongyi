@@ -163,7 +163,7 @@ Page({
     //
   },
   onCreateComment: function(event) {
-    if (this.data.commtext>0){
+    if (this.data.commtext.length>0){
       let that = this
       let user = wx.getStorageSync('user')
       let token = wx.getStorageSync('token')
@@ -178,10 +178,8 @@ Page({
             title: '评论成功'
           })
           this.setData({
-            inputBoxShow: false
-          });
-          this.setData({
-            isScroll: true
+            inputBoxShow: false,
+            isShow:false
           });
           this.onShow()
         } else {
@@ -190,7 +188,11 @@ Page({
             icon: 'none',
             duration: 1000
           })
-
+          this.setData({
+            inputBoxShow: false,
+            isShow: false
+          });
+          this.onShow()
         }
       })
     }else {
