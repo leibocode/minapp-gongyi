@@ -1,4 +1,6 @@
-import { config } from '../../config.js'
+import {
+    config
+} from '../../config.js'
 Page({
     data: {
 
@@ -34,7 +36,7 @@ Page({
         wx.request({
             method: "post",
             url: `${config.url}token/member/xcxlogin?code=${userInfo.code}&province=${userInfo.userInfo.province}&city=${userInfo.userInfo.city}
-            &area=${userInfo.userInfo.area}&membername=${userInfo.userInfo.nickName}&headimgurl=${userInfo.userInfo.avatarUrl}&token=${token}`,
+            &area=${userInfo.userInfo.area}&membername=${this._encodeParams(userInfo.userInfo.nickName)}&headimgurl=${userInfo.userInfo.avatarUrl}&token=${token}`,
             success: function (res) {
                 console.log(res)
                 if (res.data.Data.result) {
@@ -55,5 +57,19 @@ Page({
                 }
             }
         })
+    },
+
+    _encodeParams(url) {
+        return url.replace(';', '%3b')
+            .replace('/', '%2f')
+            .replace('?', '%3f')
+            .replace(':', '%3a')
+            .replace('@', '%40')
+            .replace('&', '%26')
+            .replace('=', '%3d')
+            .replace('+', '%2b')
+            .replace('$', '%24')
+            .replace(',', '%2c')
+            .replace('#', '%23')
     }
 })

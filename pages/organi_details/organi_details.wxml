@@ -59,5 +59,10 @@
             </view>
         </view>
     </view>
-    <view class="btns" bind:tap="ckbommbtn">{{isstate == 0 ? '加入组织':'退出组织'}}</view>
+    <view class="btns" bind:tap="ckbommbtn" wx:if="{{isstate == 0 || isstate == 3 || isstate == 5}}">
+        加入组织
+    </view>
+    <view class="btns" bind:tap="ckbommbtn" wx:if="{{isstate == 1 || isstate == 2 || isstate == 4}}">
+        退出组织
+    </view>
 </view>

@@ -9,8 +9,9 @@ import {
 Page({
     data: {
         gid: '',
+        title: '',
         isstate: 0,
-        curradmin: 0,
+        curradmin: false,
         delinfo: {
             photo: '',
             organisStatus: 0,
@@ -33,7 +34,7 @@ Page({
         this._loadData(this.data.gid)
     },
     tomember: function (event) {
-        if (this.data.curradmin == 0) {
+        if (!this.data.curradmin) {
             wx.showModal({
                 title: '提示',
                 content: '只有管理员才可查看'
@@ -81,7 +82,8 @@ Page({
                     city: regionname,
                     content: data.remark,
                     organizaadminbid: data.organizaadminbid
-                }
+                },
+                title: data.name
             })
             wx.setNavigationBarTitle({
                 title: data.name
@@ -103,11 +105,6 @@ Page({
                     if (item.gid == id) {
                         dzlist.push(item)
                     }
-                    if (user.userId == id) {
-                        this.setData({
-                            curradmin: 1
-                        })
-                    }
                 })
                 if (item.gid == user.userId) {
                     isstate = 1
@@ -119,17 +116,23 @@ Page({
                 isstate: isstate
             })
         })
+
+        apiOrgniDel.getszorganization(user, gid, (data) => {
+            this.setData({
+                isstate: data.status == '' ? 0 : data.status,
+                curradmin: data.role == 1
+            })
+        })
     },
     ckbommbtn: function () {
         let user = wx.getStorageSync('user')
         let token = wx.getStorageSync('token')
         user.token = token
-        if (this.data.isstate == 0) {
-            apiOrgniDel.joinInOrgani(user, this.data.gid, "", (data) => {
+        let isstate = this.data.isstate
+        console.log('=>' + isstate)
+        if (isstate == 0 || isstate == 3 || isstate == 5) {
+            apiOrgniDel.joinInOrgani(user, this.data.gid, this.data.title, (data) => {
                 if (data.result) {
-                    this.setData({
-                        isstate: 1
-                    })
                     wx.showModal({
                         title: '提示',
                         content: '加入成功'
@@ -137,12 +140,10 @@ Page({
                     this._loadData(this.data.gid)
                 }
             })
-        } else {
-            apiOrgniDel.joinInOrgani(user, this.data.gid, "", (data) => {
+        }
+        if (isstate == 1 || isstate == 2 || isstate == 4) {
+            apiOrgniDel.exitthegroup(user, this.data.gid, (data) => {
                 if (data.result) {
-                    this.setData({
-                        isstate: 0
-                    })
                     wx.showModal({
                         title: '提示',
                         content: '退出成功'
