@@ -25,7 +25,7 @@
             <text class="del-info-value">{{item.membername}}</text>
             <view></view>
             <text class="del-info-key">手机号：</text>
-            <text class="del-info-value">{{item.iphonexs}}</text>
+            <text class="del-info-value">{{item.mobile}}</text>
         </view>
     </view>
     <view class="spanview"></view>

@@ -96,26 +96,17 @@ Page({
             })
         })
 
-        apiOrgniDel.getissignin(user, gid, (data) => {
-            let ids = this.data.delinfo.organizaadminbid.split(",")
-            let dzlist = []
-            let isstate = 0
-            data.forEach((item) => {
-                ids.forEach((id) => {
-                    if (item.gid == id) {
-                        dzlist.push(item)
-                    }
-                })
-                if (item.gid == user.userId) {
-                    isstate = 1
-                }
-            })
+        apiOrgniDel.getconstructor(user, gid, (data) => {
             this.setData({
-                p_list: data,
-                dz_list: dzlist,
-                isstate: isstate
+                p_list: data
             })
         })
+
+        apiOrgniDel.getcaptaindata(user, gid, (data => {
+            this.setData({
+                dz_list: data
+            })
+        }))
 
         apiOrgniDel.getszorganization(user, gid, (data) => {
             this.setData({

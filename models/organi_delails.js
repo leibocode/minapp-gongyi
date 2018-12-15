@@ -56,7 +56,7 @@ export default class ApiOrgniDel extends Http {
      * @param {*} data 
      * @param {*} callback 
      */
-    getissignin(data, gid, callback) {
+    getconstructor(data, gid, callback) {
         let baseparams = {
             inner_membergid: data.userId,
             inner_membername: data.nickName,
@@ -280,7 +280,6 @@ export default class ApiOrgniDel extends Http {
 
     }
 
-    // api/querydata/getszorganization
     /**
      * 组织成员详情-参加过的活动数
      * @param {*} data 
@@ -305,4 +304,30 @@ export default class ApiOrgniDel extends Http {
         }
         this.request(params)
     }
+
+    /**
+     * 组织详情-队长信息
+     * @param {*} data 
+     * @param {*} callback 
+     */
+    getcaptaindata(data, organizaid, callback) {
+        let baseparams = {
+            inner_membergid: data.userId,
+            inner_membername: data.nickName,
+            token: data.token,
+            organizaid: organizaid
+        }
+        console.log(baseparams)
+        let that = this
+        let params = {
+            url: 'api/querydata/getcaptaindata?' + this.toQueryString(baseparams),
+            method: 'POST',
+            success: function (res) {
+                console.log(res)
+                callback && callback(res)
+            }
+        }
+        this.request(params)
+    }
+
 }
