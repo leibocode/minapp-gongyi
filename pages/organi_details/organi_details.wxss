@@ -31,15 +31,14 @@
 
 
 .del-info-key {
-
-    font-size: 0.8rem;
+    font-size: 28rpx;
     color: #999;
 }
 
 .del-info-value {
-    font-size: 0.8rem;
+    font-size: 28rpx;
     color: #000;
-    margin-right: 2rem;
+    margin-right: 60rpx;
 }
 
 .del-info-value:nth-last-of-type(1) {
@@ -51,18 +50,18 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 0.8rem;
+    padding: 28rpx;
 
     /* border-bottom: 1px solid #ddd */
 }
 
 .del-content-value {
-    font-size: 0.8rem;
+    font-size: 28rpx;
     color: #000;
 }
 
 .spanview {
-    height: 0.5rem;
+    height: 15rpx;
     background-color: #f1f1f1;
 }
 
@@ -70,9 +69,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0.6rem;
+    padding: 20rpx;
     border-bottom: 1px solid #ddd;
-    font-size: 0.9rem;
+    font-size: 28rpx;
 }
 
 .col-blue {
@@ -83,7 +82,8 @@
 .dz-info {
     display: flex;
     flex-direction: row;
-    padding: 0.6rem;
+    padding: 20rpx;
+    border-bottom: 1px solid #ddd;
 }
 
 .dz-info-img {
@@ -92,12 +92,12 @@
     align-items: center;
     justify-content: center;
     width: 4rem;
-    height: 2.5rem;
+    height: 80prx;
 }
 
 .dz-info-img image {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 70rpx;
+    height: 70rpx;
     border-radius: 50%;
 }
 
@@ -106,14 +106,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-left: 1rem;
+    width: 75rpx;
+    height: 75rpx;
+    margin-left: 30rpx;
 }
 
 .list-img image {
-    width: 2rem;
-    height: 2rem;
+    width: 70rpx;
+    height: 70rpx;
     border-radius: 50%;
 }
 
@@ -132,8 +132,8 @@
     justify-content: space-between;
     width: 100%;
     border-bottom: 1px solid #ddd;
-    padding: 0.2rem;
-    font-size: 0.8rem;
+    padding: 14rpx;
+    font-size: 30rpx;
 }
 
 .list-state {
@@ -145,9 +145,9 @@
 }
 
 .list-state image {
-    width: 12px;
-    height: 15px;
-    margin-right: 2px;
+    width: 22rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
 }
 
 .p-item view:nth-of-type(2) {
@@ -165,8 +165,8 @@
     width: 90%;
     border-radius: 3rem;
     vertical-align: middle;
-    font-size: 0.8rem;
-    margin: 1rem 1rem;
+    font-size: 24rpx;
+    margin: 30rpx 30rpx;
     text-align: center;
     background: #e50026;
     color: #fff;

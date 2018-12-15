@@ -16,7 +16,7 @@
         <view class="col-blue">队长</view>
         <view></view>
     </view>
-    <view class="dz-info" wx:for="{{dz_list}}" wx:key="index" data-gid="{{item.gid}}" data-gxid="{{item.gxid}}" bind:tap="tomember">
+    <view class="dz-info" wx:for="{{dz_list}}" wx:key="index">
         <view class="dz-info-img">
             <image src="{{item.headimgurl}}" mode="aspectFill" />
         </view>

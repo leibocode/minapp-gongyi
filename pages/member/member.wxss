@@ -1,51 +1,51 @@
 .top-box image {
     width: 100%;
-    height: 84px;
+    height: 150rpx;
 }
 
 .photo-box {
     position: absolute;
-    top: 35px;
-    height: 100px;
+    top: 75rpx;
+    height: 100rpx;
     width: 100%;
 }
 
 .photo-box view {
-    width: 80px;
-    height: 80px;
+    width: 130rpx;
+    height: 130rpx;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.5);
     margin: 0 auto;
 }
 
 .photo-box view image {
-    width: 70px;
-    height: 70px;
+    width: 120rpx;
+    height: 120rpx;
     border-radius: 50%;
-    margin-left: 5px;
-    margin-top: 5px;
+    margin-left: 5rpx;
+    margin-top: 5rpx;
 }
 
 .member-state {
     position: absolute;
-    top: 65px;
-    right: 40px;
-    height: 50px;
-    width: 50px;
+    top: 65rpx;
+    right: 40rpx;
+    height: 50rpx;
+    width: 50rpx;
 }
 
 .info-name {
-    margin-top: 40px;
-    margin-bottom: 10px;
+    margin-top: 40rpx;
+    margin-bottom: 10rpx;
     text-align: center;
     width: 100%;
 }
 
 .info-item {
     border-bottom: 1px solid #e3e3e3;
-    font-size: 0.8rem;
-    line-height: 2.5rem;
-    height: 2.5rem;
+    font-size: 28rpx;
+    line-height: 85rpx;
+    height: 85rpx;
     width: 90%;
     margin: 0 auto;
 }
@@ -70,13 +70,13 @@
 
 .btns view {
     display: inline-block;
-    height: 2.5rem;
-    line-height: 2.6rem;
+    height: 75rpx;
+    line-height: 75rpx;
     width: 11rem;
     border-radius: 3rem;
     vertical-align: middle;
-    font-size: 0.8rem;
-    margin: 1rem 1rem;
+    font-size: 28rpx;
+    margin: 30rpx 30rpx;
     text-align: center;
 }
 
@@ -91,7 +91,7 @@
 }
 
 .spanview {
-    height: 0.5rem;
+    height: 15rpx;
     background-color: #f1f1f1;
 }
 
@@ -99,9 +99,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0.6rem;
+    padding: 20rpx;
     border-bottom: 1px solid #ddd;
-    font-size: 0.9rem;
+    font-size: 28rpx;
 }
 
 .col-blue {

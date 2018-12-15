@@ -37,8 +37,8 @@ Page({
         // })
         apiOrgniDel.getisbutton(user, user.userId, (data) => {
             this.setData({
-                //isadmin: data.msg
-                isadmin: 1
+                isadmin: data.msg
+                //isadmin: 1
             })
         })
         apiOrgniDel.getauditstatus(user, this.data.gxid, (data) => {
@@ -77,7 +77,7 @@ Page({
         let user = wx.getStorageSync('user')
         let token = wx.getStorageSync('token')
         user.token = token
-        apiOrgniDel.handelszorganizationrelation(user, this.data.gid, this.data.kid, '5', (data) => {
+        apiOrgniDel.handelszorganizationrelation(user, this.data.gid, this.data.kid, '4', (data) => {
             if (data.result) {
                 this.setData({
                     status: 4
