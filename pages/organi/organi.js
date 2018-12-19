@@ -29,7 +29,8 @@ Page({
         cateModel: false,
         categoryModel: false,
         showModalStatus: false,
-        allLoad: true
+        allLoad: true,
+        loadMore:false
     },
     onLoad: function () {
 
@@ -135,6 +136,63 @@ Page({
     },
     onPullDownRefresh: function () {
 
+    },
+    onReachBottom: function () {
+        console.log('下拉')
+        let page = this.data.page + 1
+        wx.showLoading({
+            title: '正在加载...'
+        })
+        setTimeout(() => {
+            wx.hideLoading()
+            this._loadMoreData(page)
+        }, 100)
+    },
+    _loadMoreData: function (page) {
+        let user = wx.getStorageSync('user')
+        let token = wx.getStorageSync('token')
+        let region = wx.getStorageSync('region')
+        let category = wx.getStorageSync('category')
+        user.token = token
+        user.size = this.data.size
+        user.page = page
+        let that = this
+        user.orderbyProperty = this.data.orderbyProperty
+        user.categoryCode = this.data.categoryCode
+        user.regionCode = this.data.regionCode
+
+        model.getOrganis(user, (data) => {
+            if (data.length > 0) {
+                let organisArr = that.data.organisArr
+                data.forEach(item => {
+                    item.images = `${config.imageUrl}=${item.headimg_fileid}`
+                    region.forEach((regItem) => {
+                        if (item.region === regItem.sCode) {
+                            item.regionText = regItem.Names
+                        }
+                    })
+                    category.forEach((element) => {
+                        if (item.kind === element.sCode) {
+                            item.kindText = element.Names
+                        }
+                    })
+                    organisArr.push(item)
+                })
+                this.setData({
+                    organisArr: organisArr,
+                    page: page,
+                    allLoad: true
+                })
+            } else {
+                console.log('没有数据')
+                this.setData({
+                    activitiesArr: [],
+                    allLoad: false,
+                    loadMore: false
+                })
+            }
+
+        })
     },
     hideModal: function () {
         let currentTabsIndex = this.data.currentTabsIndex

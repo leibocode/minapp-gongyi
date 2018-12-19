@@ -1,5 +1,8 @@
 @import "../../templates/activities/activities-tpl.wxss";
-.activity-container{
+page{
+  background-color:#f1f1f1;
+}
+.my-activity-continer{
     background-color:#fff;
 }
 
@@ -41,9 +44,6 @@
     background-color:#fff;
     font-size:24rpx;
     color:#333;
-}
-.node-data-content{
-
 }
 .item-icon-dowm{
     width:25rpx;
@@ -108,4 +108,10 @@
   .item-icon{
     width:45rpx;
     height:45rpx;
+  }
+
+  .load-more text{
+      font-size:28rpx;
+      color:#333;
+      text-align:center;
   }

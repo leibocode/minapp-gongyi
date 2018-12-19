@@ -330,7 +330,7 @@ Page({
       if (data.result) {
         wx.showToast({
           title: '点赞成功',
-          duration: 2000
+          duration: 1000
         })
         that.setData({
           dz: true
@@ -346,7 +346,7 @@ Page({
       success: function(res) {
         wx.showToast({
           title: '分享成功',
-          duration: 2000
+          duration: 1000
         })
       }
     }

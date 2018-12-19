@@ -16,6 +16,9 @@
     <view class="no-data" wx:if="{{!allLoad}}">
         <view class="no-data-content">没有相关项目哦~</view>
     </view>
+    <view class="load-more" wx:if="{{loadMore}}">
+       <text>已经加载全部数据~</text>
+    </view>
 </view>
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
 <view class="animate-wrap">

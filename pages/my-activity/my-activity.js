@@ -217,6 +217,52 @@ Page({
     onPullDownRefresh: function () {
 
     },
+     onReachBottom: function () {
+             wx.showLoading({
+                 title: '正在加载...'
+             })
+             setTimeout(() => {
+                 wx.hideLoading()
+                 this._loadMoreData()
+             }, 100)
+    },
+   _loadMoreData: function (page) {
+    let user = wx.getStorageSync('user')
+    let token = wx.getStorageSync('token')
+    user.token = token
+    user.size = this.data.size
+    user.page = page
+    let that = this
+    user.orderbyProperty = this.data.orderbyProperty
+    user.categoryCode = this.data.categoryCode
+    user.regionCode = this.data.regionCode
+
+    model.getActvities(user, (data) => {
+        if (data.length > 0) {
+            let activitiesArr = that.data.activitiesArr
+            data.forEach(item => {
+                item.starttime = tools.dateformat(new Date(item.starttime), 'yyyy-MM-dd hh:mm')
+                item.endtime = tools.dateformat(new Date(item.endtime), 'yyyy-MM-dd hh:mm')
+                item.images = `${config.imageUrl}=${item.img_fileid}`
+                activitiesArr.push(item)
+            })
+            this.setData({
+                activitiesArr: activitiesArr,
+                page: page,
+                allLoad: true
+            })
+        } else {
+            console.log('没有数据')
+            wx.stopPullDownRefresh() //停止下拉刷新
+            this.setData({
+                activitiesArr: [],
+                allLoad: false,
+                loadMore: false
+            })
+        }
+
+    })
+    },
     onShareAppMessage: function () {
         return {
             title: '城志协',

@@ -13,8 +13,7 @@ page{
     background-color:#fff;
     z-index:2099;
     border-bottom:1rpx solid #f1f1f1;
-    z-index:2099;
-    position:absolute;
+    position:fixed;
     width:100%;
 }
 .organi-hr{
@@ -75,7 +74,7 @@ page{
   .commodity_attr_box {
     width: 100%;
     display:flex;
-    position:absolute;
+    position:fixed;
     top:83rpx;
     left:0rpx;
     z-index: 2000;
@@ -105,4 +104,10 @@ page{
   .item-icon{
     width:45rpx;
     height:45rpx;
+  }
+
+  .load-more text{
+      font-size:28rpx;
+      color:#333;
+      text-align:center;
   }

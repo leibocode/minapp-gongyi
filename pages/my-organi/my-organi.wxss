@@ -107,3 +107,8 @@ page {
     font-size:24rpx;
     color:#333;
   }
+   .load-more text{
+      font-size:28rpx;
+      color:#333;
+      text-align:center;
+  }
