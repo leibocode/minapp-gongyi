@@ -12,24 +12,24 @@
 #### 首页
 ![首页](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/首页.png)
 #### 活动列表
-![活动列表](https://github.com/leibocode/minapp-gongyi\images\jietu\活动页.png)
+![活动列表](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/活动页.png)
 #### 组织列表
-![组织列表](https://github.com/leibocode/minapp-gongyi\images\jietu\组织.png)
+![组织列表](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/组织.png)
 #### 用户
-![用户](https://github.com/leibocode/minapp-gongyi\images\用户.png)
+![用户](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/用户.png)
 #### 项目详情
-![详情页](https://github.com/leibocode/minapp-gongyi\images\详情页(1).png)
-![详情页](https://github.com/leibocode/minapp-gongyi\images\详情页(2).png)
-![详情页](https://github.com/leibocode/minapp-gongyi\images\详情页(3).png)
+![详情页](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/详情页(1).png)
+![详情页](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/详情页(2).png)
+![详情页](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/详情页(3).png)
 #### 我的活动
-![我的活动](https://github.com/leibocode/minapp-gongyi\images\jietu\我的活动.png)
+![我的活动](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/我的活动.png)
 #### 我的组织
-![我的组织](https://github.com/leibocode/minapp-gongyi\images\jietu\我的组织.png)
+![我的组织](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/我的组织.png)
 #### 加入页面
-![注册页面](https://github.com/leibocode/minapp-gongyi\images\jietu\成为志愿者.png)
+![注册页面](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/成为志愿者.png)
 #### 积分
-![积分](https://github.com/leibocode/minapp-gongyi\images\jietu\积分.png)
+![积分](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/积分.png)
 #### 组织详情
-![组织详情](https://github.com/leibocode/minapp-gongyi\images\jietu\组织详情.png)
+![组织详情](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/组织详情.png)
 > 主要业务的页面都已截图，还有三四个不重要的就没有展示了
 
