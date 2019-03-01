@@ -10,7 +10,7 @@
 2. 腾讯出个框架wepy
 ### 项目截图
 #### 首页
-![首页](https://github.com/leibocode/minapp-gongyi\images\jietu\首页.png)
+![首页](https://github.com/leibocode/minapp-gongyi/blob/master/images/jietu/首页.png)
 #### 活动列表
 ![活动列表](https://github.com/leibocode/minapp-gongyi\images\jietu\活动页.png)
 #### 组织列表
